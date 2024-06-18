@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>Store Management</title>
+
+	<!-- Meta -->
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<meta name="description" content="Portal - Bootstrap 5 Admin Dashboard Template For Developers">
+	<meta name="author" content="Xiaoying Riley at 3rd Wave Media">
+	<link href="/assets/img/storemanagement.png" rel="icon">
+
+
+	<!-- FontAwesome JS-->
+	<script defer src="assets/plugins/fontawesome/js/all.min.js"></script>
+
+	<!-- App CSS -->
+	<link id="theme-style" rel="stylesheet" href="assets/css/portal.css">
+	<link rel="stylesheet" href="assets/css/signup.css">
+
+</head>
+
+<body class="app app-signup p-0">
+	<div class="row g-0 app-auth-wrapper">
+		<div class="col-12 col-md-7 col-lg-6 auth-main-col text-center p-5">
+			<div class="d-flex flex-column align-content-end">
+				<div class="app-auth-body mx-auto">
+					<div class="app-auth-branding mb-4"><a class="app-logo" href="index.html"><img
+								class="logo-icon me-2" src="assets/images/app-logo.svg" alt="logo"></a></div>
+					<h2 class="auth-heading text-center mb-4"><b>Sign up</b></h2>
+					<div class="auth-form-container text-start mx-auto">
+						<form class="auth-form auth-signup-form" enctype="multipart/form-data" method="POST">
+							<div class="email mb-3">
+								<label  for="signup-email"><b>Name</b><span class ="mandatory-field">*</span></label>
+								<input id="signup-name" name="name" type="text" class="form-control signup-name"
+									placeholder="Full name" required="required">
+							</div>
+							<div class="email mb-3">
+								<label  for="signup-email"><b>Email</b><span class ="mandatory-field">*</span></label>
+								<input id="signup-email" name="email" type="email" class="form-control signup-email"
+									placeholder="Email" required="required">
+							</div>
+							<div class="password mb-3">
+								<label  for="signup-password"><b>Password</b><span class ="mandatory-field">*</span></label>
+								<input id="signup-password" name="password" type="password"
+									class="form-control signup-password" placeholder="Create a password"
+									required="required">
+							</div>
+							<div class="email mb-3">
+								<label  for="signup-email"><b>Designation</b><span class ="mandatory-field">*</span></label>
+								<input id="signup-designation" name="designation" type="designation" class="form-control signup-designation"
+									placeholder="Designation" required="required">
+							</div>
+							<div class="email mb-3">
+								<label  for="signup-email"><b>Role</b><span class ="mandatory-field">*</span></label>
+								<input id="signup-role" name="role" type="role" class="form-control signup-role"
+									placeholder="Role" required="required">
+							</div>
+
+							<div class="text-center">
+								<button type="submit" class="btn app-btn-primary w-100 theme-btn mx-auto">Sign
+									Up</button>
+							</div>
+							<div class="text-center" id="secondary">
+								<a href="/StoreManagement/home/index.html"<button type="submit" class="btn app-btn-secondary w-100 theme-btn mx-auto">Cancel</button></a>
+							</div>
+							
+							<div class="auth-option text-center pt-5">Already have an account? <a class="text-link"
+									href="login.html">Log in</a></div>
+						</form><!--//auth-form-->
+
+					</div><!--//auth-form-container-->
+
+
+
+				</div><!--//auth-body-->
+
+			</div><!--//flex-column-->
+		</div><!--//auth-main-col-->
+		<div class="col-12 col-md-5 col-lg-6 h-100 auth-background-col">
+			<div class="auth-background-holder">
+			</div>
+			<div class="auth-background-mask"></div>
+			<div class="auth-background-overlay p-3 p-lg-5">
+				<div class="d-flex flex-column align-content-end h-100">
+					<div class="h-100"></div>
+
+				</div>
+			</div><!--//auth-background-overlay-->
+		</div><!--//auth-background-col-->
+
+	</div><!--//row-->
+
+
+</body>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+<script>
+  $(document).ready(function () {
+    $('.auth-signup-form').submit(function (event) {
+      event.preventDefault();
+
+      var formData = {
+        name: $('#signup-name').val(),
+        email: $('#signup-email').val(),
+        password: parseInt($('#signup-password').val()),
+        designation: $('#signup-designation').val(),
+        role: $('#signup-role').val(),
+
+      };
+      var apikey = 'xgGEHQTWl89KsFPHojMIw7Q3YbACaJwF';
+      var pkey = '3fdee6c11c06f9a43fe21eefcdfb5bd7';
+      var apiurl = 'https://dev-aniwatch.gateway.apiplatform.io/v1/users';
+	//   Swal.fire({
+    //     title: 'Are you sure want to update this user?',
+    //     text: "You won't be able to revert this!",
+    //     icon: 'warning',
+    //     showCancelButton: true,
+    //     confirmButtonColor: '#3085d6',
+    //     cancelButtonColor: '#d33',
+    //     confirmButtonText: 'Yes!',
+    //     cancelButtonText: 'No',
+    //   }).then((result) => {
+    //     if (result.isConfirmed) {
+      $.ajax({
+        type: 'POST',
+        url: apiurl,
+        data: JSON.stringify(formData),
+        dataType: 'json',
+        contentType: 'application/json',
+        headers: {
+          'apikey': apikey,
+          'pkey': pkey,
+        },
+        success: function (data) {
+		// var queryParams = $.param(data);
+		Swal.fire({
+                position: "top-end",
+                icon: "success",
+                title: "Successfully logged in...!",
+                showConfirmButton: false,
+                timer: 1500,
+		// 		customClass: {
+        //     container: 'my-custom-container', 
+        //   },
+
+              });
+        //   console.log(data);
+        //   alert('Signup successful!');
+          // window.location = "/StoreManagement/home/index.html";
+		  setTimeout(function () {
+                window.location = "/StoreManagement/dist/pages/tables/users-table.html";
+              }, 2000);
+        //   window.location = "/StoreManagement/dist/pages/tables/users-table.html";
+          
+        },
+        error: function (xhr, status, error) {
+          // console.error(xhr.responseText);
+          alert('Signup failed. Please check the console for details.');
+        }
+      });
+// 	}
+
+// });
+    });
+  });
+</script>
+</html>

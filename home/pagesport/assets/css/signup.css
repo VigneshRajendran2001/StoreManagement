@@ -1,0 +1,13 @@
+.mandatory-field{
+    color: red;
+    font-weight: 990;
+}
+#secondary{
+    margin-top:  2% ; ;
+}
+/*  customize size of sweet alert popup */
+/* .my-custom-container {
+    max-width: 400px; 
+    max-height: 300px; 
+  }
+   */
