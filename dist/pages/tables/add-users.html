@@ -51,7 +51,7 @@
         </div>
         <div>
           <a class="navbar-brand brand-logo" href="../../index.html">
-            <img src="../../assets/images/store-management-logo.svg" alt="logo" />
+            <img src="../../assets/images/store-management-logo-1.svg" alt="logo" />
           </a>
           <a class="navbar-brand brand-logo-mini" href="../../index.html">
             <img src="../../assets/images/logo-mini.svg" alt="logo" />
@@ -302,7 +302,13 @@
                       <label for="exampleInputConfirmPassword2" class="col-sm-3 col-form-label"><b>Role<span
                             class="mandatory-field">*</span></b></label>
                       <div class="col-sm-9">
-                        <input type="text" class="form-control" id="add-role" placeholder="Role" required>
+                        <!-- <input type="text" class="form-control" id="add-role" placeholder="Role" required> -->
+                        <select id="add-role" name="role" class="form-control add-role" required>
+                          <option value="">Select a role</option>
+                          <option value="1">Super Admin</option>
+                          <option value="2">Admin</option>
+                          <option value="3">User</option>
+                        </select>
                       </div>
                     </div>
                     <button type="submit" class="btn btn-primary me-2" id="addsubmit">Submit</button>
@@ -359,9 +365,9 @@
         email: $('#add-email').val(),
         password: parseInt($('#add-password').val()),
         designation: $('#add-designation').val(),
-        role: $('#add-role').val(),
+        role:  parseInt($('#add-role').val()),
       };
-
+      console.log(formData)
       var apikey = 'xgGEHQTWl89KsFPHojMIw7Q3YbACaJwF';
       var pkey = '3fdee6c11c06f9a43fe21eefcdfb5bd7';
       var apiurl = 'https://dev-aniwatch.gateway.apiplatform.io/v1/users';

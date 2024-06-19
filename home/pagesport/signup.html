@@ -56,8 +56,14 @@
 							</div>
 							<div class="email mb-3">
 								<label  for="signup-email"><b>Role</b><span class ="mandatory-field">*</span></label>
-								<input id="signup-role" name="role" type="role" class="form-control signup-role"
-									placeholder="Role" required="required">
+								<!-- <input id="signup-role" name="role" type="role" class="form-control signup-role"
+									placeholder="Role" required="required"> -->
+									<select id="signup-role" name="role" class="form-control signup-role" required>
+										<option value="">Select a role</option>
+										<option value="1">Super Admin</option>
+										<option value="2">Admin</option>
+										<option value="3">User</option>
+									</select>
 							</div>
 
 							<div class="text-center">
@@ -108,7 +114,7 @@
         email: $('#signup-email').val(),
         password: parseInt($('#signup-password').val()),
         designation: $('#signup-designation').val(),
-        role: $('#signup-role').val(),
+        role: parseInt($('#signup-role').val()),
 
       };
       var apikey = 'xgGEHQTWl89KsFPHojMIw7Q3YbACaJwF';
@@ -140,7 +146,7 @@
 		Swal.fire({
                 position: "top-end",
                 icon: "success",
-                title: "Successfully logged in...!",
+                title: "Account Created Successfully...!",
                 showConfirmButton: false,
                 timer: 1500,
 		// 		customClass: {

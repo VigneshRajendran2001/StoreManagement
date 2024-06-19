@@ -28468,7 +28468,7 @@ dl li {
 /* Sidebar */
 .sidebar {
   min-height: calc(100vh - 97px);
-  background: #f5ebd4;
+  background: #f2a654;
   font-family: "Manrope", sans-serif;
   font-weight: 500;
   padding: 0;
@@ -28525,7 +28525,7 @@ dl li {
   font-size: 22px;
   line-height: 1;
   margin-right: 1rem;
-  color: #484848;
+  color: #fff;
 }
 .rtl .sidebar .nav .nav-item .nav-link i.menu-icon {
   margin-left: 2rem;
@@ -28560,7 +28560,7 @@ dl li {
   font-weight: normal;
 }
 .sidebar .nav .nav-item .nav-link .menu-title {
-  color: inherit;
+  color: #fff;
   display: inline-block;
   font-size: 14px;
   line-height: 1;
@@ -28819,7 +28819,7 @@ dl li {
   box-shadow: none;
 }
 .navbar .navbar-brand-wrapper {
-  background: #f5ebd4;
+  background: #f2a654;
   transition: width 0.25s ease, background 0.25s ease;
   -webkit-transition: width 0.25s ease, background 0.25s ease;
   -moz-transition: width 0.25s ease, background 0.25s ease;
@@ -28910,7 +28910,7 @@ dl li {
   margin-left: 1rem !important;
 }
 .navbar .navbar-menu-wrapper {
-  background: #F4F5F7;
+  background: #fff;
   transition: width 0.25s ease;
   -webkit-transition: width 0.25s ease;
   -moz-transition: width 0.25s ease;
@@ -29968,7 +29968,7 @@ dl li {
 }
 .navbar.headerLight .navbar-menu-wrapper,
 .navbar.headerLight .navbar-brand-wrapper {
-  background: transparent;
+  background: #f2a654;
   height: 70px;
 }
 
@@ -30090,7 +30090,7 @@ dl li {
   .sidebar-icon-only .navbar .navbar-brand-wrapper {
     width: 70px;
     padding-left: 1.625rem;
-    background: #f5ebd4;
+    background: #f2a654;
   }
   .sidebar-dark.sidebar-icon-only .navbar .navbar-brand-wrapper .navbar-toggler {
     color: #484848;
@@ -30106,7 +30106,7 @@ dl li {
   }
   .sidebar-icon-only .sidebar {
     width: 70px;
-    background: #f5ebd4;
+    background: #f2a654;
   }
   .sidebar-icon-only .sidebar .nav {
     overflow: visible;

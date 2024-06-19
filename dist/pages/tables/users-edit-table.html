@@ -51,7 +51,7 @@
         </div>
         <div>
           <a class="navbar-brand brand-logo" href="../../index.html">
-            <img src="../../assets/images/store-management-logo.svg" alt="logo" />
+            <img src="../../assets/images/store-management-logo-1.svg" alt="logo" />
           </a>
           <a class="navbar-brand brand-logo-mini" href="../../index.html">
             <img src="../../assets/images/logo-mini.svg" alt="logo" />
@@ -302,7 +302,13 @@
                       <label for="exampleInputConfirmPassword2" class="col-sm-3 col-form-label"><b>Role<span
                             class="mandatory-field">*</span></b></label>
                       <div class="col-sm-9">
-                        <input type="text" class="form-control" id="edit-role" placeholder="Role" required>
+                        <!-- <input type="text" class="form-control" id="edit-role" placeholder="Role" required> -->
+                        <select id="edit-role" name="role" class="form-control edit-role" required>
+                          <option value="">Select a role</option>
+                          <option value="1">Super Admin</option>
+                          <option value="2">Admin</option>
+                          <option value="3">User</option>
+                        </select>
                       </div>
                     </div>
                     <button type="submit" class="btn btn-primary me-2" id="editsubmit">Submit</button>
@@ -403,7 +409,7 @@
         email: $('#edit-email').val(),
         password: parseInt($('#edit-password').val()),
         designation: $('#edit-designation').val(),
-        role: $('#edit-role').val(),
+        role: parseInt($('#edit-role').val()),
       };
 
       var apikey = 'xgGEHQTWl89KsFPHojMIw7Q3YbACaJwF';
