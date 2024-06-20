@@ -47,11 +47,14 @@
     transform: translateY(0); /* Initial position */
     transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transition effect for transform and box-shadow */
     box-shadow: 0 0 10px rgba(0, 123, 255, 0); /*Initial box-shadow (no glow)*/
+    background-color: #f2a654;
 }
 
 .btn-add-user:hover {
     transform: translateY(-3px); /* Move button up on hover */
-    box-shadow: 0 0 30px rgba(0, 123, 255, 0.8); /* Glow effect on hover */
+    box-shadow: 0 0 30px#f2a654; /* Glow effect on hover */
+    border-color: #f2a654;
+    background-color: #f2a654;
 }
 
 
@@ -306,6 +309,7 @@
                           <th>Password</th>
                           <th>Designation</th>
                           <th>Role</th>
+                          <th>Status</th>
                           <th>Action</th>
                         </tr>
                       </thead>
@@ -415,7 +419,21 @@ console.log(data)
                                 case 3:
                                     return "User";
                                 default:
-                                    return "Unknown";
+                                    return "N/A";
+                            }
+                        }
+                    },
+                    { 
+                        "data": "status",
+                        "render": function (data) {
+                           
+                            switch (data) {
+                                case 1:
+                                    return "Active";
+                                case 2:
+                                    return "InActive";
+                                default:
+                                    return "N/A";
                             }
                         }
                     },

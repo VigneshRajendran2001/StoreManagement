@@ -10614,7 +10614,7 @@ progress {
 textarea.form-control, textarea.typeahead,
 textarea.tt-query,
 textarea.tt-hint, .select2-container--default .select2-selection--single textarea.select2-search__field, .select2-container--default textarea.select2-selection--single {
-  min-height: 2.75rem;
+  min-height: 7.75rem;
 }
 textarea.form-control-sm {
   min-height: 1.75rem;
@@ -11440,7 +11440,7 @@ textarea.is-invalid.tt-hint, .select2-container--default .select2-selection--sin
 .btn-primary {
   --bs-btn-color: #fff;
   --bs-btn-bg: #1F3BB3;
-  --bs-btn-border-color: #1F3BB3;
+  --bs-btn-border-color: #fff;
   --bs-btn-hover-color: #fff;
   --bs-btn-hover-bg: #1a3298;
   --bs-btn-hover-border-color: #192f8f;
@@ -26139,6 +26139,7 @@ select.form-select.border-purple:focus {
   line-height: 1.4rem;
   vertical-align: top;
   margin-bottom: 0.5rem;
+  color: #f2a654;
 }
 .form-group.has-danger .form-control, .form-group.has-danger .typeahead,
 .form-group.has-danger .tt-query,

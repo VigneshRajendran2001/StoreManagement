@@ -24,30 +24,12 @@
   <!-- endinject -->
   <link rel="shortcut icon" href="../../assets/images/favicon.png" />
   <style>
-    #editsubmit {
+    #addsubmit {
       margin-left: 42%;
-    }
-    .btn-submit{
-      transform: translateY(0);
-      transition: transform 0.3s ease,box-shadow 0.3s ease;
       background-color: #f2a654;
-    }
-    .btn-submit:hover{
-      transform: translateY(-3px);
-      box-shadow: 0 0 20px #f2a654;
-      background-color: #f2a654;
-      border-color: #f2a654;
-    }
-    .btn-cancel{
-      transform: translateY(0);
-      transition: transform 0.3s ease,box-shadow 0.3s ease;
-    }
-    .btn-cancel:hover{
-      transform: translateY(-3px);
-      box-shadow: 0 0 20px rgb(228, 82, 82);
     }
 
-    #edit-table {
+    #add-table {
       margin-left: 15%;
     }
 
@@ -55,9 +37,49 @@
       color: red;
       font-size: 20px;
     }
-    #status{
+    .btn-submit{
+      transform: translateY(0);
+      transition: transform 0.3s ease,box-shadow 0.3s ease;
+    }
+    .btn-submit:hover{
+      transform: translateY(-3px);
+      box-shadow: 0 0 20px #f2a654;
+      border-color: #f2a654;
+    }
+    .btn-cancel{
+      transform: translateY(0);
+      transition: transform 0.3s ease,box-shadow 0.3s ease;
+    }
+    .btn-cancel:hover{
+  transform: translateY(-3px);
+  box-shadow: 0 0 20px #f2a654;
+    }
+   
+input[type=file]::file-selector-button {
+  border: 2px solid #faf3f3;
+  padding: .4em .5em;
+  border-radius: .4em;
+  background-color: #f2a654;
+  /* transition: 1s; */
+  transition: background-color 0.3s, border-color 0.3s, color 0.3s;
+  color: #fff;
+}
+
+input[type=file]::file-selector-button:hover {
+  background-color: #ff8400;
+  border: 2px solid #ff8400;
+  border-color: #ff8400;
+}
+.custom-file-upload{
+  border: 1px solid rgb(230, 226, 226);
+  width: 100%;
+  border-radius: .2em;
+}
+#status{
       margin-left: 40%;
     }
+
+
   </style>
 </head>
 
@@ -81,7 +103,7 @@
         </div>
       </div>
       <div class="navbar-menu-wrapper d-flex align-items-top">
-        <h3 class="welcome-sub-text" style="text-decoration:underline;"><b>EDIT USER</b> </h3>
+        <h3 class="welcome-sub-text" style="text-decoration:underline;"><b>ADD PRODUCT</b> </h3>
         <hr>
 
         <!-- <ul class="navbar-nav">
@@ -283,67 +305,76 @@
       </nav>
       <!-- partial -->
       <div class="main-panel">
-        <div class="content-wrapper" id="edit-table">
+        <div class="content-wrapper" id="add-table">
           <div class="row">
             <div class="col-md-8 grid-margin stretch-card">
               <div class="card">
                 <div class="card-body">
-                  <h4 class="card-title">EDIT USER</h4>
+                  <h4 class="card-title">ADD PRODUCT</h4>
                   <!-- <p class="card-description"> Horizontal form layout </p> -->
-                  <form class="forms-sample" id="edit-user">
+                  <form class="forms-sample" id="add-product" enctype="multipart/form-data">
                     <div class="form-group row">
-                      <label for="exampleInputUsername2" class="col-sm-3 col-form-label"><b>Name<span
+                      <label for="exampleInputUsername2" class="col-sm-3 col-form-label"><b>Product Name<span
                             class="mandatory-field">*</span></b></label>
                       <div class="col-sm-9">
-                        <input type="text" class="form-control" id="edit-name" placeholder="Username" required>
+                        <input type="text" class="form-control" name="product_name" id="add-product-name" placeholder="Product Name" required>
                       </div>
                     </div>
                     <div class="form-group row">
-                      <label for="exampleInputEmail2" class="col-sm-3 col-form-label"><b>Email<span
+                      <label for="exampleInputEmail2" class="col-sm-3 col-form-label"><b>Product Type<span
                             class="mandatory-field">*</span></b></label>
                       <div class="col-sm-9">
-                        <input type="email" class="form-control" id="edit-email" placeholder="Email" required>
+                        <input type="text" class="form-control" name="product_type" id="add-product-type" placeholder="Product Type" required>
+                      </div>
+                    </div>
+
+                    <!-- <div class="form-group row">
+                        <label for="add-product-image" class="col-sm-3 col-form-label"><b>Product Image<span class="mandatory-field">*</span></b></label>
+                        <div class="col-sm-9">
+                          <input type="file" class="form-control-file" id="add-product-image" required>
+                        </div>
+                      </div> -->
+                      
+                    <div class="form-group row">
+                      <label for="exampleInputMobile" class="col-sm-3 col-form-label"><b>Product Image<span
+                            class="mandatory-field">*</span></b></label>
+                      <div class="col-sm-9">
+                        <input type="file" class="form-control-file custom-file-upload" name="product_img" id="add-product-image" placeholder="Product Image" required>
                       </div>
                     </div>
                     <div class="form-group row">
-                      <label for="exampleInputMobile" class="col-sm-3 col-form-label"><b>Password<span
-                            class="mandatory-field">*</span></b></label>
-                      <div class="col-sm-9">
-                        <input type="text" class="form-control" id="edit-password" placeholder="Password" required>
-                      </div>
-                    </div>
-                    <div class="form-group row">
-                      <label for="exampleInputPassword2" class="col-sm-3 col-form-label"><b>Designation<span
-                            class="mandatory-field">*</span></b></label>
-                      <div class="col-sm-9">
-                        <input type="text" class="form-control" id="edit-designation" placeholder="Designation"
-                          required>
-                      </div>
-                    </div>
-                    <div class="form-group row">
-                      <label for="exampleInputConfirmPassword2" class="col-sm-3 col-form-label"><b>Role<span
+                      <label for="exampleInputPassword2" class="col-sm-3 col-form-label"><b>Price<span
                             class="mandatory-field">*</span></b></label>
                       <div class="col-sm-4">
-                        <!-- <input type="text" class="form-control" id="edit-role" placeholder="Role" required> -->
-                        <select id="edit-role" name="role" class="form-control edit-role" required>
-                          <option value="">Select a role</option>
-                          <option value="1">Super Admin</option>
-                          <option value="2">Admin</option>
-                          <option value="3">User</option>
-                        </select>
+                        <input type="text" class="form-control" name="price" id="add-product-price" placeholder="Price"
+                          required>
                       </div>
                       <label for="exampleInputConfirmPassword2" class="col-sm-2 ms-10px col-form-label"><b id="status">Status<span
                         class="mandatory-field">*</span></b></label>
                   <div class="col-sm-3">
-                    <select id="edit-status" name="status" class="form-control edit-status" required>
+                    <select id="add-product-status" name="status" class="form-control product-status" required>
                       <option value="">Select a status</option>
                       <option value="1">Active</option>
                       <option value="2">InActive</option>
                     </select>
                   </div>
                     </div>
-                    <button type="submit" class="btn btn-primary me-2 btn-submit" id="editsubmit">Submit</button>
-                    <a href="/StoreManagement/dist/pages/tables/users-table.html" <button
+                    <div class="form-group row">
+                      <label for="exampleInputConfirmPassword2" class="col-sm-3 col-form-label"><b>Description<span
+                            class="mandatory-field">*</span></b></label>
+                      <div class="col-sm-9">
+                        <textarea class="form-control" name="description" id="add-product-description" placeholder="Description" required></textarea>
+                        <!-- <input type="text" class="form-control" id="add-role" placeholder="Role" required> -->
+                        <!-- <select id="add-description" name="description" class="form-control add-role" required>
+                          <option value="">Select a role</option>
+                          <option value="1">Super Admin</option>
+                          <option value="2">Admin</option>
+                          <option value="3">User</option>
+                        </select> -->
+                      </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary me-2 btn-submit" id="addsubmit">Submit</button>
+                    <a href="/StoreManagement/dist/pages/tables/product-table.html" <button
                       class="btn btn-danger btn-cancel">Cancel</button></a>
                   </form>
                 </div>
@@ -388,120 +419,197 @@
   $(document).ready(function () {
 
 
-    function getUrlParameter(id) {
-      name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
-      var regex = new RegExp('[\\?&]' + id + '=([^&#]*)');
-      var results = regex.exec(location.search);
-      return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
+
+  
+  $('#add-product').submit(function(event) {
+    event.preventDefault();
+  //   var formData = {
+  //     product_name: $('#add-product-name').val(),
+  //     product_type: $('#add-product-type').val(),
+       
+  //     price:  parseInt($('#add-product-price').val()),
+  //       status:  parseInt($('#add-product-status').val()),
+  //       description: $('#add-product-description').val(),
+  //     };  
+  
+  // console.log(formData)
+
+  //   // Get the file input element
+  // var fileInput = $('#add-product-image')[0];
+  // console.log(fileInput)
+  
+  // if (fileInput.files.length > 0) {
+  //   var file = fileInput.files[0];
+  // var fileName = file.name;
+  // formData.product_img = fileName;  
+  // console.log(fileName)
+  
+
+  // var reader = new FileReader();
+  //       reader.onload = function(e) {
+  //         localStorage.setItem('productImage', e.target.result);
+  //       }
+  //       reader.readAsDataURL(formData.get(file));
+  // }
+
+
+  var formData = new FormData();
+    formData.append('product_name', $('#add-product-name').val());
+    formData.append('product_type', $('#add-product-type').val());
+    formData.append('price', parseInt($('#add-product-price').val()));
+    formData.append('status', parseInt($('#add-product-status').val()));
+    formData.append('description', $('#add-product-description').val());
+
+    
+    var fileInput = $('#add-product-image')[0];
+
+    
+    if (fileInput.files.length > 0) {
+        var file = fileInput.files[0];
+        var fileName = file.name;
+
+        
+        formData.append('product_img',fileName);
+
+        
+        var reader = new FileReader();
+        reader.onload = function(e) {
+            
+            localStorage.setItem('productImage', e.target.result);
+        };
+        reader.readAsDataURL(file);
     }
 
-    // Function to fetch user details based on ID from URL
-    function fetchUserDetails(userId) {
-      // var userId = getUrlParameter('id');
+  console.log(formData)
 
-      var apikey = 'xgGEHQTWl89KsFPHojMIw7Q3YbACaJwF';
-      var pkey = '3fdee6c11c06f9a43fe21eefcdfb5bd7';
-      var apiurl = 'https://dev-aniwatch.gateway.apiplatform.io/v1/users/' + userId;
+    var apikey = 'xgGEHQTWl89KsFPHojMIw7Q3YbACaJwF';
+    var pkey = '3fdee6c11c06f9a43fe21eefcdfb5bd7';
+    var apiurl = 'https://dev-aniwatch.gateway.apiplatform.io/v1/product';
 
-      $.ajax({
-        type: 'GET',
-        url: apiurl,
-        dataType: 'json',
-        contentType: 'application/json',
-        headers: {
-          'apikey': apikey,
-          'pkey': pkey,
-        },
-        success: function (data) {
-          var user = data[0];
-          $('#edit-name').val(user.name);
-          $('#edit-email').val(user.email);
-          $('#edit-password').val(user.password);
-          $('#edit-designation').val(user.designation);
-          $('#edit-role').val(user.role);
-          $('#edit-status').val(user.status);
-        },
-        error: function (xhr, status, error) {
-          console.error(xhr.responseText);
-        }
-      });
-    }
+    $.ajax({
+      type: 'POST',
+      url: apiurl,
+      data: formData,
+      processData: false,
+      contentType: false,
+      headers: {
+        'apikey': apikey,
+        'pkey': pkey,
+      },
+      success: function(data) {
+      
+        console.log(data)
+        alert('hi ')
+        console.log('Product added successfully:', data);
 
-    // Extract user ID from URL
-    var userId = getUrlParameter('id');
-    // Fetch user details based on ID
-    fetchUserDetails(userId);
+        // Store image in local storage (if needed)
+        // Assuming you want to store the image file locally using JavaScript in the browser
+       
 
-    $('#edit-user').submit(function (event) {
-      event.preventDefault();
-      var userId = getUrlParameter('id');
+       
+        Swal.fire({
+          position: "top-end",
+          icon: "success",
+          title: "Product added successfully!",
+          showConfirmButton: false,
+          timer: 1500
+        });
 
-      var formData = {
-        name: $('#edit-name').val(),
-        email: $('#edit-email').val(),
-        password: parseInt($('#edit-password').val()),
-        designation: $('#edit-designation').val(),
-        role: parseInt($('#edit-role').val()),
-        status: parseInt($('#edit-status').val()),
-      };
-
-      var apikey = 'xgGEHQTWl89KsFPHojMIw7Q3YbACaJwF';
-      var pkey = '3fdee6c11c06f9a43fe21eefcdfb5bd7';
-      var apiurl = 'https://dev-aniwatch.gateway.apiplatform.io/v1/users/' + userId;
-      Swal.fire({
-        title: 'Are you sure want to update this user?',
-        // text: "You won't be able to revert this!",
-        icon: 'warning',
-        showCancelButton: true,
-        confirmButtonColor: '#3085d6',
-        cancelButtonColor: '#d33',
-        confirmButtonText: 'Yes!',
-        cancelButtonText: 'No',
-      }).then((result) => {
-        if (result.isConfirmed) {
-          $.ajax({
-            type: 'PUT',
-            url: apiurl,
-            data: JSON.stringify(formData),
-            dataType: 'json',
-            contentType: 'application/json',
-            headers: {
-              'apikey': apikey,
-              'pkey': pkey,
-            },
-            success: function (data) {
-              Swal.fire({
-                position: "top-end",
-                icon: "success",
-                title: "Updated successfully!",
-                showConfirmButton: false,
-                timer: 1500
-
-              });
-
-              // console.log(data);
-              // alert('Update successful!');
-              setTimeout(function () {
-                window.location = "/StoreManagement/dist/pages/tables/users-table.html";
-              }, 2000);
-
-              // window.location = "/StoreManagement/dist/pages/tables/users-table.html";
-            },
-            error: function (xhr, status, error) {
-
-              Swal.fire(
-                'Error!',
-                'Failed to Update user. Please try again.',
-                'error'
-              );
-              console.error(xhr.responseText);
-              // alert('Update failed. Please check the console for details.');
-            }
-          });
-        }
-
-      });
+        
+        setTimeout(function() {
+          window.location = "/StoreManagement/dist/pages/tables/product-table.html";
+        }, 2000);
+      },
+      error: function(xhr, status, error) {
+        
+        console.error('Error adding product:', xhr.responseText);
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: 'Failed to add product. Please try again.',
+        });
+      }
     });
+  });
+
+
+
+    // $('#add-user').submit(function (event) {
+    //   event.preventDefault();
+      
+
+    //   var formData = {
+    //     name: $('#add-name').val(),
+    //     email: $('#add-email').val(),
+    //     password: parseInt($('#add-password').val()),
+    //     designation: $('#add-designation').val(),
+    //     role:  parseInt($('#add-role').val()),
+    //   };
+    //   console.log(formData)
+    //   var apikey = 'xgGEHQTWl89KsFPHojMIw7Q3YbACaJwF';
+    //   var pkey = '3fdee6c11c06f9a43fe21eefcdfb5bd7';
+    //   var apiurl = 'https://dev-aniwatch.gateway.apiplatform.io/v1/users';
+
+
+    //   Swal.fire({
+    //     title: 'Are you sure want to update this user?',
+    //     text: "You won't be able to revert this!",
+    //     icon: 'warning',
+    //     showCancelButton: true,
+    //     confirmButtonColor: '#3085d6',
+    //     cancelButtonColor: '#d33',
+    //     confirmButtonText: 'Yes!',
+    //     cancelButtonText: 'No',
+    //   }).then((result) => {
+    //     if (result.isConfirmed) {
+
+
+
+
+
+    //       $.ajax({
+    //         type: 'POST',
+    //         url: apiurl,
+    //         data: JSON.stringify(formData),
+    //         dataType: 'json',
+    //         contentType: 'application/json',
+    //         headers: {
+    //           'apikey': apikey,
+    //           'pkey': pkey,
+    //         },
+    //         success: function (data) {
+    //           Swal.fire({
+    //             position: "top-end",
+    //             icon: "success",
+    //             title: "User added successfully...!",
+    //             showConfirmButton: false,
+    //             timer: 1500
+
+    //           });
+
+    //           // console.log(data);
+    //           // alert('Update successful!');
+    //           setTimeout(function () {
+    //             window.location = "/StoreManagement/dist/pages/tables/users-table.html";
+    //           }, 2000);
+
+    //           // window.location = "/StoreManagement/dist/pages/tables/users-table.html";
+    //         },
+    //         error: function (xhr, status, error) {
+
+    //           Swal.fire(
+    //             'Error!',
+    //             'Failed to delete user. Please try again.',
+    //             'error'
+    //           );
+    //           console.error(xhr.responseText);
+    //           // alert('Update failed. Please check the console for details.');
+    //         }
+    //       });
+    //     }
+
+    //   });
+    // });
 
   });
 </script>

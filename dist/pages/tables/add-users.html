@@ -36,6 +36,28 @@
       color: red;
       font-size: 20px;
     }
+    .btn-submit{
+      transform: translateY(0);
+      transition: transform 0.3s ease,box-shadow 0.3s ease;
+      background-color: #f2a654;
+    }
+    .btn-submit:hover{
+      transform: translateY(-3px);
+      box-shadow: 0 0 20px #f2a654;
+      background-color: #f2a654;
+      border-color: #f2a654;
+    }
+    .btn-cancel{
+      transform: translateY(0);
+      transition: transform 0.3s ease,box-shadow 0.3s ease;
+    }
+    .btn-cancel:hover{
+  transform: translateY(-3px);
+  box-shadow: 0 0 20px rgb(221, 97, 97);
+    }
+    #status{
+      margin-left: 40%;
+    }
   </style>
 </head>
 
@@ -301,7 +323,7 @@
                     <div class="form-group row">
                       <label for="exampleInputConfirmPassword2" class="col-sm-3 col-form-label"><b>Role<span
                             class="mandatory-field">*</span></b></label>
-                      <div class="col-sm-9">
+                      <div class="col-sm-4">
                         <!-- <input type="text" class="form-control" id="add-role" placeholder="Role" required> -->
                         <select id="add-role" name="role" class="form-control add-role" required>
                           <option value="">Select a role</option>
@@ -310,10 +332,31 @@
                           <option value="3">User</option>
                         </select>
                       </div>
+
+                      <label for="exampleInputConfirmPassword2" class="col-sm-2 ms-10px col-form-label"><b id="status">Status<span
+                        class="mandatory-field">*</span></b></label>
+                  <div class="col-sm-3">
+                    <select id="add-status" name="status" class="form-control add-status" required>
+                      <option value="">Select a status</option>
+                      <option value="1">Active</option>
+                      <option value="2">InActive</option>
+                    </select>
+                  </div>
                     </div>
-                    <button type="submit" class="btn btn-primary me-2" id="addsubmit">Submit</button>
+                    <!-- <div class="form-group row">
+                      <label for="exampleInputConfirmPassword2" class="col-sm-3 col-form-label"><b>Status<span
+                            class="mandatory-field">*</span></b></label>
+                      <div class="col-sm-9">
+                        <select id="add-status" name="status" class="form-control add-status" required>
+                          <option value="">Select a status</option>
+                          <option value="1">Active</option>
+                          <option value="2">InActive</option>
+                        </select>
+                      </div>
+                    </div> -->
+                    <button type="submit" class="btn btn-primary me-2 btn-submit" id="addsubmit">Submit</button>
                     <a href="/StoreManagement/dist/pages/tables/users-table.html" <button
-                      class="btn btn-danger">Cancel</button></a>
+                      class="btn btn-danger btn-cancel">Cancel</button></a>
                   </form>
                 </div>
               </div>
@@ -366,6 +409,7 @@
         password: parseInt($('#add-password').val()),
         designation: $('#add-designation').val(),
         role:  parseInt($('#add-role').val()),
+        status:  parseInt($('#add-status').val()),
       };
       console.log(formData)
       var apikey = 'xgGEHQTWl89KsFPHojMIw7Q3YbACaJwF';
@@ -414,7 +458,7 @@
 
               Swal.fire(
                 'Error!',
-                'Failed to delete user. Please try again.',
+                'Failed to add user. Please try again.',
                 'error'
               );
               console.error(xhr.responseText);
