@@ -56,7 +56,7 @@
 
     .btn-cancel:hover {
       transform: translateY(-3px);
-      box-shadow: 0 0 20px #ec4c40;
+      box-shadow: 0 0 20px #f2a654;
     }
 
     input[type=file]::file-selector-button {
@@ -81,9 +81,9 @@
       border-radius: .2em;
     }
 
-    #status {
+    /* #status {
       margin-left: 40%;
-    }
+    } */
   </style>
 </head>
 
@@ -107,7 +107,7 @@
         </div>
       </div>
       <div class="navbar-menu-wrapper d-flex align-items-top">
-        <h3 class="welcome-sub-text" style="text-decoration:underline;"><b>ADD PRODUCT</b> </h3>
+        <h3 class="welcome-sub-text" style="text-decoration:underline;"><b>ADD SUB CATEGORY</b> </h3>
         <hr>
 
         <!-- <ul class="navbar-nav">
@@ -274,52 +274,15 @@
     <!-- partial -->
     <div class="container-fluid page-body-wrapper">
       <!-- partial:../../partials/_sidebar.html -->
-      <nav class="sidebar sidebar-offcanvas" id="sidebar">
-        <ul class="nav">
-          <li class="nav-item">
-            <a class="nav-link" href="../../index.html">
-              <i class="mdi mdi-grid-large menu-icon"></i>
-              <span class="menu-title">Dashboard</span>
-            </a>
-          </li>
 
-          <li class="nav-item nav-category">User & Product Details</li>
+      
+    <!-- /*************************************************************************SIDENAVBAR************************************************************* */ -->
 
-          <li class="nav-item">
-            <a class="nav-link" href="/StoreManagement/dist/pages/tables/users-table.html">
-              <i class="menu-icon fa fa-users"></i>
-              <span class="menu-title">Users</span>
-            </a>
-          </li>
+   <?php include "sidenavbar.php";?>
 
-          <li class="nav-item">
-            <a class="nav-link" href="/StoreManagement/dist/pages/tables/product-table.html">
-              <i class="menu-icon fa fa-cube"></i>
-              <span class="menu-title">Products</span>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/StoreManagement/dist/pages/tables/category-table.html">
-              <i class="menu-icon fa fa-cubes"></i>
-              <span class="menu-title">Category</span>
-            </a>
-          </li>
 
-          <li class="nav-item">
-            <a class="nav-link" href="/StoreManagement/dist/pages/tables/sub-category-table.html">
-              <i class="menu-icon fa fa-sitemap"></i>
-              <span class="menu-title">Sub Category</span>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href=" /StoreManagement/home/index.html">
-              <i class="menu-icon fa fa-sign-out"></i>
-              <span class="menu-title">Logout</span>
-            </a>
-          </li>
-
-        </ul>
-      </nav>
+   <!-- /*************************************************************************SIDENAVBAR************************************************************* */ -->
+   
       <!-- partial -->
       <div class="main-panel">
         <div class="content-wrapper" id="add-table">
@@ -327,52 +290,62 @@
             <div class="col-md-8 grid-margin stretch-card">
               <div class="card">
                 <div class="card-body">
-                  <h4 class="card-title">ADD PRODUCT</h4>
+                  <h4 class="card-title">SUB CATEGORY</h4>
                   <!-- <p class="card-description"> Horizontal form layout </p> -->
-                  <form class="forms-sample" id="edit-product">
+                  <form class="forms-sample" id="add-subsubcategory">
+                                    <div class="form-group row">
+                        <label for="exampleInputCategory" class="col-sm-3 col-form-label"><b>Category<span class="mandatory-field">*</span></b></label>
+                        <div class="col-sm-9">
+                            <select class="form-control" id="add-subcategory-category" name="category_id" required>
+                                <option value="">Select a category</option>
+                                <!-- Options will be dynamically added via JavaScript -->
+                            </select>
+                        </div>
+                    </div>
+
                     <div class="form-group row">
-                      <label for="exampleInputUsername2" class="col-sm-3 col-form-label"><b>Product Name<span
+                      <label for="exampleInputUsername2" class="col-sm-3 col-form-label"><b>Sub Category Name<span
                             class="mandatory-field">*</span></b></label>
                       <div class="col-sm-9">
-                        <input type="text" class="form-control" name="product_name" id="edit-product-name"
-                          placeholder="Product Name" required>
+                        <input type="text" class="form-control" name="sub_category_name" id="add-subcategory-name"
+                          placeholder="Sub Category Name" required>
                       </div>
                     </div>
                     <div class="form-group row">
-                      <label for="exampleInputEmail2" class="col-sm-3 col-form-label"><b>Product Type<span
+                      <label for="exampleInputEmail2" class="col-sm-3 col-form-label"><b>Sub Category Code<span
                             class="mandatory-field">*</span></b></label>
                       <div class="col-sm-9">
-                        <input type="text" class="form-control" name="product_type" id="edit-product-type"
-                          placeholder="Product Type" required>
+                        <input type="text" class="form-control" name="sub_category_type" id="add-subcategory-type"
+                          placeholder="Sub Category Type" required>
                       </div>
                     </div>
 
                     <!-- <div class="form-group row">
-                        <label for="edit-product-image" class="col-sm-3 col-form-label"><b>Product Image<span class="mandatory-field">*</span></b></label>
+                        <label for="add-product-image" class="col-sm-3 col-form-label"><b>Product Image<span class="mandatory-field">*</span></b></label>
                         <div class="col-sm-9">
-                          <input type="file" class="form-control-file" id="edit-product-image" required>
+                          <input type="file" class="form-control-file" id="add-product-image" required>
                         </div>
                       </div> -->
 
                     <div class="form-group row">
-                      <label for="exampleInputMobile" class="col-sm-3 col-form-label"><b>Product Image<span
+                      <label for="exampleInputMobile" class="col-sm-3 col-form-label"><b>Sub Category Image<span
                             class="mandatory-field">*</span></b></label>
                       <div class="col-sm-9">
-                        <input type="file" class="form-control-file custom-file-upload" name="product_img"
-                          id="edit-product-image" placeholder="Product Image" required>
+                        <input type="file" class="form-control-file custom-file-upload" name="sub_category_img"
+                          id="add-subcategory-image" placeholder="Category Image" required>
                       </div>
                     </div>
                     <div class="form-group row">
-                      <label for="exampleInputPassword2" class="col-sm-3 col-form-label"><b>Price<span
+                      <!-- <label for="exampleInputPassword2" class="col-sm-3 col-form-label"><b>Price<span
                             class="mandatory-field">*</span></b></label>
                       <div class="col-sm-4">
-                        <input type="text" class="form-control" name="price" id="edit-product-price" placeholder="Price"
+                        <input type="text" class="form-control" name="price" id="add-product-price" placeholder="Price"
                           required>
-                      </div>
-                      <label for="exampleInputConfirmPassword2" class="col-sm-2 ms-10px col-form-label"><b
+                      </div> -->
+                      <label for="exampleInputConfirmPassword2" class="col-sm-3 col-form-label"><b
                           id="status">Status<span class="mandatory-field">*</span></b></label>
-                      <div class="col-sm-3">
-                        <select id="edit-product-status" name="status" class="form-control product-status" required>
+                      <div class="col-sm-9">
+                        <select id="add-subcategory-status" name="status" class="form-control subcategory-status" required>
                           <option value="">Select a status</option>
                           <option value="1">Active</option>
                           <option value="2">InActive</option>
@@ -383,12 +356,12 @@
                       <label for="exampleInputConfirmPassword2" class="col-sm-3 col-form-label"><b>Description<span
                             class="mandatory-field">*</span></b></label>
                       <div class="col-sm-9">
-                        <textarea class="form-control" name="description" id="edit-product-description"
+                        <textarea class="form-control" name="description" id="add-category-description"
                           placeholder="Description" required></textarea>
                       </div>
                     </div>
                     <button type="submit" class="btn btn-primary me-2 btn-submit" id="addsubmit">Submit</button>
-                    <a href="/StoreManagement/dist/pages/tables/product-table.html" <button
+                    <a href="/StoreManagement/dist/pages/tables/sub-category-table.php" <button
                       class="btn btn-danger btn-cancel">Cancel</button></a>
                   </form>
                 </div>
@@ -432,80 +405,59 @@
 <script>
   $(document).ready(function () {
 
-    function getUrlParameter(id) {
-      name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
-      var regex = new RegExp('[\\?&]' + id + '=([^&#]*)');
-      var results = regex.exec(location.search);
-      return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
+        // Fetch categories and populate dropdown
+        function fetchCategoriesAndPopulateDropdown() {
+        var apiurl = 'https://example.com/api/categories'; // Replace with your API endpoint
+        $.ajax({
+            type: 'GET',
+            url: apiurl,
+            dataType: 'json',
+            success: function(data) {
+                // Clear existing options
+                $('#add-subcategory-category').empty();
+                // Add default option
+                $('#add-subcategory-category').append('<option value="">Select a category</option>');
+                // Add each category as an option
+                data.forEach(function(category) {
+                    $('#add-subcategory-category').append('<option value="' + category.id + '">' + category.name + '</option>');
+                });
+            },
+            error: function(xhr, status, error) {
+                console.error('Error fetching categories:', error);
+            }
+        });
     }
 
-    // Function to fetch user details based on ID from URL
-    function fetchProductDetails(userId) {
-      // var userId = getUrlParameter('id');
+    // Call function to fetch categories and populate dropdown on page load
+    fetchCategoriesAndPopulateDropdown();
 
-      var apikey = 'xgGEHQTWl89KsFPHojMIw7Q3YbACaJwF';
-      var pkey = '3fdee6c11c06f9a43fe21eefcdfb5bd7';
-      var apiurl = 'https://dev-aniwatch.gateway.apiplatform.io/v1/products/' + userId;
-
-      $.ajax({
-        type: 'GET',
-        url: apiurl,
-        dataType: 'json',
-        contentType: 'application/json',
-        headers: {
-          'apikey': apikey,
-          'pkey': pkey,
-        },
-        success: function (data) {
-          var product = data[0];
-          console.log(product)
-          // alert('HELOOOOOOOOOOOOO')
-          $('#edit-product-name').val(product.product_name);
-          $('#edit-product-type').val(product.product_type);
-          // $('#edit-product-image').val(product.product_img);
-          $('#edit-product-price').val(product.price);
-          $('#edit-product-status').val(product.status);
-          $('#edit-product-description').val(product.description);
-        },
-        error: function (xhr, status, error) {
-          console.error(xhr.responseText);
-        }
-      });
-    }
-
-    // Extract user ID from URL
-    var userId = getUrlParameter('id');
-    // Fetch user details based on ID
-    fetchProductDetails(userId);
-
-
-
-    $('#edit-product').on('submit', function (e) {
+    
+    $('#add-subcategory').on('submit', function (e) {
       e.preventDefault();
-      var userId = getUrlParameter('id');
+
       var formData = {
-        product_name: $('#edit-product-name').val(),
-        product_type: $('#edit-product-type').val(),
-        price: parseInt($('#edit-product-price').val()),
-        status: parseInt($('#edit-product-status').val()),
-        description: $('#edit-product-description').val()
+        sub_category_name: $('#add-subcategory-name').val(),
+        sub_category_code: $('#add-subcategory-type').val(),
+        price: parseInt($('#add-subcategory-price').val()),
+        status: parseInt($('#add-subcategory-status').val()),
+        description: $('#add-subcategory-description').val()
       };
 
-      var fileInput = $('#edit-product-image')[0];
+      var fileInput = $('#add-category-image')[0];
       if (fileInput.files.length > 0) {
         var file = fileInput.files[0];
         var filename = file.name;
 
-        formData.product_img = filename;
-        console.log(formData.product_img)
+        formData.sub_category_img = filename;
+        console.log(formData.sub_category_img)
 
         var apikey = 'xgGEHQTWl89KsFPHojMIw7Q3YbACaJwF';
         var pkey = '3fdee6c11c06f9a43fe21eefcdfb5bd7';
-        var apiurl = 'https://dev-aniwatch.gateway.apiplatform.io/v1/products/' + userId;
+        var apiurl = 'https://dev-aniwatch.gateway.apiplatform.io/v1/subcategory';
         console.log(formData)
         $.ajax({
           url: apiurl,
-          type: 'PUT',
+          type: 'POST',
           headers: {
             'apikey': apikey,
             'pkey': pkey,
@@ -516,7 +468,7 @@
             Swal.fire({
               position: "top-end",
               icon: "success",
-              title: "Product Updated successfully...!",
+              title: "SubCategory added successfully...!",
               showConfirmButton: false,
               timer: 1500
 
@@ -525,7 +477,7 @@
             // console.log(data);
             // alert('Update successful!');
             setTimeout(function () {
-              window.location = "/StoreManagement/dist/pages/tables/product-table.html";
+              window.location = "/StoreManagement/dist/pages/tables/sub-category-table.php";
             }, 2000);
 
           },
@@ -533,7 +485,7 @@
 
             Swal.fire(
               'Error!',
-              'Failed to Update user. Please try again.',
+              'Failed to add user. Please try again.',
               'error'
             );
             // try {

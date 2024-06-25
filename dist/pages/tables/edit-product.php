@@ -56,7 +56,7 @@
 
     .btn-cancel:hover {
       transform: translateY(-3px);
-      box-shadow: 0 0 20px #f2a654;
+      box-shadow: 0 0 20px #ec4c40;
     }
 
     input[type=file]::file-selector-button {
@@ -274,52 +274,15 @@
     <!-- partial -->
     <div class="container-fluid page-body-wrapper">
       <!-- partial:../../partials/_sidebar.html -->
-      <nav class="sidebar sidebar-offcanvas" id="sidebar">
-        <ul class="nav">
-          <li class="nav-item">
-            <a class="nav-link" href="../../index.html">
-              <i class="mdi mdi-grid-large menu-icon"></i>
-              <span class="menu-title">Dashboard</span>
-            </a>
-          </li>
+      
+      
+    <!-- /*************************************************************************SIDENAVBAR************************************************************* */ -->
 
-          <li class="nav-item nav-category">User & Product Details</li>
+   <?php include "sidenavbar.php";?>
 
-          <li class="nav-item">
-            <a class="nav-link" href="/StoreManagement/dist/pages/tables/users-table.html">
-              <i class="menu-icon fa fa-users"></i>
-              <span class="menu-title">Users</span>
-            </a>
-          </li>
 
-          <li class="nav-item">
-            <a class="nav-link" href="/StoreManagement/dist/pages/tables/product-table.html">
-              <i class="menu-icon fa fa-cube"></i>
-              <span class="menu-title">Products</span>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/StoreManagement/dist/pages/tables/category.html">
-              <i class="menu-icon fa fa-cubes"></i>
-              <span class="menu-title">Category</span>
-            </a>
-          </li>
-
-          <li class="nav-item">
-            <a class="nav-link" href="/StoreManagement/dist/pages/tables/sub-category-table.html">
-              <i class="menu-icon fa fa-sitemap"></i>
-              <span class="menu-title">Sub Category</span>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href=" /StoreManagement/home/index.html">
-              <i class="menu-icon fa fa-sign-out"></i>
-              <span class="menu-title">Logout</span>
-            </a>
-          </li>
-
-        </ul>
-      </nav>
+   <!-- /*************************************************************************SIDENAVBAR************************************************************* */ -->
+   
       <!-- partial -->
       <div class="main-panel">
         <div class="content-wrapper" id="add-table">
@@ -329,12 +292,12 @@
                 <div class="card-body">
                   <h4 class="card-title">ADD PRODUCT</h4>
                   <!-- <p class="card-description"> Horizontal form layout </p> -->
-                  <form class="forms-sample" id="add-product">
+                  <form class="forms-sample" id="edit-product">
                     <div class="form-group row">
                       <label for="exampleInputUsername2" class="col-sm-3 col-form-label"><b>Product Name<span
                             class="mandatory-field">*</span></b></label>
                       <div class="col-sm-9">
-                        <input type="text" class="form-control" name="product_name" id="add-product-name"
+                        <input type="text" class="form-control" name="product_name" id="edit-product-name"
                           placeholder="Product Name" required>
                       </div>
                     </div>
@@ -342,15 +305,15 @@
                       <label for="exampleInputEmail2" class="col-sm-3 col-form-label"><b>Product Type<span
                             class="mandatory-field">*</span></b></label>
                       <div class="col-sm-9">
-                        <input type="text" class="form-control" name="product_type" id="add-product-type"
+                        <input type="text" class="form-control" name="product_type" id="edit-product-type"
                           placeholder="Product Type" required>
                       </div>
                     </div>
 
                     <!-- <div class="form-group row">
-                        <label for="add-product-image" class="col-sm-3 col-form-label"><b>Product Image<span class="mandatory-field">*</span></b></label>
+                        <label for="edit-product-image" class="col-sm-3 col-form-label"><b>Product Image<span class="mandatory-field">*</span></b></label>
                         <div class="col-sm-9">
-                          <input type="file" class="form-control-file" id="add-product-image" required>
+                          <input type="file" class="form-control-file" id="edit-product-image" required>
                         </div>
                       </div> -->
 
@@ -359,20 +322,20 @@
                             class="mandatory-field">*</span></b></label>
                       <div class="col-sm-9">
                         <input type="file" class="form-control-file custom-file-upload" name="product_img"
-                          id="add-product-image" placeholder="Product Image" required>
+                          id="edit-product-image" placeholder="Product Image" required>
                       </div>
                     </div>
                     <div class="form-group row">
                       <label for="exampleInputPassword2" class="col-sm-3 col-form-label"><b>Price<span
                             class="mandatory-field">*</span></b></label>
                       <div class="col-sm-4">
-                        <input type="text" class="form-control" name="price" id="add-product-price" placeholder="Price"
+                        <input type="text" class="form-control" name="price" id="edit-product-price" placeholder="Price"
                           required>
                       </div>
                       <label for="exampleInputConfirmPassword2" class="col-sm-2 ms-10px col-form-label"><b
                           id="status">Status<span class="mandatory-field">*</span></b></label>
                       <div class="col-sm-3">
-                        <select id="add-product-status" name="status" class="form-control product-status" required>
+                        <select id="edit-product-status" name="status" class="form-control product-status" required>
                           <option value="">Select a status</option>
                           <option value="1">Active</option>
                           <option value="2">InActive</option>
@@ -383,12 +346,12 @@
                       <label for="exampleInputConfirmPassword2" class="col-sm-3 col-form-label"><b>Description<span
                             class="mandatory-field">*</span></b></label>
                       <div class="col-sm-9">
-                        <textarea class="form-control" name="description" id="add-product-description"
+                        <textarea class="form-control" name="description" id="edit-product-description"
                           placeholder="Description" required></textarea>
                       </div>
                     </div>
                     <button type="submit" class="btn btn-primary me-2 btn-submit" id="addsubmit">Submit</button>
-                    <a href="/StoreManagement/dist/pages/tables/product-table.html" <button
+                    <a href="/StoreManagement/dist/pages/tables/products-table.php" <button
                       class="btn btn-danger btn-cancel">Cancel</button></a>
                   </form>
                 </div>
@@ -431,18 +394,67 @@
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 <script>
   $(document).ready(function () {
-    $('#add-product').on('submit', function (e) {
-      e.preventDefault();
 
+    function getUrlParameter(id) {
+      name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
+      var regex = new RegExp('[\\?&]' + id + '=([^&#]*)');
+      var results = regex.exec(location.search);
+      return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
+    }
+
+    // Function to fetch user details based on ID from URL
+    function fetchProductDetails(userId) {
+      // var userId = getUrlParameter('id');
+
+      var apikey = 'xgGEHQTWl89KsFPHojMIw7Q3YbACaJwF';
+      var pkey = '3fdee6c11c06f9a43fe21eefcdfb5bd7';
+      var apiurl = 'https://dev-aniwatch.gateway.apiplatform.io/v1/products/' + userId;
+
+      $.ajax({
+        type: 'GET',
+        url: apiurl,
+        dataType: 'json',
+        contentType: 'application/json',
+        headers: {
+          'apikey': apikey,
+          'pkey': pkey,
+        },
+        success: function (data) {
+          var product = data[0];
+          console.log(product)
+          // alert('HELOOOOOOOOOOOOO')
+          $('#edit-product-name').val(product.product_name);
+          $('#edit-product-type').val(product.product_type);
+          // $('#edit-product-image').val(product.product_img);
+          $('#edit-product-price').val(product.price);
+          $('#edit-product-status').val(product.status);
+          $('#edit-product-description').val(product.description);
+        },
+        error: function (xhr, status, error) {
+          console.error(xhr.responseText);
+        }
+      });
+    }
+
+    // Extract user ID from URL
+    var userId = getUrlParameter('id');
+    // Fetch user details based on ID
+    fetchProductDetails(userId);
+
+
+
+    $('#edit-product').on('submit', function (e) {
+      e.preventDefault();
+      var userId = getUrlParameter('id');
       var formData = {
-        product_name: $('#add-product-name').val(),
-        product_type: $('#add-product-type').val(),
-        price: parseInt($('#add-product-price').val()),
-        status: parseInt($('#add-product-status').val()),
-        description: $('#add-product-description').val()
+        product_name: $('#edit-product-name').val(),
+        product_type: $('#edit-product-type').val(),
+        price: parseInt($('#edit-product-price').val()),
+        status: parseInt($('#edit-product-status').val()),
+        description: $('#edit-product-description').val()
       };
 
-      var fileInput = $('#add-product-image')[0];
+      var fileInput = $('#edit-product-image')[0];
       if (fileInput.files.length > 0) {
         var file = fileInput.files[0];
         var filename = file.name;
@@ -452,11 +464,11 @@
 
         var apikey = 'xgGEHQTWl89KsFPHojMIw7Q3YbACaJwF';
         var pkey = '3fdee6c11c06f9a43fe21eefcdfb5bd7';
-        var apiurl = 'https://dev-aniwatch.gateway.apiplatform.io/v1/products';
+        var apiurl = 'https://dev-aniwatch.gateway.apiplatform.io/v1/products/' + userId;
         console.log(formData)
         $.ajax({
           url: apiurl,
-          type: 'POST',
+          type: 'PUT',
           headers: {
             'apikey': apikey,
             'pkey': pkey,
@@ -467,7 +479,7 @@
             Swal.fire({
               position: "top-end",
               icon: "success",
-              title: "Product added successfully...!",
+              title: "Product Updated successfully...!",
               showConfirmButton: false,
               timer: 1500
 
@@ -476,7 +488,7 @@
             // console.log(data);
             // alert('Update successful!');
             setTimeout(function () {
-              window.location = "/StoreManagement/dist/pages/tables/product-table.html";
+              window.location = "/StoreManagement/dist/pages/tables/products-table.php";
             }, 2000);
 
           },
@@ -484,7 +496,7 @@
 
             Swal.fire(
               'Error!',
-              'Failed to add user. Please try again.',
+              'Failed to Update user. Please try again.',
               'error'
             );
             // try {

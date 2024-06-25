@@ -192,7 +192,7 @@
 
 
           <li class="nav-item">
-            <a class="nav-link" href="/StoreManagement/dist/pages/tables/product-table.html">
+            <a class="nav-link" href="/StoreManagement/dist/pages/tables/products-table.php">
               <i class="menu-icon mdi mdi-floor-plan"></i>
               <span class="menu-title">Products</span>
             </a>

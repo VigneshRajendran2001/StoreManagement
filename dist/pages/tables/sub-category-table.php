@@ -88,11 +88,11 @@
         </div>
       </div>
       <div class="navbar-menu-wrapper d-flex align-items-top">
-        <h3 class="welcome-sub-text" style="text-decoration:underline;"><b>PRODUCTS LIST</b> </h3>
+        <h3 class="welcome-sub-text" style="text-decoration:underline;"><b>SUB CATEGORY LIST</b> </h3>
         <hr>
 
 
-        <!-- <a href="/StoreManagement/dist/pages/tables/add-users.html"<button class="btn btn-primary" >Add User</button></a> -->
+        <!-- <a href="/StoreManagement/dist/pages/tables/add-users.php"<button class="btn btn-primary" >Add User</button></a> -->
 
 
         <!-- <ul class="navbar-nav">
@@ -251,8 +251,8 @@
             </li> -->
 
           <div class="ms-auto">
-            <a href="/StoreManagement/dist/pages/tables/add-products.html" class="btn btn-primary btn-add-user">Add
-              Product</a>
+            <a href="/StoreManagement/dist/pages/tables/add-sub-category.php" class="btn btn-primary btn-add-user"><i class="menu-icon fa fa-plus"></i>Add
+            Sub Category</a>
           </div>
         </ul>
         <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button"
@@ -264,52 +264,14 @@
     <!-- partial -->
     <div class="container-fluid page-body-wrapper">
       <!-- partial:../../partials/_sidebar.html -->
-      <nav class="sidebar sidebar-offcanvas" id="sidebar">
-        <ul class="nav">
-          <li class="nav-item">
-            <a class="nav-link" href="../../index.html">
-              <i class="mdi mdi-grid-large menu-icon"></i>
-              <span class="menu-title">Dashboard</span>
-            </a>
-          </li>
+      
+     <!-- /*************************************************************************SIDENAVBAR************************************************************* */ -->
 
-          <li class="nav-item nav-category">User & Product Details</li>
+   <?php include "sidenavbar.php";?>
 
-          <li class="nav-item">
-            <a class="nav-link" href="/StoreManagement/dist/pages/tables/users-table.html">
-              <i class="menu-icon fa fa-users"></i>
-              <span class="menu-title">Users</span>
-            </a>
-          </li>
 
-          <li class="nav-item">
-            <a class="nav-link" href="/StoreManagement/dist/pages/tables/product-table.html">
-              <i class="menu-icon fa fa-cube"></i>
-              <span class="menu-title">Products</span>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/StoreManagement/dist/pages/tables/category-table.html">
-              <i class="menu-icon fa fa-cubes"></i>
-              <span class="menu-title">Category</span>
-            </a>
-          </li>
-
-          <li class="nav-item">
-            <a class="nav-link" href="/StoreManagement/dist/pages/tables/sub-category-table.html">
-              <i class="menu-icon fa fa-sitemap"></i>
-              <span class="menu-title">Sub Category</span>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href=" /StoreManagement/home/index.html">
-              <i class="menu-icon fa fa-sign-out"></i>
-              <span class="menu-title">Logout</span>
-            </a>
-          </li>
-
-        </ul>
-      </nav>
+   <!-- /*************************************************************************SIDENAVBAR************************************************************* */ -->
+   
       <!-- partial -->
       <div class="main-panel">
         <div class="content-wrapper">
@@ -319,7 +281,7 @@
             <div class="col-lg-12 grid-margin stretch-card">
               <div class="card">
                 <div class="card-body">
-                  <h3 class="card-title"><b>PRODUCTS LIST</b></h3>
+                  <h3 class="card-title"><b>SUB CATEGORY LIST</b></h3>
                   <div class="table-responsive">
                     <table class="table table-hover" id="products-table">
                       <thead>
@@ -374,172 +336,6 @@
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 <script src="https://cdn.datatables.net/1.11.4/js/jquery.dataTables.min.js"></script>
 <link rel="stylesheet" href="https://cdn.datatables.net/1.11.4/css/jquery.dataTables.min.css">
-<script>
-  $(document).ready(function () {
 
-    // var table = $('#users-table').DataTable({
-    //   "paging": true, // Enable pagination
-    // "lengthChange": true, // Enable per-page select box
-    // "pageLength": 10, // Initial rows per page
-    // "searching": true, // Enable search box
-    // "ordering": true, // Enable column sorting
-    // "info": true, // Enable table information display
-    // "autoWidth": false, // Disable auto-width calculations
-    // "responsive": true, // Enable responsive design
-    // "language": {
-    //   "paginate": {
-    //     "first": '<i class="mdi mdi-chevron-double-left"></i>',
-    //     "previous": '<i class="mdi mdi-chevron-left"></i>',
-    //     "next": '<i class="mdi mdi-chevron-right"></i>',
-    //     "last": '<i class="mdi mdi-chevron-double-right"></i>'
-    //   }
-    // }
-    //   });
-
-
-    var apikey = 'xgGEHQTWl89KsFPHojMIw7Q3YbACaJwF';
-    var pkey = '3fdee6c11c06f9a43fe21eefcdfb5bd7';
-    var apiurl = 'https://dev-aniwatch.gateway.apiplatform.io/v1/products';
-
-    $.ajax({
-      type: 'GET',
-      url: apiurl,
-      dataType: 'json',
-      contentType: 'application/json',
-      headers: {
-        'apikey': apikey,
-        'pkey': pkey,
-      },
-      success: function (data) {
-        console.log(data)
-        // Initialize DataTable with fetched data
-        var table = $('#products-table').DataTable({
-          "data": data,
-          "columns": [
-            {
-              "data": null, // Use null for an index column
-              "render": function (data, type, row, meta) {
-                return meta.row + 1; // meta.row provides the index
-                console.log(data);
-              }
-            },
-
-
-            { "data": "product_name" },
-            { "data": "product_type" },
-            { "data": "product_img" },
-            { "data": "price" },
-            {
-              "data": "status",
-              "render": function (data) {
-
-                switch (data) {
-                  case 1:
-                    return "Active";
-                  case 2:
-                    return "InActive";
-                  default:
-                    return "N/A";
-                }
-              }
-            },
-            { "data": "description" },
-            {
-              "data": null,
-              "render": function (data, type, row) {
-                var editUrl = '<a href="/StoreManagement/dist/pages/tables/product-edit-table.html?id=' + row.id + '"><i class="fa fa-pencil-square-o icon-button" title="Click to Edit"></i></a>';
-                var deleteButton = '<a href="#" class="delete-button" data-id="' + row.id + '"><i class="fa fa-trash icon-button delete-button" title="Click to Delete"></i></a>';
-                // var addButton = '<a href="/StoreManagement/dist/pages/tables/add-users.html"><i class="fa fa-plus icon-button" title="Click to Add User"></i></a>';
-                return editUrl + ' | ' + deleteButton;
-              }
-            }
-          ],
-          "paging": true,
-          "lengthChange": true,
-          "pageLength": 10,
-          "searching": true,
-          "ordering": true,
-          "info": true,
-          "autoWidth": false,
-          "responsive": true,
-          "language": {
-            "paginate": {
-              "first": '<i class="mdi mdi-chevron-double-left"></i>',
-              "previous": '<i class="mdi mdi-chevron-left"></i>',
-              "next": '<i class="mdi mdi-chevron-right"></i>',
-              "last": '<i class="mdi mdi-chevron-double-right"></i>'
-            }
-          }
-        });
-
-        // for (i = 0; i < data.length; i++) {
-        //   var res = data[i];
-        //   var index = data.length - i;
-        //   var editbutton = '<a href="/StoreManagement/dist/pages/tables/users-edit-table.html?id='+ res.id +'"><i class="fa fa-pencil-square-o icon-button" title="Click to Edit"></i></a>';
-        //   var deletebutton = '<a href="#" class="delete-button" data-id="'+ res.id +'"><i class="fa fa-trash icon-button delete-button"  title="Click to Delete"></i></a>';
-        //   var adduser = '<a href="/StoreManagement/dist/pages/tables/add-users.html"><i class="fa fa-plus icon-button" title="Click to Add User"></i></a>';
-
-        //   var buttons = editbutton + deletebutton + adduser;
-        // var tableData = '<tr><td><b>' + index + '</b></td><td>' + res.name + '</td><td>' + res.email + '</td><td>' + res.password + '</td><td>' + res.designation + '</td><td>' + res.role + '</td><td>'+ buttons +'</td></tr>';
-        // $('#users-table tbody').prepend(tableData);
-        // }
-      },
-      error: function (xhr, status, error) {
-        console.error(xhr.responseText);
-        // alert('Signup failed. Please check the console for details.');
-      }
-    });
-
-    $(document).on('click', '.delete-button', function (e) {
-      e.preventDefault();
-      var userId = $(this).data('id');
-
-      Swal.fire({
-        title: 'Are you sure want to delete this Product?',
-        // text: "You won't be able to revert this!",
-        icon: 'warning',
-        showCancelButton: true,
-        confirmButtonColor: '#3085d6',
-        cancelButtonColor: '#d33',
-        confirmButtonText: 'Yes!',
-        cancelButtonText: 'No',
-
-      }).then((result) => {
-        if (result.isConfirmed) {
-
-          $.ajax({
-            type: 'DELETE',
-            url: apiurl + '/' + userId,
-            headers: {
-              'apikey': apikey,
-              'pkey': pkey,
-            },
-            success: function (data) {
-
-              Swal.fire(
-                'Deleted!',
-                'Your Product has been deleted.',
-                'success'
-              ).then((result) => {
-
-                location.reload();
-              });
-            },
-            error: function (xhr, status, error) {
-              console.error(xhr.responseText);
-
-              Swal.fire(
-                'Error!',
-                'Failed to Product user. Please try again.',
-                'error'
-              );
-            }
-          });
-        }
-      });
-    });
-
-  });
-</script>
 
 </html>

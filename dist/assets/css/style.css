@@ -11439,19 +11439,19 @@ textarea.is-invalid.tt-hint, .select2-container--default .select2-selection--sin
 
 .btn-primary {
   --bs-btn-color: #fff;
-  --bs-btn-bg: #1F3BB3;
+  --bs-btn-bg: #f2a654;
   --bs-btn-border-color: #fff;
   --bs-btn-hover-color: #fff;
-  --bs-btn-hover-bg: #1a3298;
-  --bs-btn-hover-border-color: #192f8f;
+  --bs-btn-hover-bg: #f2a654;
+  --bs-btn-hover-border-color: #f2a654;
   --bs-btn-focus-shadow-rgb: 65, 88, 190;
   --bs-btn-active-color: #fff;
-  --bs-btn-active-bg: #192f8f;
-  --bs-btn-active-border-color: #172c86;
+  --bs-btn-active-bg: #f2a654;
+  --bs-btn-active-border-color: #f2a654;
   --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
   --bs-btn-disabled-color: #fff;
-  --bs-btn-disabled-bg: #1F3BB3;
-  --bs-btn-disabled-border-color: #1F3BB3;
+  --bs-btn-disabled-bg: #f2a654;
+  --bs-btn-disabled-border-color: #f2a654;
 }
 
 .btn-secondary {
@@ -23707,6 +23707,7 @@ svg {
 }
 .btn i {
   font-size: 1rem;
+  margin-right: 10px;
 }
 .btn.btn-rounded {
   border-radius: 50px;
