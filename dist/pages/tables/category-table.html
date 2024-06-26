@@ -355,14 +355,14 @@
                 <div class="card-body">
                   <h3 class="card-title"><b>CATEGORY LIST</b></h3>
                   <div class="table-responsive">
-                    <table class="table table-hover" id="products-table">
+                    <table class="table table-hover" id="category-table">
                       <thead>
                         <tr>
                           <th>#</th>
-                          <th>Product Name</th>
-                          <th>Product Type</th>
-                          <th>Product Image</th>
-                          <th>Price</th>
+                          <th>Category Name</th>
+                          <th>Category Code</th>
+                          <th>Category Image</th>
+                          <!-- <th>Price</th> -->
                           <th>Status</th>
                           <th>Description</th>
                           <th>Action</th>
@@ -433,7 +433,7 @@
 
     var apikey = 'xgGEHQTWl89KsFPHojMIw7Q3YbACaJwF';
     var pkey = '3fdee6c11c06f9a43fe21eefcdfb5bd7';
-    var apiurl = 'https://dev-aniwatch.gateway.apiplatform.io/v1/products';
+    var apiurl = 'https://dev-aniwatch.gateway.apiplatform.io/v1/category';
 
     $.ajax({
       type: 'GET',
@@ -447,7 +447,7 @@
       success: function (data) {
         console.log(data)
         // Initialize DataTable with fetched data
-        var table = $('#products-table').DataTable({
+        var table = $('#category-table').DataTable({
           "data": data,
           "columns": [
             {
@@ -459,32 +459,45 @@
             },
 
 
-            { "data": "product_name" },
-            { "data": "product_type" },
-            { "data": "product_img" },
-            { "data": "price" },
+            { "data": "category_name" },
+            { "data": "category_code" },
+            { "data": "category_img",
+              "render": function(data){
+                if(data){
+                  var imagePath = '/StoreManagement/dist/assets/images/categoryImage/' + data ;
+                  return '<div class="row align-items-center"><div class="col-auto"><img src="' + imagePath + '" alt="Category Image" style="width: 70px; height:60px;"></div>><div class="col">'+ data +'</div></div>'; 
+                               
+                }else{
+                  return "N/A";
+                }
+              }
+            },
+            // { "data": "price" },
             {
               "data": "status",
               "render": function (data) {
+                  var badge = data==1 ? 'badge badge-success' : 'badge badge-danger' ;
+                  var statusText = data == 1 ? 'In Stock' : 'Out of Stock' ;
 
-                switch (data) {
-                  case 1:
-                    return "Active";
-                  case 2:
-                    return "InActive";
-                  default:
-                    return "N/A";
-                }
+                  return '<span class="'+ badge +'">'+ statusText +'</span>';
+                // switch (data) {
+                //   case 1:
+                //     return "Active";
+                //   case 2:
+                //     return "InActive";
+                //   default:
+                //     return "N/A";
+              
               }
             },
             { "data": "description" },
             {
               "data": null,
               "render": function (data, type, row) {
-                var editUrl = '<a href="/StoreManagement/dist/pages/tables/edit-product.php?id=' + row.id + '"><i class="fa fa-pencil-square-o icon-button" title="Click to Edit"></i></a>';
+                var editbutton = '<a href="/StoreManagement/dist/pages/tables/edit-category.php?id=' + row.id + '"><i class="fa fa-pencil-square-o icon-button" title="Click to Edit"></i></a>';
                 var deleteButton = '<a href="#" class="delete-button" data-id="' + row.id + '"><i class="fa fa-trash icon-button delete-button" title="Click to Delete"></i></a>';
                 // var addButton = '<a href="/StoreManagement/dist/pages/tables/add-users.php"><i class="fa fa-plus icon-button" title="Click to Add User"></i></a>';
-                return editUrl + ' | ' + deleteButton;
+                return editbutton + ' | ' + deleteButton;
               }
             }
           ],
@@ -529,7 +542,7 @@
       var userId = $(this).data('id');
 
       Swal.fire({
-        title: 'Are you sure want to delete this Product?',
+        title: 'Are you sure want to delete this Category?',
         // text: "You won't be able to revert this!",
         icon: 'warning',
         showCancelButton: true,
@@ -552,7 +565,7 @@
 
               Swal.fire(
                 'Deleted!',
-                'Your Product has been deleted.',
+                'Your Category has been deleted.',
                 'success'
               ).then((result) => {
 
@@ -564,7 +577,7 @@
 
               Swal.fire(
                 'Error!',
-                'Failed to Product user. Please try again.',
+                'Failed to Category user. Please try again.',
                 'error'
               );
             }

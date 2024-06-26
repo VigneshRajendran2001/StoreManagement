@@ -400,15 +400,17 @@ console.log(data)
                     { 
                         "data": "status",
                         "render": function (data) {
-                           
-                            switch (data) {
-                                case 1:
-                                    return "Active";
-                                case 2:
-                                    return "InActive";
-                                default:
-                                    return "N/A";
-                            }
+                           var badge = data == 1 ? 'badge badge-success' : 'badge badge-danger' ;
+                           var statusText =  data == 1 ? 'Active' : 'InActive' ;
+                           return '<span class="'+ badge +'">'+ statusText +'</span>'
+                            // switch (data) {
+                            //     case 1:
+                            //         return "Active";
+                            //     case 2:
+                            //         return "InActive";
+                            //     default:
+                            //         return "N/A";
+                            // }
                         }
                     },
                     {

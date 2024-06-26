@@ -389,20 +389,33 @@
 
             { "data": "product_name" },
             { "data": "product_type" },
-            { "data": "product_img" },
+            { "data": "product_img",
+              "render": function(data){
+                if(data){
+                 var imagePath ='/StoreManagement/dist/assets/images/productImage/' + data ;
+
+                  return '<div class="row align-items-center"><div class="col-auto"><img src="'+ imagePath +'" alt="Product Image" style="width=100px; height=100px;display: flex; align-items: center;" class="img-fluid"></div>><div class="col">'+ data +'</div></div> ';
+                  
+                }else{
+                  return "N/A";
+                }
+              }
+             },
             { "data": "price" },
             {
               "data": "status",
               "render": function (data) {
-
-                switch (data) {
-                  case 1:
-                    return "Active";
-                  case 2:
-                    return "InActive";
-                  default:
-                    return "N/A";
-                }
+                       var badge = data == 1 ? 'badge badge-success' : 'badge badge-danger' ;
+                       var statusText = data == 1 ? 'In Stock' : 'Out of Stock' ;
+                       return '<span class="'+ badge +'">'+ statusText +'</span>'
+                // switch (data) {
+                //   case 1:
+                //     return "Active";
+                //   case 2:
+                //     return "InActive";
+                //   default:
+                //     return "N/A";
+                // }
               }
             },
             { "data": "description" },
