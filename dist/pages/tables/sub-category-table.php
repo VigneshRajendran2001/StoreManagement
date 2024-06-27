@@ -420,7 +420,12 @@
               
               }
             },
-            { "data": "description" },
+            { "data": "description",
+              "render" : function(data){
+               var des = data ? data : 'N/A';
+               return des ;
+              }
+             },
             {
               "data": null,
               "render": function (data, type, row) {

@@ -18,6 +18,10 @@
 
   <!-- endinject -->
   <!-- Plugin css for this page -->
+    <!-- Plugin css for this page -->
+    <link rel="stylesheet" href="../../assets/vendors/select2/select2.min.css">
+    <link rel="stylesheet" href="../../assets/vendors/select2-bootstrap-theme/select2-bootstrap.min.css">
+    <!-- End plugin css for this page -->
   <!-- End plugin css for this page -->
   <!-- inject:css -->
   <link rel="stylesheet" href="../../assets/css/style.css">
@@ -56,7 +60,7 @@
 
     .btn-cancel:hover {
       transform: translateY(-3px);
-      box-shadow: 0 0 20px #f2a654;
+      box-shadow: 0 0 20px red;
     }
 
     input[type=file]::file-selector-button {
@@ -291,23 +295,37 @@
               <div class="card">
                 <div class="card-body">
                   <h4 class="card-title">SUB CATEGORY</h4>
-                  <!-- <p class="card-description"> Horizontal form layout </p> -->
-                  <form class="forms-sample" id="add-subcategory">
+                  
+                  <form class="forms-sample" id="edit-subcategory">
+
+
+                  <div class="form-group row">
+                      <label for="exampleInputCategory" class="col-sm-3 col-form-label"><b
+                      id="status">Category<span class="mandatory-field">*</span></b></label>
+
+                      <div class="col-sm-9">
+                      <select id="edit-subcategory-category" name="category_id" class="js-example-basic-single w-100 " required>
+                        <option value="">Select a category</option>
+                      </select>
+                    </div>
+                    </div> 
+
+<!--                     
                                     <div class="form-group row">
                         <label for="exampleInputCategory" class="col-sm-3 col-form-label"><b>Category<span class="mandatory-field">*</span></b></label>
                         <div class="col-sm-9">
-                            <select class="form-control" id="add-subcategory-category" name="category_id" required>
+                            <select class="form-control" id="edit-subcategory-category" name="category_id" required>
                                 <option value="">Select a category</option>
-                                <!-- Options will be dynamically added via JavaScript -->
+                                
                             </select>
                         </div>
-                    </div>
+                    </div> -->
 
                     <div class="form-group row">
                       <label for="exampleInputUsername2" class="col-sm-3 col-form-label"><b>Sub Category Name<span
                             class="mandatory-field">*</span></b></label>
                       <div class="col-sm-9">
-                        <input type="text" class="form-control" name="sub_category_name" id="add-subcategory-name"
+                        <input type="text" class="form-control" name="sub_category_name" id="edit-subcategory-name"
                           placeholder="Sub Category Name" required>
                       </div>
                     </div>
@@ -315,15 +333,15 @@
                       <label for="exampleInputEmail2" class="col-sm-3 col-form-label"><b>Sub Category Code<span
                             class="mandatory-field">*</span></b></label>
                       <div class="col-sm-9">
-                        <input type="text" class="form-control" name="sub_category_code" id="add-subcategory-type"
+                        <input type="text" class="form-control" name="sub_category_code" id="edit-subcategory-type"
                           placeholder="Sub Category Type" required>
                       </div>
                     </div>
 
                     <!-- <div class="form-group row">
-                        <label for="add-product-image" class="col-sm-3 col-form-label"><b>Product Image<span class="mandatory-field">*</span></b></label>
+                        <label for="edit-product-image" class="col-sm-3 col-form-label"><b>Product Image<span class="mandatory-field">*</span></b></label>
                         <div class="col-sm-9">
-                          <input type="file" class="form-control-file" id="add-product-image" required>
+                          <input type="file" class="form-control-file" id="edit-product-image" required>
                         </div>
                       </div> -->
 
@@ -332,31 +350,51 @@
                             class="mandatory-field"></span></b></label>
                       <div class="col-sm-9">
                         <input type="file" class="form-control-file custom-file-upload" name="sub_category_img"
-                          id="add-subcategory-image" placeholder="Category Image" >
+                          id="edit-subcategory-image" placeholder="Category Image" >
                       </div>
                     </div>
+
+
+                     
                     <div class="form-group row">
-                      <!-- <label for="exampleInputPassword2" class="col-sm-3 col-form-label"><b>Price<span
+                      <label class="col-sm-3 col-form-label"><b
+                      id="status">Status<span class="mandatory-field">*</span></b></label>
+
+                      <div class="col-sm-9">
+                      <select id="edit-subcategory-status" name="status" class="js-example-basic-single w-100 subcategory-status " required>
+                        <option value="">Select a status</option>
+                        <option value="1">In Stock</option>
+                        <option value="2">Out of Stock</option>
+                      </select>
+                    </div>
+                    </div>
+                 
+
+
+
+
+                    <!-- <div class="form-group row">
+                      <label for="exampleInputPassword2" class="col-sm-3 col-form-label"><b>Price<span
                             class="mandatory-field">*</span></b></label>
                       <div class="col-sm-4">
-                        <input type="text" class="form-control" name="price" id="add-product-price" placeholder="Price"
+                        <input type="text" class="form-control" name="price" id="edit-product-price" placeholder="Price"
                           required>
-                      </div> -->
+                      </div>
                       <label for="exampleInputConfirmPassword2" class="col-sm-3 col-form-label"><b
                           id="status">Status<span class="mandatory-field">*</span></b></label>
                       <div class="col-sm-9">
-                        <select id="add-subcategory-status" name="status" class="form-control subcategory-status" required>
+                        <select id="edit-subcategory-status" name="status" class="form-control subcategory-status" required>
                           <option value="">Select a status</option>
                           <option value="1">In Stock</option>
                           <option value="2">Out of Stock</option>
                         </select>
                       </div>
-                    </div>
+                    </div> -->
                     <div class="form-group row">
                       <label for="exampleInputConfirmPassword2" class="col-sm-3 col-form-label"><b>Description<span
                             class="mandatory-field"></span></b></label>
                       <div class="col-sm-9">
-                        <textarea class="form-control" name="description" id="add-subcategory-description"
+                        <textarea class="form-control" name="description" id="edit-subcategory-description"
                           placeholder="Description" ></textarea>
                       </div>
                     </div>
@@ -405,12 +443,63 @@
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 <script>
   $(document).ready(function () {
+    function getUrlParameter(id) {
+  name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
+  var regex = new RegExp('[\\?&]' + id + '=([^&#]*)');
+  var results = regex.exec(location.search);
+  return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
+}
+
+// Function to fetch user details based on ID from URL
+function fetchSubCategoryDetails(userId) {
+  // var userId = getUrlParameter('id');
+
+  var apikey = 'xgGEHQTWl89KsFPHojMIw7Q3YbACaJwF';
+  var pkey = '3fdee6c11c06f9a43fe21eefcdfb5bd7';
+  var apiurl = 'https://dev-aniwatch.gateway.apiplatform.io/v1/subcategory/' + userId;
+
+  $.ajax({
+    type: 'GET',
+    url: apiurl,
+    dataType: 'json',
+    contentType: 'application/json',
+    headers: {
+      'apikey': apikey,
+      'pkey': pkey,
+    },
+    success: function (data) {
+      var subcategory = data[0];
+      console.log(subcategory)
+      // alert('HELOOOOOOOOOOOOO')
+      $('#edit-subcategory-category').val(subcategory.category_id);
+      $('#edit-subcategory-name').val(subcategory.sub_category_name);
+      $('#edit-subcategory-type').val(subcategory.sub_category_code);
+    //   $('#edit_subcategory_img').val(subcategory.subcategory_img);
+    //   $('#edit-subcategory-price').val(subcategory.price);
+      $('#edit-subcategory-status').val(subcategory.status);
+      $('#edit-subcategory-description').val(subcategory.description);
+    },
+    error: function (xhr, status, error) {
+      console.error(xhr.responseText);
+    }
+  });
+}
+
+// Extract user ID from URL
+var userId = getUrlParameter('id');
+// Fetch user details based on ID
+fetchSubCategoryDetails(userId);
+
+
+
 
         // Fetch categories and populate dropdown
         function fetchCategoriesData() {
+         
+
           var apikey = 'xgGEHQTWl89KsFPHojMIw7Q3YbACaJwF';
           var pkey = '3fdee6c11c06f9a43fe21eefcdfb5bd7';
-        var apiurl = 'https://dev-aniwatch.gateway.apiplatform.io/v1/category'; // Replace with your API endpoint
+        var apiurl = 'https://dev-aniwatch.gateway.apiplatform.io/v1/category'; 
         $.ajax({
             type: 'GET',
             url: apiurl,
@@ -422,12 +511,12 @@
             },
             success: function(data) {
                 // Clear existing options
-                $('#add-subcategory-category').empty();
-                // Add default option
-                $('#add-subcategory-category').append('<option value="">Select a category</option>');
-                // Add each category as an option
+                $('#edit-subcategory-category').empty();
+                // edit default option
+                $('#edit-subcategory-category').append('<option value="">Select a category</option>');
+                // edit each category as an option
                 data.forEach(function(category) {
-                    $('#add-subcategory-category').append('<option value="' + category.id + '">' + category.category_name + '</option>');
+                    $('#edit-subcategory-category').append('<option value="' + category.id + '">' + category.category_name + '</option>');
                 });
             },
             error: function(xhr, status, error) {
@@ -440,19 +529,19 @@
     fetchCategoriesData();
 
     
-    $('#add-subcategory').on('submit', function (e) {
+    $('#edit-subcategory').on('submit', function (e) {
       e.preventDefault();
-
+      var userId = getUrlParameter('id');
       var formData = {
-        category_id: parseInt($('#add-subcategory-category').val()),
-        sub_category_name: $('#add-subcategory-name').val(),
-        sub_category_code: $('#add-subcategory-type').val(),
-        // price: parseInt($('#add-subcategory-price').val()),
-        status: parseInt($('#add-subcategory-status').val()),
-        description: $('#add-subcategory-description').val()
+        category_id: parseInt($('#edit-subcategory-category').val()),
+        sub_category_name: $('#edit-subcategory-name').val(),
+        sub_category_code: $('#edit-subcategory-type').val(),
+        // price: parseInt($('#edit-subcategory-price').val()),
+        status: parseInt($('#edit-subcategory-status').val()),
+        description: $('#edit-subcategory-description').val()
       };
 
-      var fileInput = $('#add-subcategory-image')[0];
+      var fileInput = $('#edit-subcategory-image')[0];
       if (fileInput.files.length > 0) {
         var file = fileInput.files[0];
         var filename = file.name;
@@ -462,11 +551,11 @@
 
         var apikey = 'xgGEHQTWl89KsFPHojMIw7Q3YbACaJwF';
         var pkey = '3fdee6c11c06f9a43fe21eefcdfb5bd7';
-        var apiurl = 'https://dev-aniwatch.gateway.apiplatform.io/v1/subcategory';
+        var apiurl = 'https://dev-aniwatch.gateway.apiplatform.io/v1/subcategory/' + userId ;
         console.log(formData)
         $.ajax({
           url: apiurl,
-          type: 'POST',
+          type: 'PUT',
           headers: {
             'apikey': apikey,
             'pkey': pkey,
@@ -477,7 +566,7 @@
             Swal.fire({
               position: "top-end",
               icon: "success",
-              title: "SubCategory added successfully...!",
+              title: "SubCategory Updated successfully...!",
               showConfirmButton: false,
               timer: 1500
 
@@ -494,7 +583,7 @@
 
             Swal.fire(
               'Error!',
-              'Failed to add SubCategory. Please try again.',
+              'Failed to Update SubCategory. Please try again.',
               'error'
             );
             // try {
@@ -508,7 +597,69 @@
 
 
       } else {
-        alert('Please select a file.');
+        var userId = getUrlParameter('id');
+        var formData = {
+        category_id: parseInt($('#edit-subcategory-category').val()),
+        sub_category_name: $('#edit-subcategory-name').val(),
+        sub_category_code: $('#edit-subcategory-type').val(),
+        // price: parseInt($('#edit-subcategory-price').val()),
+        status: parseInt($('#edit-subcategory-status').val()),
+        description: $('#edit-subcategory-description').val()
+      };
+
+      // var fileInput = $('#edit-subcategory-image')[0];
+      // if (fileInput.files.length > 0) {
+      //   var file = fileInput.files[0];
+      //   var filename = file.name;
+
+      //   formData.sub_category_img = filename;
+      //   console.log(formData.sub_category_img)
+
+        var apikey = 'xgGEHQTWl89KsFPHojMIw7Q3YbACaJwF';
+        var pkey = '3fdee6c11c06f9a43fe21eefcdfb5bd7';
+        var apiurl = 'https://dev-aniwatch.gateway.apiplatform.io/v1/subcategory/' + userId;
+        console.log(formData)
+        $.ajax({
+          url: apiurl,
+          type: 'PUT',
+          headers: {
+            'apikey': apikey,
+            'pkey': pkey,
+            'Content-Type': 'application/json'
+          },
+          data: JSON.stringify(formData),
+          success: function (response) {
+            Swal.fire({
+              position: "top-end",
+              icon: "success",
+              title: "SubCategory Updated successfully...!",
+              showConfirmButton: false,
+              timer: 1500
+
+            });
+
+            // console.log(data);
+            // alert('Update successful!');
+            setTimeout(function () {
+              window.location = "/StoreManagement/dist/pages/tables/sub-category-table.php";
+            }, 2000);
+
+          },
+          error: function (xhr, status, error) {
+
+            Swal.fire(
+              'Error!',
+              'Failed to Update SubCategory. Please try again.',
+              'error'
+            );
+            // try {
+            //     let response = JSON.parse(xhr.responseText);
+            //     alert('Error adding product: ' + response.message);
+            // } catch (e) {
+            //     alert('Error adding product: ' + xhr.responseText);
+            // }
+          }
+        });
       }
     });
   });

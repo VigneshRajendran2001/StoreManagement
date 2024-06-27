@@ -1,20 +1,27 @@
 function fetchCategoriesData() {
-    var apiurl = 'https://example.com/api/categories'; // Replace with your API endpoint
+    var apikey = 'xgGEHQTWl89KsFPHojMIw7Q3YbACaJwF';
+    var pkey = '3fdee6c11c06f9a43fe21eefcdfb5bd7';
+    var apiurl = 'https://dev-aniwatch.gateway.apiplatform.io/v1/category';
     $.ajax({
         type: 'GET',
         url: apiurl,
         dataType: 'json',
-        success: function(data) {
-            // Clear existing options
+        contentType: 'application/json',
+        headers: {
+            'apikey': apikey,
+            'pkey': pkey,
+        },
+        success: function (data) {
+
             $('#add-subcategory-category').empty();
-            // Add default option
+
             $('#add-subcategory-category').append('<option value="">Select a category</option>');
-            // Add each category as an option
-            data.forEach(function(category) {
-                $('#add-subcategory-category').append('<option value="' + category.id + '">' + category.name + '</option>');
+
+            data.forEach(function (category) {
+                $('#add-subcategory-category').append('<option value="' + category.id + '">' + category.category_name + '</option>');
             });
         },
-        error: function(xhr, status, error) {
+        error: function (xhr, status, error) {
             console.error('Error fetching categories:', error);
         }
     });

@@ -18,6 +18,8 @@
 
   <!-- endinject -->
   <!-- Plugin css for this page -->
+  <link rel="stylesheet" href="../../assets/vendors/select2/select2.min.css">
+  <link rel="stylesheet" href="../../assets/vendors/select2-bootstrap-theme/select2-bootstrap.min.css">
   <!-- End plugin css for this page -->
   <!-- inject:css -->
   <link rel="stylesheet" href="../../assets/css/style.css">
@@ -325,13 +327,31 @@
                           id="category_img" placeholder="Category Image">
                       </div>
                     </div>
+
+
                     <div class="form-group row">
-                      <!-- <label for="exampleInputPassword2" class="col-sm-3 col-form-label"><b>Price<span
+                      <label class="col-sm-3 col-form-label"><b
+                      id="status">Status<span class="mandatory-field">*</span></b></label>
+
+                      <div class="col-sm-9">
+                      <select id="category_status" name="status" class="js-example-basic-single w-100 category-status " required>
+                        <option value="">Select a status</option>
+                        <option value="1">In Stock</option>
+                        <option value="2">Out of Stock</option>
+                      </select>
+                    </div>
+                    </div>
+                 
+
+
+
+                    <!-- <div class="form-group row">
+                      <label for="exampleInputPassword2" class="col-sm-3 col-form-label"><b>Price<span
                             class="mandatory-field">*</span></b></label>
                       <div class="col-sm-4">
                         <input type="text" class="form-control" name="price" id="add-product-price" placeholder="Price"
                           required>
-                      </div> -->
+                      </div>
                       <label for="exampleInputConfirmPassword2" class="col-sm-3 col-form-label"><b
                           id="status">Status<span class="mandatory-field">*</span></b></label>
                       <div class="col-sm-9">
@@ -341,7 +361,7 @@
                           <option value="2">Out of Stock</option>
                         </select>
                       </div>
-                    </div>
+                    </div> -->
                     <div class="form-group row">
                       <label for="exampleInputConfirmPassword2" class="col-sm-3 col-form-label"><b>Description<span
                             class="mandatory-field"></span></b></label>
