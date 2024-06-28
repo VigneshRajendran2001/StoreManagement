@@ -288,9 +288,12 @@
                         <tr>
                           <th>#</th>
                           <th>Product Name</th>
-                          <th>Product Type</th>
+                          <th>Product Sku</th>
                           <th>Product Image</th>
+                          <th>Category Name</th>
+                          <th>Sub Category Name</th>
                           <th>Price</th>
+                          <th>Quantity</th>
                           <th>Status</th>
                           <th>Description</th>
                           <th>Action</th>
@@ -388,7 +391,7 @@
 
 
             { "data": "product_name" },
-            { "data": "product_type" },
+            { "data": "product_sku" },
             { "data": "product_img",
               "render": function(data){
                 if(data){
@@ -401,7 +404,15 @@
                 }
               }
              },
+             { "data": "category_id" },
+             { "data": "sub_category",
+              "render" : function(data){
+                var res = data ? data : 'N/A';
+                return res;
+              }
+             },
             { "data": "price" },
+            { "data": "quantity" },
             {
               "data": "status",
               "render": function (data) {
@@ -418,7 +429,12 @@
                 // }
               }
             },
-            { "data": "description" },
+            { "data": "description",
+              "render" : function(data){
+                var res = data ? data : 'N/A';
+                return res ;
+              }
+             },
             {
               "data": null,
               "render": function (data, type, row) {
@@ -436,7 +452,7 @@
           "ordering": true,
           "info": true,
           "autoWidth": false,
-          "responsive": true,
+          "responsive": true, 
           "language": {
             "paginate": {
               "first": '<i class="mdi mdi-chevron-double-left"></i>',

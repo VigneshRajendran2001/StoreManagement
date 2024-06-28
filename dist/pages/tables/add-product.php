@@ -18,6 +18,8 @@
 
   <!-- endinject -->
   <!-- Plugin css for this page -->
+  <link rel="stylesheet" href="../../assets/vendors/select2/select2.min.css">
+  <link rel="stylesheet" href="../../assets/vendors/select2-bootstrap-theme/select2-bootstrap.min.css">
   <!-- End plugin css for this page -->
   <!-- inject:css -->
   <link rel="stylesheet" href="../../assets/css/style.css">
@@ -25,6 +27,7 @@
   <link rel="shortcut icon" href="../../assets/images/favicon.png" />
   <style>
     #addsubmit {
+      width:10%;
       margin-left: 42%;
       background-color: #f2a654;
     }
@@ -50,13 +53,14 @@
     }
 
     .btn-cancel {
+      width:10%;
       transform: translateY(0);
       transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
     .btn-cancel:hover {
       transform: translateY(-3px);
-      box-shadow: 0 0 20px #f2a654;
+      box-shadow: 0 0 20px red;
     }
 
     input[type=file]::file-selector-button {
@@ -82,7 +86,7 @@
     }
 
     #status {
-      margin-left: 40%;
+      margin-left: 39%;
     }
   </style>
 </head>
@@ -296,58 +300,83 @@
                     <div class="form-group row">
                       <label for="exampleInputUsername2" class="col-sm-3 col-form-label"><b>Product Name<span
                             class="mandatory-field">*</span></b></label>
-                      <div class="col-sm-9">
+                      <div class="col-sm-4">
                         <input type="text" class="form-control" name="product_name" id="add-product-name"
                           placeholder="Product Name" required>
                       </div>
-                    </div>
-                    <div class="form-group row">
-                      <label for="exampleInputEmail2" class="col-sm-3 col-form-label"><b>Product Type<span
+                      <label for="exampleInputEmail2" class="col-sm-2 col-form-label"><b id="status">Product Sku<span
                             class="mandatory-field">*</span></b></label>
-                      <div class="col-sm-9">
-                        <input type="text" class="form-control" name="product_type" id="add-product-type"
-                          placeholder="Product Type" required>
+                      <div class="col-sm-3">
+                        <input type="text" class="form-control" name="product_sku" id="add-product-sku"
+                          placeholder="Product Sku" required>
                       </div>
                     </div>
 
-                    <!-- <div class="form-group row">
-                        <label for="add-product-image" class="col-sm-3 col-form-label"><b>Product Image<span class="mandatory-field">*</span></b></label>
-                        <div class="col-sm-9">
-                          <input type="file" class="form-control-file" id="add-product-image" required>
-                        </div>
-                      </div> -->
 
                     <div class="form-group row">
                       <label for="exampleInputMobile" class="col-sm-3 col-form-label"><b>Product Image<span
-                            class="mandatory-field">*</span></b></label>
+                            class="mandatory-field"></span></b></label>
                       <div class="col-sm-9">
                         <input type="file" class="form-control-file custom-file-upload" name="product_img"
-                          id="add-product-image" placeholder="Product Image" required>
+                          id="add-product-image" placeholder="Product Image" >
                       </div>
                     </div>
+
+
                     <div class="form-group row">
-                      <label for="exampleInputPassword2" class="col-sm-3 col-form-label"><b>Price<span
-                            class="mandatory-field">*</span></b></label>
+                      <label for="exampleInputCategory" class="col-sm-3 col-form-label"><b
+                     >Category <span class="mandatory-field">*</span></b></label>
+
+                      <div class="col-sm-9">
+                      <select id="add-product-category" name="category_id" class="js-example-basic-single w-100 " required>
+                        <option value="">Select a category</option>
+                      </select>
+                    </div>
+                    </div>
+
+                    <div class="form-group row">
+                    <label  for="exampleInputEmail2" class="col-sm-3 col-form-label"><b>Sub Category<span
+                      class="mandatory-field">*</span></b></label>
                       <div class="col-sm-4">
+                      <select class="js-example-basic-multiple w-100" placeholder="Select the SubCategory" multiple="multiple" name="sub_category[]" id="add-product-subcategory" required >
+                        <option value="">Select the User</option>
+                
+                      </select>
+                    </div>
+                    <label for="exampleInputPassword2" class="col-sm-2 col-form-label"><b id="status">Price<span
+                            class="mandatory-field">*</span></b></label>
+                      <div class="col-sm-3">
                         <input type="text" class="form-control" name="price" id="add-product-price" placeholder="Price"
                           required>
                       </div>
-                      <label for="exampleInputConfirmPassword2" class="col-sm-2 ms-10px col-form-label"><b
+                      </div>
+
+
+                      <div class="form-group row">
+
+                      <label for="exampleInputPassword2" class="col-sm-3 col-form-label"><b>Quantity<span
+                            class="mandatory-field">*</span></b></label>
+                      <div class="col-sm-4">
+                        <input type="text" class="form-control" name="quantity" id="add-product-quantity" placeholder="Quantity"
+                          required>
+                      </div>
+
+                      <label for="exampleInputConfirmPassword2" class="col-sm-2  col-form-label"><b
                           id="status">Status<span class="mandatory-field">*</span></b></label>
                       <div class="col-sm-3">
                         <select id="add-product-status" name="status" class="form-control product-status" required>
                           <option value="">Select a status</option>
-                          <option value="1">Active</option>
-                          <option value="2">InActive</option>
+                          <option value="1">In Stock</option>
+                          <option value="2">Out of Stock</option>
                         </select>
                       </div>
                     </div>
                     <div class="form-group row">
                       <label for="exampleInputConfirmPassword2" class="col-sm-3 col-form-label"><b>Description<span
-                            class="mandatory-field">*</span></b></label>
+                            class="mandatory-field"></span></b></label>
                       <div class="col-sm-9">
                         <textarea class="form-control" name="description" id="add-product-description"
-                          placeholder="Description" required></textarea>
+                          placeholder="Description" ></textarea>
                       </div>
                     </div>
                     <button type="submit" class="btn btn-primary me-2 btn-submit" id="addsubmit">Submit</button>
@@ -394,13 +423,90 @@
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 <script>
   $(document).ready(function () {
+
+
+/*********************************************category details********************************** */
+function fetchCategoriesData() {
+         
+         var apikey = 'xgGEHQTWl89KsFPHojMIw7Q3YbACaJwF';
+         var pkey = '3fdee6c11c06f9a43fe21eefcdfb5bd7';
+       var apiurl = 'https://dev-aniwatch.gateway.apiplatform.io/v1/category'; 
+       $.ajax({
+           type: 'GET',
+           url: apiurl,
+           dataType: 'json',
+           contentType: 'application/json',
+           headers: {
+             'apikey': apikey,
+             'pkey': pkey,
+           },
+           success: function(data) {
+               
+               $('#add-product-category').empty();
+               
+               $('#add-product-category').append('<option value="">Select a category</option>');
+              
+               data.forEach(function(category) {
+                   $('#add-product-category').append('<option value="' + category.category_name + '">' + category.category_name + '</option>');
+               });
+           },
+           error: function(xhr, status, error) {
+               console.error('Error fetching categories:', error);
+           }
+       });
+   }
+   fetchCategoriesData();
+
+
+/*********************************************End category details********************************** */
+   
+
+/*********************************************sub category details********************************** */
+
+function fetchSubCategoriesData() {
+         
+         var apikey = 'xgGEHQTWl89KsFPHojMIw7Q3YbACaJwF';
+         var pkey = '3fdee6c11c06f9a43fe21eefcdfb5bd7';
+       var apiurl = 'https://dev-aniwatch.gateway.apiplatform.io/v1/subcategory'; 
+       $.ajax({
+           type: 'GET',
+           url: apiurl,
+           dataType: 'json',
+           contentType: 'application/json',
+           headers: {
+             'apikey': apikey,
+             'pkey': pkey,
+           },
+           success: function(data) {
+               
+               $('#add-product-subcategory').empty();
+               
+               $('#add-product-subcategory').append('<option value="">Select a Sub category</option>');
+              
+               data.forEach(function(subcategory) {
+                   $('#add-product-subcategory').append('<option value="' + subcategory.sub_category_name + '">' + subcategory.sub_category_name + '</option>');
+               });
+           },
+           error: function(xhr, status, error) {
+               console.error('Error fetching categories:', error);
+           }
+       });
+   }
+   fetchSubCategoriesData();
+
+/*********************************************End sub category details********************************** */
+
     $('#add-product').on('submit', function (e) {
       e.preventDefault();
 
       var formData = {
         product_name: $('#add-product-name').val(),
-        product_type: $('#add-product-type').val(),
+        product_sku: $('#add-product-sku').val(),
+        category_id: $('#add-product-category').val(),
+        // sub_category: $('#add-product-subcategory').val(),
+        sub_category:$('#add-product-subcategory').val(),
         price: parseInt($('#add-product-price').val()),
+        quantity: parseInt($('#add-product-quantity').val()),
         status: parseInt($('#add-product-status').val()),
         description: $('#add-product-description').val()
       };
@@ -417,6 +523,8 @@
         var pkey = '3fdee6c11c06f9a43fe21eefcdfb5bd7';
         var apiurl = 'https://dev-aniwatch.gateway.apiplatform.io/v1/products';
         console.log(formData)
+        var result = JSON.stringify(formData);
+        console.log(result);
         $.ajax({
           url: apiurl,
           type: 'POST',
@@ -461,7 +569,77 @@
 
 
       } else {
-        alert('Please select a file.');
+
+        var formData = {
+        product_name: $('#add-product-name').val(),
+        product_sku: $('#add-product-sku').val(),
+        category_id: $('#add-product-category').val(),
+        sub_category: $('#add-product-subcategory').val(),
+        // sub_category: {
+        //   "sub_category_name": $('#add-product-subcategory').val(),
+
+        // },
+        price: parseInt($('#add-product-price').val()),
+        quantity: parseInt($('#add-product-quantity').val()),
+        status: parseInt($('#add-product-status').val()),
+        description: $('#add-product-description').val()
+      };
+
+      // var fileInput = $('#add-product-image')[0];
+      // if (fileInput.files.length > 0) {
+      //   var file = fileInput.files[0];
+      //   var filename = file.name;
+
+      //   formData.product_img = filename;
+      //   console.log(formData.product_img)
+
+        var apikey = 'xgGEHQTWl89KsFPHojMIw7Q3YbACaJwF';
+        var pkey = '3fdee6c11c06f9a43fe21eefcdfb5bd7';
+        var apiurl = 'https://dev-aniwatch.gateway.apiplatform.io/v1/products';
+        console.log(formData)
+        var result = JSON.stringify(formData);
+        console.log(result);
+        $.ajax({
+          url: apiurl,
+          type: 'POST',
+          headers: {
+            'apikey': apikey,
+            'pkey': pkey,
+            'Content-Type': 'application/json'
+          },
+          data: JSON.stringify(formData),
+          success: function (response) {
+            Swal.fire({
+              position: "top-end",
+              icon: "success",
+              title: "Product added successfully...!",
+              showConfirmButton: false,
+              timer: 1500
+
+            });
+
+            // console.log(data);
+            // alert('Update successful!');
+            setTimeout(function () {
+              window.location = "/StoreManagement/dist/pages/tables/products-table.php";
+            }, 2000);
+
+          },
+          error: function (xhr, status, error) {
+
+            Swal.fire(
+              'Error!',
+              'Failed to add user. Please try again.',
+              'error'
+            );
+            // try {
+            //     let response = JSON.parse(xhr.responseText);
+            //     alert('Error adding product: ' + response.message);
+            // } catch (e) {
+            //     alert('Error adding product: ' + xhr.responseText);
+            // }
+          }
+        });
       }
     });
   });
