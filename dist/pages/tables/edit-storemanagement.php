@@ -18,51 +18,75 @@
 
   <!-- endinject -->
   <!-- Plugin css for this page -->
+  <link rel="stylesheet" href="../../assets/vendors/select2/select2.min.css">
+  <link rel="stylesheet" href="../../assets/vendors/select2-bootstrap-theme/select2-bootstrap.min.css">
   <!-- End plugin css for this page -->
   <!-- inject:css -->
   <link rel="stylesheet" href="../../assets/css/style.css">
   <!-- endinject -->
   <link rel="shortcut icon" href="../../assets/images/favicon.png" />
   <style>
-    .icon-button {
-      cursor: pointer;
-      padding: 10px;
-      border: 2px solid transparent;
-      border-radius: 5px;
+    #addsubmit {
+      width:10%;
+      margin-left: 42%;
+      background-color: #f2a654;
+    }
+
+    #add-table {
+      margin-left: 15%;
+    }
+
+    .mandatory-field {
+      color: red;
       font-size: 20px;
-      margin-right: 20px;
     }
 
-    .icon-button:hover {
-      background-color: #f5f5f5;
-    }
-
-    .icon-button:last-child {
-      margin-right: 0;
-    }
-
-    #action {
-      margin-left: 10px !important;
-
-    }
-
-    .btn-add-user {
+    .btn-submit {
       transform: translateY(0);
-      /* Initial position */
       transition: transform 0.3s ease, box-shadow 0.3s ease;
-      /* Transition effect for transform and box-shadow */
-      box-shadow: 0 0 10px rgba(0, 123, 255, 0);
-      /*Initial box-shadow (no glow)*/
-      background-color: #f2a654;
     }
 
-    .btn-add-user:hover {
+    .btn-submit:hover {
       transform: translateY(-3px);
-      /* Move button up on hover */
-      box-shadow: 0 0 30px#e0aa6f;
-      /* Glow effect on hover */
+      box-shadow: 0 0 20px #f2a654;
       border-color: #f2a654;
+    }
+
+    .btn-cancel {
+      width:10%;
+      transform: translateY(0);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .btn-cancel:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 0 20px red;
+    }
+
+    input[type=file]::file-selector-button {
+      border: 2px solid #faf3f3;
+      padding: .4em .5em;
+      border-radius: .4em;
       background-color: #f2a654;
+      /* transition: 1s; */
+      transition: background-color 0.3s, border-color 0.3s, color 0.3s;
+      color: #fff;
+    }
+
+    input[type=file]::file-selector-button:hover {
+      background-color: #ff8400;
+      border: 2px solid #ff8400;
+      border-color: #ff8400;
+    }
+
+    .custom-file-upload {
+      border: 1px solid rgb(230, 226, 226);
+      width: 100%;
+      border-radius: .2em;
+    }
+
+    #status {
+      margin-left: 39%;
     }
   </style>
 </head>
@@ -80,7 +104,6 @@
         <div>
           <a class="navbar-brand brand-logo" href="../../index.html">
             <img src="../../assets/images/store-management-logo-1.svg" alt="logo" />
-
           </a>
           <a class="navbar-brand brand-logo-mini" href="../../index.html">
             <img src="../../assets/images/logo-mini.svg" alt="logo" />
@@ -88,12 +111,8 @@
         </div>
       </div>
       <div class="navbar-menu-wrapper d-flex align-items-top">
-        <h3 class="welcome-sub-text" style="text-decoration:underline;"><b>CATEGORY LIST</b> </h3>
+        <h3 class="welcome-sub-text" style="text-decoration:underline;"><b>EDIT STORE MANAGEMENT</b> </h3>
         <hr>
-
-
-        <!-- <a href="/StoreManagement/dist/pages/tables/add-users.php"<button class="btn btn-primary" >Add User</button></a> -->
-
 
         <!-- <ul class="navbar-nav">
             <li class="nav-item fw-semibold d-none d-lg-block ms-0">
@@ -249,11 +268,6 @@
                 <a class="dropdown-item" href="/StoreManagement/home/index.html"><i class="dropdown-item-icon mdi mdi-power text-primary me-2"></i>Sign Out</a>
               </div>
             </li> -->
-          
-          <div class="ms-auto">
-            <a href="/StoreManagement/dist/pages/tables/add-category.php" class="btn btn-primary btn-add-user"> <i class="menu-icon fa fa-plus"></i>Add
-              Category</a>
-          </div>
         </ul>
         <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button"
           data-bs-toggle="offcanvas">
@@ -264,122 +278,130 @@
     <!-- partial -->
     <div class="container-fluid page-body-wrapper">
       <!-- partial:../../partials/_sidebar.html -->
+
       
-     <!-- /*************************************************************************SIDENAVBAR************************************************************* */ -->
+    <!-- /*************************************************************************SIDENAVBAR************************************************************* */ -->
 
-   
-     <nav class="sidebar sidebar-offcanvas" id="sidebar">
-      <ul class="nav">
-        <li class="nav-item">
-          <a class="nav-link" href="../../index.html">
-            <i class="mdi mdi-grid-large menu-icon"></i>
-            <span class="menu-title">Dashboard</span>
-          </a>
-        </li>
-
-        <li class="nav-item nav-category">User & Product Details</li>
-
-        <li class="nav-item">
-          <a class="nav-link" href="/StoreManagement/dist/pages/tables/users-table.php">
-            <i class="menu-icon fa fa-users"></i>
-            <span class="menu-title">Users</span>
-          </a>
-        </li>
-
-        <li class="nav-item">
-          <a class="nav-link" href="/StoreManagement/dist/pages/tables/category-table.html">
-            <i class="menu-icon fa fa-cubes"></i>
-            <span class="menu-title">Category</span>
-          </a>
-        </li>
-
-        <!-- <li class="nav-item">
-          <a class="nav-link" href="/StoreManagement/dist/pages/tables/sub-category-table.php">
-            <i class="menu-icon fa fa-sitemap"></i>
-            <span class="menu-title">Sub Category</span>
-          </a>
-        </li> -->
-        <li class="nav-item">
-          <a class="nav-link" href="/StoreManagement/dist/pages/tables/sub-category-table.php">
-            <i class="menu-icon fa fa-sitemap"></i>
-            <span class="menu-title">Sub Category</span>
-          </a>
-        </li>
-
-
-        <li class="nav-item">
-          <a class="nav-link" href="/StoreManagement/dist/pages/tables/products-table.php">
-            <i class="menu-icon fa fa-cube"></i>
-            <span class="menu-title">Products</span>
-          </a>
-        </li>
-
-        <li class="nav-item">
-          <a class="nav-link" href="/StoreManagement/dist/pages/tables/stores-table.php">
-            <i class="menu-icon fa fa-codepen"></i>
-            <span class="menu-title">Store</span>
-          </a>
-        </li>
-
-        <li class="nav-item">
-          <a class="nav-link" href="/StoreManagement/dist/pages/tables/StoreManagement-table.php">
-            <i class="menu-icon fa fa-list-ul"></i>
-            <span class="menu-title">Store Management</span>
-          </a>
-        </li>
-        
-        
-        <li class="nav-item">
-          <a class="nav-link" href=" /StoreManagement/home/index.html">
-            <i class="menu-icon fa fa-sign-out"></i>
-            <span class="menu-title">Logout</span>
-          </a>
-        </li>
-
-      </ul>
-    </nav>
-
-    
+   <?php include "sidenavbar.php";?>
 
 
    <!-- /*************************************************************************SIDENAVBAR************************************************************* */ -->
    
       <!-- partial -->
       <div class="main-panel">
-        <div class="content-wrapper">
-
-          <!-- <a href="#" class="btn btn-outline-primary " role="button" aria-pressed="true"><b>Add User</b></a> -->
+        <div class="content-wrapper" id="add-table">
           <div class="row">
-            <div class="col-lg-12 grid-margin stretch-card">
+            <div class="col-md-8 grid-margin stretch-card">
               <div class="card">
                 <div class="card-body">
-                  <h3 class="card-title"><b>CATEGORY LIST</b></h3>
-                  <div class="table-responsive">
-                    <table class="table table-hover" id="category-table">
-                      <thead>
-                        <tr>
-                          <th>#</th>
-                          <th>Category Name</th>
-                          <th>Category Code</th>
-                          <th>Category Image</th>
-                          <!-- <th>Price</th> -->
-                          <th>Status</th>
-                          <th>Description</th>
-                          <th>Action</th>
-                        </tr>
-                      </thead>
-                      <tbody>
+                  <h4 class="card-title">EDIT STORE MANAGEMENT</h4>
+                  <!-- <p class="card-description"> Horizontal form layout </p> -->
+                  <form class="forms-sample" id="edit-storemanagement">
 
-                      </tbody>
-                    </table>
-                  </div>
+
+                  <div class="form-group row">
+                    <label  for="exampleInputEmail2" class="col-sm-3 col-form-label"><b>Store Name<span
+                      class="mandatory-field">*</span></b></label>
+                      <div class="col-sm-7">
+                      <select class="js-example-basic-multiple w-100"  multiple="multiple" name="storeName[]" id="edit-storeName" required >
+                        <option value="">Select the Store</option>
+                
+                      </select>
+                    </div>
+                      </div>
+
+                      <div class="form-group row">
+                    <label  for="exampleInputEmail2" class="col-sm-3 col-form-label"><b>Store Manager<span
+                      class="mandatory-field">*</span></b></label>
+                      <div class="col-sm-7">
+                      <select class="js-example-basic-multiple w-100"  multiple="multiple" name="storeManager[]" id="edit-storeManager" required >
+                        <option value="">Select the Manager</option>
+                
+                      </select>
+                    </div>
+                      </div>
+
+                   
+                      <div class="form-group row">
+                           <label  for="exampleInputEmail2" class="col-sm-3 col-form-label"><b>Product<span
+                            class="mandatory-field">*</span></b></label>
+                         <div class="col-sm-7">
+                            <select class="js-example-basic-multiple w-100"  multiple="multiple" name="product[]" id="edit-product" required >
+                              <option value=" ">Select the Product</option>
+                             
+                            </select>
+                         </div>
+                      </div>
+
+                      <div class="form-group row">
+                    <label  for="exampleInputEmail2" class="col-sm-3 col-form-label"><b>Category<span
+                      class="mandatory-field">*</span></b></label>
+                      <div class="col-sm-7">
+                      <select class="js-example-basic-multiple w-100"  multiple="multiple" name="category[]" id="edit-category" required >
+                        <option value=" ">Select the Category</option>
+                
+                      </select>
+                    </div>
+                      </div>
+
+                      <div class="form-group row">
+                    <label  for="exampleInputEmail2" class="col-sm-3 col-form-label"><b>Sub Category<span
+                      class="mandatory-field">*</span></b></label>
+                      <div class="col-sm-7">
+                      <select class="js-example-basic-multiple w-100"  multiple="multiple" name="subcategory[]" id="edit-subcategory" required >
+                        <option value="">Select the SubCategory</option>
+                
+                      </select>
+                    </div>
+                      </div>
+
+                      <div class="form-group row">
+
+                      <label for="exampleInputPassword2" class="col-sm-3 col-form-label"><b>Quantity<span
+                            class="mandatory-field">*</span></b></label>
+                      <div class="col-sm-3">
+                        <input type="text" class="form-control" name="quantity" id="edit-quantity" placeholder="Quantity"
+                          required>
+                      </div>
+
+                      <label for="exampleInputConfirmPassword2" class="col-sm-1  col-form-label"><b
+                          >Status<span class="mandatory-field">*</span></b></label>
+                      <div class="col-sm-3">
+                        <select id="edit-status" name="status" class="form-control product-status" required>
+                          <option value="">Select a status</option>
+                          <option value="1"><b>Pending</b></option>
+                          <option value="2"><b>In Progress</b></option>
+                          <option value="3"><b>Sent</b></option>
+                          <option value="4"><b>Received</b></option>
+                        </select>
+                      </div>
+                    </div>
+
+                    <div class="form-group row">
+                 
+                    <label for="exampleInputConfirmPassword2" class="col-sm-3  col-form-label"><b
+                    >Date<span class="mandatory-field">*</span></b></label>
+                    <div class="col-sm-3">
+                    <div id="datepicker-popup" class="input-group date datepicker navbar-date-picker">
+                <span class="input-group-addon input-group-prepend border-right">
+                  <span class="icon-calendar input-group-text calendar-icon"></span>
+                </span>
+                <input type="text" class="form-control" name="date" id="edit-date">
+              </div>
+              </div>
+              </div>
+
+                    <button type="submit" class="btn btn-primary me-2 btn-submit" id="addsubmit">Submit</button>
+                    <a href="/StoreManagement/dist/pages/tables/storemanagement-table.php" <button
+                      class="btn btn-danger btn-cancel">Cancel</button></a>
+                  </form>
                 </div>
               </div>
             </div>
-
           </div>
         </div>
         <!-- content-wrapper ends -->
+        <!-- partial:../../partials/_footer.html -->
 
         <!-- partial -->
       </div>
@@ -393,6 +415,8 @@
   <script src="../../assets/vendors/bootstrap-datepicker/bootstrap-datepicker.min.js"></script>
   <!-- endinject -->
   <!-- Plugin js for this page -->
+  <script src="../../assets/vendors/typeahead.js/typeahead.bundle.min.js"></script>
+  <script src="../../assets/vendors/select2/select2.min.js"></script>
   <!-- End plugin js for this page -->
   <!-- inject:js -->
   <script src="../../assets/js/off-canvas.js"></script>
@@ -402,196 +426,150 @@
   <script src="../../assets/js/todolist.js"></script>
   <!-- endinject -->
   <!-- Custom js for this page-->
+  <script src="../../assets/js/file-upload.js"></script>
+  <script src="../../assets/js/typeahead.js"></script>
+  <script src="../../assets/js/select2.js"></script>
   <!-- End custom js for this page-->
 </body>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
-<script src="https://cdn.datatables.net/1.11.4/js/jquery.dataTables.min.js"></script>
-<link rel="stylesheet" href="https://cdn.datatables.net/1.11.4/css/jquery.dataTables.min.css">
+<script src="../../assets/js/storemanagement.js"></script>
 <script>
   $(document).ready(function () {
-
-    // var table = $('#users-table').DataTable({
-    //   "paging": true, // Enable pagination
-    // "lengthChange": true, // Enable per-page select box
-    // "pageLength": 10, // Initial rows per page
-    // "searching": true, // Enable search box
-    // "ordering": true, // Enable column sorting
-    // "info": true, // Enable table information display
-    // "autoWidth": false, // Disable auto-width calculations
-    // "responsive": true, // Enable responsive design
-    // "language": {
-    //   "paginate": {
-    //     "first": '<i class="mdi mdi-chevron-double-left"></i>',
-    //     "previous": '<i class="mdi mdi-chevron-left"></i>',
-    //     "next": '<i class="mdi mdi-chevron-right"></i>',
-    //     "last": '<i class="mdi mdi-chevron-double-right"></i>'
-    //   }
-    // }
-    //   });
+    
+    function getUrlParameter(id) {
+  name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
+  var regex = new RegExp('[\\?&]' + id + '=([^&#]*)');
+  var results = regex.exec(location.search);
+  return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
+}
 
 
-    var apikey = 'xgGEHQTWl89KsFPHojMIw7Q3YbACaJwF';
-    var pkey = '3fdee6c11c06f9a43fe21eefcdfb5bd7';
-    var apiurl = 'https://dev-aniwatch.gateway.apiplatform.io/v1/category';
+function fetchStoreManagementDetails(userId) {
 
-    $.ajax({
-      type: 'GET',
-      url: apiurl,
-      dataType: 'json',
-      contentType: 'application/json',
-      headers: {
-        'apikey': apikey,
-        'pkey': pkey,
-      },
-      success: function (data) {
-        console.log(data)
-        // Initialize DataTable with fetched data
-        var table = $('#category-table').DataTable({
-          "data": data,
-          "columns": [
-            {
-              "data": null, // Use null for an index column
-              "render": function (data, type, row, meta) {
-                return meta.row + 1; // meta.row provides the index
-                console.log(data);
-              }
-            },
+  var apikey = 'xgGEHQTWl89KsFPHojMIw7Q3YbACaJwF';
+  var pkey = '3fdee6c11c06f9a43fe21eefcdfb5bd7';
+  var apiurl = 'https://dev-aniwatch.gateway.apiplatform.io/v1/storemanagement/' + userId;
+
+  $.ajax({
+    type: 'GET',
+    url: apiurl,
+    dataType: 'json',
+    contentType: 'application/json',
+    headers: {
+      'apikey': apikey,
+      'pkey': pkey,
+    },
+    success: function (data) {
+      var storemanagement = data[0];
+    //   var result = JSON.stringify(storemanagement);
+    //   console.log(storemanagement);
+      
+ 
+      $('#edit-storeName').val(storemanagement.storeName);
+      var get_storename  = storemanagement.storeName;
+      var listed_storename=$('#edit-storeName').find('option:selected').val();
+    //   var get_result =  fetchingStoreDetails();
+      console.log(get_result);
+      return;
+// if()
+     
+      console.log(storemanagement.storeName)
+      return;
+      $('#edit-storeManager').val(storemanagement.storeManager);
+      $('#edit-product').val(storemanagement.product);
+      $('#edit-category').val(storemanagement.category);
+      $('#edit-subcategory').val(storemanagement.subcategory);
+      $('#edit-quantity').val(storemanagement.quantity);
+      $('#edit-status').val(storemanagement.status);
+      $('#edit-date').val(storemanagement.date);
+    },
+    error: function (xhr, status, error) {
+      console.error(xhr.responseText);
+    }
+  });
+}
+
+var userId = getUrlParameter('id');
+fetchStoreManagementDetails(userId);
 
 
-            { "data": "category_name" },
-            { "data": "category_code" },
-            { "data": "category_img",
-              "render": function(data){
-                if(data){
-                  var imagePath = '/StoreManagement/dist/assets/images/categoryImage/' + data ;
-                  return '<div class="row align-items-center"><div class="col-auto"><img src="' + imagePath + '" alt="Category Image" style="width: 70px; height:60px;"></div>><div class="col">'+ data +'</div></div>'; 
-                               
-                }else{
-                  return "N/A";
-                }
-              }
-            },
-            // { "data": "price" },
-            {
-              "data": "status",
-              "render": function (data) {
-                  var badge = data==1 ? 'badge badge-success' : 'badge badge-danger' ;
-                  var statusText = data == 1 ? 'In Stock' : 'Out of Stock' ;
+/*********************************************************/
+    fetchingStoreDetails();
+    fetchingUsersDetails();
+    fetchingProductDetails();
+    fetchCategoriesData();
+    fetchSubCategoriesData();
 
-                  return '<span class="'+ badge +'">'+ statusText +'</span>';
-                // switch (data) {
-                //   case 1:
-                //     return "Active";
-                //   case 2:
-                //     return "InActive";
-                //   default:
-                //     return "N/A";
-              
-              }
-            },
-            { "data": "description",
-              "render" : function(data){
-                var des = data ? data : 'N/A';
-                return des ;
-              }
-            },
-            {
-              "data": null,
-              "render": function (data, type, row) {
-                var editbutton = '<a href="/StoreManagement/dist/pages/tables/edit-category.php?id=' + row.id + '"><i class="fa fa-pencil-square-o icon-button" title="Click to Edit"></i></a>';
-                var deleteButton = '<a href="#" class="delete-button" data-id="' + row.id + '"><i class="fa fa-trash icon-button delete-button" title="Click to Delete"></i></a>';
-                // var addButton = '<a href="/StoreManagement/dist/pages/tables/add-users.php"><i class="fa fa-plus icon-button" title="Click to Add User"></i></a>';
-                return editbutton + ' | ' + deleteButton;
-              }
-            }
-          ],
-          "paging": true,
-          "lengthChange": true,
-          "pageLength": 10,
-          "searching": true,
-          "ordering": true,
-          "info": true,
-          "autoWidth": false,
-          "responsive": true,
-          "language": {
-            "paginate": {
-              "first": '<i class="mdi mdi-chevron-double-left"></i>',
-              "previous": '<i class="mdi mdi-chevron-left"></i>',
-              "next": '<i class="mdi mdi-chevron-right"></i>',
-              "last": '<i class="mdi mdi-chevron-double-right"></i>'
-            }
+            
+    $('#edit-storemanagement').on('submit', function (e) {
+      e.preventDefault();
+      var userId = getUrlParameter('id');
+      var formData = {
+        storeName: $('#edit-storeName').val(),
+        storeManager: $('#edit-storeManager').val(), 
+        product: $('#edit-product').val(),
+        category:$('#edit-category').val(),
+        subcategory:$('#edit-subcategory').val(),
+        quantity: parseInt($('#edit-quantity').val()),
+        status: parseInt($('#edit-status').val()),
+        date: $('#edit-date').val(),
+        
+      };
+
+        var apikey = 'xgGEHQTWl89KsFPHojMIw7Q3YbACaJwF';
+        var pkey = '3fdee6c11c06f9a43fe21eefcdfb5bd7';
+        var apiurl = 'https://dev-aniwatch.gateway.apiplatform.io/v1/storemanagement/' + userId;
+        console.log(formData)
+        var result = JSON.stringify(formData);
+        console.log(result);
+        $.ajax({
+          url: apiurl,
+          type: 'PUT',
+          headers: {
+            'apikey': apikey,
+            'pkey': pkey,
+            'Content-Type': 'application/json'
+          },
+          data: JSON.stringify(formData),
+          success: function (response) {
+            Swal.fire({
+              position: "top-end",
+              icon: "success",
+              title: "Updated Successfully...!",
+              showConfirmButton: false,
+              timer: 1500
+
+            });
+
+            // console.log(data);
+            // alert('Update successful!');
+            setTimeout(function () {
+              window.location = "/StoreManagement/dist/pages/tables/storemanagement-table.php";
+            }, 2000);
+
+          },
+          error: function (xhr, status, error) {
+
+            Swal.fire(
+              'Error!',
+              'Failed. Please try again.',
+              'error'
+            );
+            // try {
+            //     let response = JSON.parse(xhr.responseText);
+            //     alert('Error adding product: ' + response.message);
+            // } catch (e) {
+            //     alert('Error adding product: ' + xhr.responseText);
+            // }
           }
         });
 
-        // for (i = 0; i < data.length; i++) {
-        //   var res = data[i];
-        //   var index = data.length - i;
-        //   var editbutton = '<a href="/StoreManagement/dist/pages/tables/edit-users.php?id='+ res.id +'"><i class="fa fa-pencil-square-o icon-button" title="Click to Edit"></i></a>';
-        //   var deletebutton = '<a href="#" class="delete-button" data-id="'+ res.id +'"><i class="fa fa-trash icon-button delete-button"  title="Click to Delete"></i></a>';
-        //   var adduser = '<a href="/StoreManagement/dist/pages/tables/add-users.php"><i class="fa fa-plus icon-button" title="Click to Add User"></i></a>';
 
-        //   var buttons = editbutton + deletebutton + adduser;
-        // var tableData = '<tr><td><b>' + index + '</b></td><td>' + res.name + '</td><td>' + res.email + '</td><td>' + res.password + '</td><td>' + res.designation + '</td><td>' + res.role + '</td><td>'+ buttons +'</td></tr>';
-        // $('#users-table tbody').prepend(tableData);
-        // }
-      },
-      error: function (xhr, status, error) {
-        console.error(xhr.responseText);
-        // alert('Signup failed. Please check the console for details.');
-      }
+  
     });
-
-    $(document).on('click', '.delete-button', function (e) {
-      e.preventDefault();
-      var userId = $(this).data('id');
-
-      Swal.fire({
-        title: 'Are you sure want to delete this Category?',
-        // text: "You won't be able to revert this!",
-        icon: 'warning',
-        showCancelButton: true,
-        confirmButtonColor: '#3085d6',
-        cancelButtonColor: '#d33',
-        confirmButtonText: 'Yes!',
-        cancelButtonText: 'No',
-
-      }).then((result) => {
-        if (result.isConfirmed) {
-
-          $.ajax({
-            type: 'DELETE',
-            url: apiurl + '/' + userId,
-            headers: {
-              'apikey': apikey,
-              'pkey': pkey,
-            },
-            success: function (data) {
-
-              Swal.fire(
-                'Deleted!',
-                'Your Category has been deleted.',
-                'success'
-              ).then((result) => {
-
-                location.reload();
-              });
-            },
-            error: function (xhr, status, error) {
-              console.error(xhr.responseText);
-
-              Swal.fire(
-                'Error!',
-                'Failed to Category user. Please try again.',
-                'error'
-              );
-            }
-          });
-        }
-      });
-    });
-
   });
+
 </script>
 
 </html>

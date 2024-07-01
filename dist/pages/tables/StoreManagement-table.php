@@ -88,7 +88,7 @@
         </div>
       </div>
       <div class="navbar-menu-wrapper d-flex align-items-top">
-        <h3 class="welcome-sub-text" style="text-decoration:underline;"><b>CATEGORY LIST</b> </h3>
+        <h3 class="welcome-sub-text" style="text-decoration:underline;"><b>STORE MANAGEMENT LIST</b> </h3>
         <hr>
 
 
@@ -249,10 +249,10 @@
                 <a class="dropdown-item" href="/StoreManagement/home/index.html"><i class="dropdown-item-icon mdi mdi-power text-primary me-2"></i>Sign Out</a>
               </div>
             </li> -->
-          
+
           <div class="ms-auto">
-            <a href="/StoreManagement/dist/pages/tables/add-category.php" class="btn btn-primary btn-add-user"> <i class="menu-icon fa fa-plus"></i>Add
-              Category</a>
+            <a href="/StoreManagement/dist/pages/tables/add-storemanagement.php" class="btn btn-primary btn-add-user"><i class="menu-icon fa fa-plus"></i>
+            <b>  Manage</b></a>
           </div>
         </ul>
         <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button"
@@ -267,79 +267,7 @@
       
      <!-- /*************************************************************************SIDENAVBAR************************************************************* */ -->
 
-   
-     <nav class="sidebar sidebar-offcanvas" id="sidebar">
-      <ul class="nav">
-        <li class="nav-item">
-          <a class="nav-link" href="../../index.html">
-            <i class="mdi mdi-grid-large menu-icon"></i>
-            <span class="menu-title">Dashboard</span>
-          </a>
-        </li>
-
-        <li class="nav-item nav-category">User & Product Details</li>
-
-        <li class="nav-item">
-          <a class="nav-link" href="/StoreManagement/dist/pages/tables/users-table.php">
-            <i class="menu-icon fa fa-users"></i>
-            <span class="menu-title">Users</span>
-          </a>
-        </li>
-
-        <li class="nav-item">
-          <a class="nav-link" href="/StoreManagement/dist/pages/tables/category-table.html">
-            <i class="menu-icon fa fa-cubes"></i>
-            <span class="menu-title">Category</span>
-          </a>
-        </li>
-
-        <!-- <li class="nav-item">
-          <a class="nav-link" href="/StoreManagement/dist/pages/tables/sub-category-table.php">
-            <i class="menu-icon fa fa-sitemap"></i>
-            <span class="menu-title">Sub Category</span>
-          </a>
-        </li> -->
-        <li class="nav-item">
-          <a class="nav-link" href="/StoreManagement/dist/pages/tables/sub-category-table.php">
-            <i class="menu-icon fa fa-sitemap"></i>
-            <span class="menu-title">Sub Category</span>
-          </a>
-        </li>
-
-
-        <li class="nav-item">
-          <a class="nav-link" href="/StoreManagement/dist/pages/tables/products-table.php">
-            <i class="menu-icon fa fa-cube"></i>
-            <span class="menu-title">Products</span>
-          </a>
-        </li>
-
-        <li class="nav-item">
-          <a class="nav-link" href="/StoreManagement/dist/pages/tables/stores-table.php">
-            <i class="menu-icon fa fa-codepen"></i>
-            <span class="menu-title">Store</span>
-          </a>
-        </li>
-
-        <li class="nav-item">
-          <a class="nav-link" href="/StoreManagement/dist/pages/tables/StoreManagement-table.php">
-            <i class="menu-icon fa fa-list-ul"></i>
-            <span class="menu-title">Store Management</span>
-          </a>
-        </li>
-        
-        
-        <li class="nav-item">
-          <a class="nav-link" href=" /StoreManagement/home/index.html">
-            <i class="menu-icon fa fa-sign-out"></i>
-            <span class="menu-title">Logout</span>
-          </a>
-        </li>
-
-      </ul>
-    </nav>
-
-    
+   <?php include "sidenavbar.php";?>
 
 
    <!-- /*************************************************************************SIDENAVBAR************************************************************* */ -->
@@ -353,18 +281,21 @@
             <div class="col-lg-12 grid-margin stretch-card">
               <div class="card">
                 <div class="card-body">
-                  <h3 class="card-title"><b>CATEGORY LIST</b></h3>
+                  <h3 class="card-title"><b>STORE MANAGEMENT LIST</b></h3>
                   <div class="table-responsive">
-                    <table class="table table-hover" id="category-table">
+                    <table class="table table-hover" id="storemanagement-table">
                       <thead>
                         <tr>
                           <th>#</th>
-                          <th>Category Name</th>
-                          <th>Category Code</th>
-                          <th>Category Image</th>
+                          <th>Store Name</th>
+                          <th>Store Manager</th>
+                          <th>Product</th>
+                          <th>Category</th>
+                          <th>Sub Category </th>
                           <!-- <th>Price</th> -->
+                          <th>Quantity</th>
                           <th>Status</th>
-                          <th>Description</th>
+                          <th>Date</th>
                           <th>Action</th>
                         </tr>
                       </thead>
@@ -433,7 +364,7 @@
 
     var apikey = 'xgGEHQTWl89KsFPHojMIw7Q3YbACaJwF';
     var pkey = '3fdee6c11c06f9a43fe21eefcdfb5bd7';
-    var apiurl = 'https://dev-aniwatch.gateway.apiplatform.io/v1/category';
+    var apiurl = 'https://dev-aniwatch.gateway.apiplatform.io/v1/storemanagement';
 
     $.ajax({
       type: 'GET',
@@ -447,7 +378,7 @@
       success: function (data) {
         console.log(data)
         // Initialize DataTable with fetched data
-        var table = $('#category-table').DataTable({
+        var table = $('#storemanagement-table').DataTable({
           "data": data,
           "columns": [
             {
@@ -459,50 +390,66 @@
             },
 
 
-            { "data": "category_name" },
-            { "data": "category_code" },
-            { "data": "category_img",
-              "render": function(data){
-                if(data){
-                  var imagePath = '/StoreManagement/dist/assets/images/categoryImage/' + data ;
-                  return '<div class="row align-items-center"><div class="col-auto"><img src="' + imagePath + '" alt="Category Image" style="width: 70px; height:60px;"></div>><div class="col">'+ data +'</div></div>'; 
-                               
-                }else{
-                  return "N/A";
-                }
-              }
-            },
+            { "data": "storeName" },
+            { "data": "storeManager" },
+            // { "data": "product_img",
+            //   "render": function(data){
+            //     if(data){
+            //      var imagePath ='/StoreManagement/dist/assets/images/productImage/' + data ;
+
+            //       return '<div class="row align-items-center"><div class="col-auto"><img src="'+ imagePath +'" alt="Product Image" style="width=100px; height=100px;display: flex; align-items: center;" class="img-fluid"></div>><div class="col">'+ data +'</div></div> ';
+                  
+            //     }else{
+            //       return "N/A";
+            //     }
+            //   }
+            //  },
+             { "data": "product" },
+             { "data": "category" },
+             { "data": "subcategory" },
+            //  { "data": "quantitiy",
+            //   "render" : function(data){
+            //     var res = data ? data : 'N/A';
+            //     return res;
+            //   }
+            //  },
             // { "data": "price" },
+            { "data": "quantity" },
             {
               "data": "status",
               "render": function (data) {
-                  var badge = data==1 ? 'badge badge-success' : 'badge badge-danger' ;
-                  var statusText = data == 1 ? 'In Stock' : 'Out of Stock' ;
-
-                  return '<span class="'+ badge +'">'+ statusText +'</span>';
-                // switch (data) {
-                //   case 1:
-                //     return "Active";
-                //   case 2:
-                //     return "InActive";
-                //   default:
-                //     return "N/A";
-              
+                      //  var badge = data == 1 ? 'badge badge-success' : 'badge badge-danger' ;
+                      //  var statusText = data == 1 ? 'In Stock' : 'Out of Stock' ;
+                      //  return '<span class="'+ badge +'">'+ statusText +'</span>'
+                switch (data) {
+                    case 1:
+                      return  '<span class="badge badge-danger"><b>Pending</b></Span>';
+                    
+                    case 2:
+                      return  '<span class="badge badge-info"><b>In Progress</b></Span>';
+                      case 3:
+                        return '<span class="badge badge-success"><b>Sent</b></Span>';
+                      case 4:
+                        return  '<span class="badge badge-primary"><b>Received</b></Span>';
+                  default:
+                    return "N/A";
+                }
               }
             },
-            { "data": "description",
-              "render" : function(data){
-                var des = data ? data : 'N/A';
-                return des ;
-              }
-            },
+            // { "data": "description",
+            //   "render" : function(data){
+            //     var res = data ? data : 'N/A';
+            //     return res ;
+            //   }
+            //  },
+            {"data":"date"},
             {
               "data": null,
               "render": function (data, type, row) {
-                var editbutton = '<a href="/StoreManagement/dist/pages/tables/edit-category.php?id=' + row.id + '"><i class="fa fa-pencil-square-o icon-button" title="Click to Edit"></i></a>';
+                var editUrl = '<a href="/StoreManagement/dist/pages/tables/edit-storemanagement.php?id=' + row.id + '"><i class="fa fa-pencil-square-o icon-button" title="Click to Edit"></i></a>';
                 var deleteButton = '<a href="#" class="delete-button" data-id="' + row.id + '"><i class="fa fa-trash icon-button delete-button" title="Click to Delete"></i></a>';
                 // var addButton = '<a href="/StoreManagement/dist/pages/tables/add-users.php"><i class="fa fa-plus icon-button" title="Click to Add User"></i></a>';
-                return editbutton + ' | ' + deleteButton;
+                return editUrl + ' | ' + deleteButton;
               }
             }
           ],
@@ -513,7 +460,7 @@
           "ordering": true,
           "info": true,
           "autoWidth": false,
-          "responsive": true,
+          "responsive": true, 
           "language": {
             "paginate": {
               "first": '<i class="mdi mdi-chevron-double-left"></i>',
@@ -547,7 +494,7 @@
       var userId = $(this).data('id');
 
       Swal.fire({
-        title: 'Are you sure want to delete this Category?',
+        title: 'Are you sure want to delete this Product?',
         // text: "You won't be able to revert this!",
         icon: 'warning',
         showCancelButton: true,
@@ -570,7 +517,7 @@
 
               Swal.fire(
                 'Deleted!',
-                'Your Category has been deleted.',
+                'Your Product has been deleted.',
                 'success'
               ).then((result) => {
 
@@ -582,7 +529,7 @@
 
               Swal.fire(
                 'Error!',
-                'Failed to Category user. Please try again.',
+                'Failed to Product user. Please try again.',
                 'error'
               );
             }
