@@ -61,8 +61,12 @@
       /* Move button up on hover */
       box-shadow: 0 0 30px#e0aa6f;
       /* Glow effect on hover */
-      border-color: #f2a654;
+      border-color: #fff;
+      border:2px solid;
       background-color: #f2a654;
+    }
+    #manage{
+      font-size:initial;
     }
   </style>
 </head>
@@ -252,7 +256,7 @@
 
           <div class="ms-auto">
             <a href="/StoreManagement/dist/pages/tables/add-storemanagement.php" class="btn btn-primary btn-add-user"><i class="menu-icon fa fa-plus"></i>
-            <b>  Manage</b></a>
+            <b id="manage">  Manage</b></a>
           </div>
         </ul>
         <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button"
@@ -339,27 +343,13 @@
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 <script src="https://cdn.datatables.net/1.11.4/js/jquery.dataTables.min.js"></script>
 <link rel="stylesheet" href="https://cdn.datatables.net/1.11.4/css/jquery.dataTables.min.css">
+<script src="https://cdn.datatables.net/buttons/2.1.0/js/dataTables.buttons.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/2.1.0/js/buttons.html5.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/2.1.0/js/buttons.print.min.js"></script>
 <script>
   $(document).ready(function () {
 
-    // var table = $('#users-table').DataTable({
-    //   "paging": true, // Enable pagination
-    // "lengthChange": true, // Enable per-page select box
-    // "pageLength": 10, // Initial rows per page
-    // "searching": true, // Enable search box
-    // "ordering": true, // Enable column sorting
-    // "info": true, // Enable table information display
-    // "autoWidth": false, // Disable auto-width calculations
-    // "responsive": true, // Enable responsive design
-    // "language": {
-    //   "paginate": {
-    //     "first": '<i class="mdi mdi-chevron-double-left"></i>',
-    //     "previous": '<i class="mdi mdi-chevron-left"></i>',
-    //     "next": '<i class="mdi mdi-chevron-right"></i>',
-    //     "last": '<i class="mdi mdi-chevron-double-right"></i>'
-    //   }
-    // }
-    //   });
 
 
     var apikey = 'xgGEHQTWl89KsFPHojMIw7Q3YbACaJwF';
@@ -407,12 +397,6 @@
              { "data": "product" },
              { "data": "category" },
              { "data": "subcategory" },
-            //  { "data": "quantitiy",
-            //   "render" : function(data){
-            //     var res = data ? data : 'N/A';
-            //     return res;
-            //   }
-            //  },
             // { "data": "price" },
             { "data": "quantity" },
             {
@@ -436,12 +420,6 @@
                 }
               }
             },
-            // { "data": "description",
-            //   "render" : function(data){
-            //     var res = data ? data : 'N/A';
-            //     return res ;
-            //   }
-            //  },
             {"data":"date"},
             {
               "data": null,
@@ -469,6 +447,8 @@
               "last": '<i class="mdi mdi-chevron-double-right"></i>'
             }
           }
+        
+         
         });
 
         // for (i = 0; i < data.length; i++) {

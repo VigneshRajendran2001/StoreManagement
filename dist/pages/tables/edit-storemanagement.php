@@ -30,6 +30,8 @@
       width:10%;
       margin-left: 42%;
       background-color: #f2a654;
+      border: 2px solid;
+      border-color: #fff;
     }
 
     #add-table {
@@ -61,6 +63,8 @@
     .btn-cancel:hover {
       transform: translateY(-3px);
       box-shadow: 0 0 20px red;
+      border: 2px solid;
+      border-color: #fff;
     }
 
     input[type=file]::file-selector-button {
@@ -462,20 +466,8 @@ function fetchStoreManagementDetails(userId) {
     },
     success: function (data) {
       var storemanagement = data[0];
-    //   var result = JSON.stringify(storemanagement);
-    //   console.log(storemanagement);
-      
  
       $('#edit-storeName').val(storemanagement.storeName);
-      var get_storename  = storemanagement.storeName;
-      var listed_storename=$('#edit-storeName').find('option:selected').val();
-    //   var get_result =  fetchingStoreDetails();
-      console.log(get_result);
-      return;
-// if()
-     
-      console.log(storemanagement.storeName)
-      return;
       $('#edit-storeManager').val(storemanagement.storeManager);
       $('#edit-product').val(storemanagement.product);
       $('#edit-category').val(storemanagement.category);
@@ -495,11 +487,11 @@ fetchStoreManagementDetails(userId);
 
 
 /*********************************************************/
-    fetchingStoreDetails();
-    fetchingUsersDetails();
-    fetchingProductDetails();
-    fetchCategoriesData();
-    fetchSubCategoriesData();
+    StoreDetails();
+    UsersDetails();
+    ProductDetails();
+    CategoriesData();
+    SubCategoriesData();  
 
             
     $('#edit-storemanagement').on('submit', function (e) {

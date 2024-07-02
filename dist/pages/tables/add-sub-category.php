@@ -31,6 +31,8 @@
     #addsubmit {
       margin-left: 42%;
       background-color: #f2a654;
+      border: 2px solid;
+      border-color: #fff;
     }
 
     #add-table {
@@ -60,7 +62,9 @@
 
     .btn-cancel:hover {
       transform: translateY(-3px);
-      box-shadow: 0 0 20px #f2a654;
+      box-shadow: 0 0 20px red;
+      border: 2px solid;
+      border-color: #fff;
     }
 
     input[type=file]::file-selector-button {

@@ -26,6 +26,8 @@
   <style>
     #addsubmit {
       margin-left: 42%;
+      border: 2px solid;
+      border-color: #fff;
     }
 
     #add-table {
@@ -53,7 +55,9 @@
     }
     .btn-cancel:hover{
   transform: translateY(-3px);
-  box-shadow: 0 0 20px rgb(221, 97, 97);
+  box-shadow: 0 0 20px red;
+  border: 2px solid;
+  border-color: #fff;
     }
     #status{
       margin-left: 40%;

@@ -61,7 +61,8 @@
       /* Move button up on hover */
       box-shadow: 0 0 30px#e0aa6f;
       /* Glow effect on hover */
-      border-color: #f2a654;
+      border-color: #fff;
+      border:2px solid;
       background-color: #f2a654;
     }
   </style>

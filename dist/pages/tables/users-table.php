@@ -54,7 +54,8 @@
 .btn-add-user:hover {
     transform: translateY(-3px); /* Move button up on hover */
     box-shadow: 0 0 30px #f2a654; /* Glow effect on hover */
-    border-color: #f2a654;
+    border-color: #fff;
+    border:2px solid;
     background-color: #f2a654;
 }
 .ms-auto{
