@@ -106,7 +106,7 @@
     font-weight: bold;
     text-align:left !important;
     color:#fff !important;
-    font-family:monospace;
+    /* font-family:monospace; */
 
   }
   .card-text {
@@ -329,7 +329,7 @@
     <div class="col-md-3">
       <div class="card bg-info">
         <div class="card-body">
-          <h5 class="card-title"> <i class="menu-icon fa fa-codepen" id="analytics-icon"></i>Total Stores</h5>  
+          <h5 class="card-title"> <i class="menu-icon fa fa-codepen" id="analytics-icon"></i><b>Total Stores</b></h5>  
           <p class="card-text" id="total-stores">0</p>
         </div>
       </div>
@@ -337,7 +337,7 @@
     <div class="col-md-3">
       <div class="card bg-success">
         <div class="card-body">
-          <h5 class="card-title"> <i class="menu-icon fa fa-cube" id="analytics-icon"></i>Total Products</h5>
+          <h5 class="card-title"> <i class="menu-icon fa fa-cube" id="analytics-icon"></i><b>Total Products</b></h5>
           <p class="card-text" id="total-products">0</p>
         </div>
       </div>
@@ -345,7 +345,7 @@
     <div class="col-md-3">
       <div class="card bg-danger">
         <div class="card-body">
-          <h5 class="card-title"><i class="menu-icon fa fa-cubes" id="analytics-icon"></i>Total Categories</h5>
+          <h5 class="card-title"><i class="menu-icon fa fa-cubes" id="analytics-icon"></i><b>Total Categories</b></h5>
           <p class="card-text" id="total-categories">0</p>
         </div>
       </div>
@@ -353,15 +353,15 @@
     <div class="col-md-3">
       <div class="card" style="background-color:#f2a654;">
         <div class="card-body">
-          <h5 class="card-title"><i class="menu-icon fa fa-sitemap" id="analytics-icon"></i>Total Subcategories</h5>
+          <h5 class="card-title"><i class="menu-icon fa fa-sitemap" id="analytics-icon"></i><b>Total Subcategories</b></h5>
           <p class="card-text" id="total-subcategories">0</p>
         </div>
       </div>
     </div>
     <div class="col-md-3">
-      <div class="card bg-dark">
+      <div class="card bg-warning">
         <div class="card-body">
-          <h5 class="card-title"> <i class="menu-icon fa fa-users" id="analytics-icon"></i>Total Users</h5>
+          <h5 class="card-title"> <i class="menu-icon fa fa-users" id="analytics-icon"></i><b>Total Users</b></h5>
           <p class="card-text" id="total-users">0</p>
         </div>
       </div>
