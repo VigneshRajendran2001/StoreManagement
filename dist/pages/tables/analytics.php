@@ -86,28 +86,9 @@
       width: 100%;
       border-radius: .2em;
     }
-    /* #card{
-        margin-left:2%;
-        margin-top:2%;
-        width:100%; 
-    }
-#card1,#card2,#card3{
-    margin-right:-1%;
-    
-   
-}
-@media (min-width: 768px) {
-    .col-md-3 {
-        flex: 0 0 auto;
-        width: 33%;
-    }
-} */
-    /* #status {
-      margin-left: 40%;
-    } */
 
 
-    
+/***********************************card and chart***********************/
   .container {
     margin-top: 20px;
   }
@@ -125,6 +106,7 @@
     font-weight: bold;
     text-align:left !important;
     color:#fff !important;
+    font-family:monospace;
 
   }
   .card-text {
@@ -134,6 +116,13 @@
     font-weight:900;
     
   }
+  #analytics-icon{
+    color: #fff;
+    width:12%;
+    font-size:20px;
+      
+  }
+  /***********************************card and chart***********************/
 </style>
 
   </style>
@@ -340,7 +329,7 @@
     <div class="col-md-3">
       <div class="card bg-info">
         <div class="card-body">
-          <h5 class="card-title">Total Stores</h5>
+          <h5 class="card-title"> <i class="menu-icon fa fa-codepen" id="analytics-icon"></i>Total Stores</h5>  
           <p class="card-text" id="total-stores">0</p>
         </div>
       </div>
@@ -348,7 +337,7 @@
     <div class="col-md-3">
       <div class="card bg-success">
         <div class="card-body">
-          <h5 class="card-title">Total Products</h5>
+          <h5 class="card-title"> <i class="menu-icon fa fa-cube" id="analytics-icon"></i>Total Products</h5>
           <p class="card-text" id="total-products">0</p>
         </div>
       </div>
@@ -356,7 +345,7 @@
     <div class="col-md-3">
       <div class="card bg-danger">
         <div class="card-body">
-          <h5 class="card-title">Total Categories</h5>
+          <h5 class="card-title"><i class="menu-icon fa fa-cubes" id="analytics-icon"></i>Total Categories</h5>
           <p class="card-text" id="total-categories">0</p>
         </div>
       </div>
@@ -364,7 +353,7 @@
     <div class="col-md-3">
       <div class="card" style="background-color:#f2a654;">
         <div class="card-body">
-          <h5 class="card-title">Total Subcategories</h5>
+          <h5 class="card-title"><i class="menu-icon fa fa-sitemap" id="analytics-icon"></i>Total Subcategories</h5>
           <p class="card-text" id="total-subcategories">0</p>
         </div>
       </div>
@@ -372,7 +361,7 @@
     <div class="col-md-3">
       <div class="card bg-dark">
         <div class="card-body">
-          <h5 class="card-title">Total Users</h5>
+          <h5 class="card-title"> <i class="menu-icon fa fa-users" id="analytics-icon"></i>Total Users</h5>
           <p class="card-text" id="total-users">0</p>
         </div>
       </div>
@@ -400,42 +389,8 @@
   </div>
 </div>
 
-
-
-
-
-   <!-- <div class="row" id="card">
-
-  <div class="col-md-3" id="card1"><div class="card text-white bg-info mb-3" >
-  <div class="card-header">Users</div>
-  <div class="card-body">
-    <h5 class="card-title">Total Users</h5>
-    <p class="card-text"></p>
-  </div>
-</div>
-</div>
-
-  <div class="col-md-3" id="card2"><div class="card text-white bg-warning mb-3" >
-  <div class="card-header">Stores</div>
-  <div class="card-body">
-    <h5 class="card-title">Total Stores</h5>
-    <p class="card-text"></p>
-  </div>
-</div>
-</div>
-
-  <div class="col-md-3" id="card3"><div class="card text-white bg-secondary mb-3" >
-  <div class="card-header">Products</div>
-  <div class="card-body">
-    <h5 class="card-title">Total Products</h5>
-    <p class="card-text"></p>
-  </div>
-</div>
-</div>
-</div>
   
-
-    -->
+  
       </div>
       
       <!-- main-panel ends -->

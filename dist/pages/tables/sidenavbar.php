@@ -11,13 +11,6 @@
           <li class="nav-item nav-category">User & Product Details</li>
 
           <li class="nav-item">
-            <a class="nav-link" href="/StoreManagement/dist/pages/tables/users-table.php">
-              <i class="menu-icon fa fa-users"></i>
-              <span class="menu-title">Users</span>
-            </a>
-          </li>
-
-          <li class="nav-item">
             <a class="nav-link" href="/StoreManagement/dist/pages/tables/category-table.html">
               <i class="menu-icon fa fa-cubes"></i>
               <span class="menu-title">Category</span>
@@ -44,6 +37,15 @@
               <span class="menu-title">Products</span>
             </a>
           </li>
+
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/StoreManagement/dist/pages/tables/users-table.php">
+              <i class="menu-icon fa fa-users"></i>
+              <span class="menu-title">Users</span>
+            </a>
+          </li>
+
 
           <li class="nav-item">
             <a class="nav-link" href="/StoreManagement/dist/pages/tables/stores-table.php">
