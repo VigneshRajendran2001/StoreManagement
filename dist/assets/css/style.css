@@ -11054,6 +11054,7 @@ textarea.form-control-lg {
   flex: 1 1 auto;
   width: 1%;
   min-width: 0;
+  font-weight: 700;
 }
 .input-group > .form-control:focus, .input-group > .typeahead:focus,
 .input-group > .tt-query:focus,
@@ -25942,7 +25943,7 @@ svg {
 .input-group-prepend .input-group-text {
   border-color: #dee2e6;
   padding: 0.875rem 0.75rem;
-  color: #c9c8c8;
+  color: #f2a654;
   height: 2.75rem;
 }
 
@@ -27068,8 +27069,8 @@ dl li {
   font-size: 0.812rem;
 }
 .table td img {
-  width: 36px;
-  height: 36px;
+  width: 70px;
+  height: 60px;
   border-radius: 100%;
 }
 .table td .badge {

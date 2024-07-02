@@ -18,6 +18,8 @@
 
   <!-- endinject -->
   <!-- Plugin css for this page -->
+  <link rel="stylesheet" href="../../assets/vendors/select2/select2.min.css">
+  <link rel="stylesheet" href="../../assets/vendors/select2-bootstrap-theme/select2-bootstrap.min.css">
   <!-- End plugin css for this page -->
   <!-- inject:css -->
   <link rel="stylesheet" href="../../assets/css/style.css">
@@ -27,6 +29,8 @@
     #addsubmit {
       margin-left: 42%;
       background-color: #f2a654;
+      border: 2px solid;
+      border-color: #fff;
     }
 
     #add-table {
@@ -56,7 +60,9 @@
 
     .btn-cancel:hover {
       transform: translateY(-3px);
-      box-shadow: 0 0 20px #f2a654;
+      box-shadow: 0 0 20px red;
+      border: 2px solid;
+      border-color: #fff;
     }
 
     input[type=file]::file-selector-button {
@@ -297,7 +303,7 @@
                       <label for="exampleInputUsername2" class="col-sm-3 col-form-label"><b>Category Name<span
                             class="mandatory-field">*</span></b></label>
                       <div class="col-sm-9">
-                        <input type="text" class="form-control" name="category_name" id="add-category-name"
+                        <input type="text" class="form-control" name="category_name" id="category_name"
                           placeholder="Category Name" required>
                       </div>
                     </div>
@@ -305,8 +311,8 @@
                       <label for="exampleInputEmail2" class="col-sm-3 col-form-label"><b>Category Code<span
                             class="mandatory-field">*</span></b></label>
                       <div class="col-sm-9">
-                        <input type="text" class="form-control" name="category_type" id="add-category-type"
-                          placeholder="Category Type" required>
+                        <input type="text" class="form-control" name="category_code" id="category_code"
+                          placeholder="Category Code" required>
                       </div>
                     </div>
 
@@ -319,35 +325,53 @@
 
                     <div class="form-group row">
                       <label for="exampleInputMobile" class="col-sm-3 col-form-label"><b>Category Image<span
-                            class="mandatory-field">*</span></b></label>
+                            class="mandatory-field"></span></b></label>
                       <div class="col-sm-9">
                         <input type="file" class="form-control-file custom-file-upload" name="category_img"
-                          id="add-category-image" placeholder="Category Image" required>
+                          id="category_img" placeholder="Category Image">
                       </div>
                     </div>
+
+
                     <div class="form-group row">
-                      <!-- <label for="exampleInputPassword2" class="col-sm-3 col-form-label"><b>Price<span
+                      <label class="col-sm-3 col-form-label"><b
+                      id="status">Status<span class="mandatory-field">*</span></b></label>
+
+                      <div class="col-sm-9">
+                      <select id="category_status" name="status" class="js-example-basic-single w-100 category-status " required>
+                        <option value="">Select a status</option>
+                        <option value="1">In Stock</option>
+                        <option value="2">Out of Stock</option>
+                      </select>
+                    </div>
+                    </div>
+                 
+
+
+
+                    <!-- <div class="form-group row">
+                      <label for="exampleInputPassword2" class="col-sm-3 col-form-label"><b>Price<span
                             class="mandatory-field">*</span></b></label>
                       <div class="col-sm-4">
                         <input type="text" class="form-control" name="price" id="add-product-price" placeholder="Price"
                           required>
-                      </div> -->
+                      </div>
                       <label for="exampleInputConfirmPassword2" class="col-sm-3 col-form-label"><b
                           id="status">Status<span class="mandatory-field">*</span></b></label>
                       <div class="col-sm-9">
-                        <select id="add-category-status" name="status" class="form-control category-status" required>
+                        <select id="category_status" name="status" class="form-control category-status" required>
                           <option value="">Select a status</option>
-                          <option value="1">Active</option>
-                          <option value="2">InActive</option>
+                          <option value="1">InStock</option>
+                          <option value="2">Out of Stock</option>
                         </select>
                       </div>
-                    </div>
+                    </div> -->
                     <div class="form-group row">
                       <label for="exampleInputConfirmPassword2" class="col-sm-3 col-form-label"><b>Description<span
-                            class="mandatory-field">*</span></b></label>
+                            class="mandatory-field"></span></b></label>
                       <div class="col-sm-9">
-                        <textarea class="form-control" name="description" id="add-category-description"
-                          placeholder="Description" required></textarea>
+                        <textarea class="form-control" name="description" id="category_description"
+                          placeholder="Description" ></textarea>
                       </div>
                     </div>
                     <button type="submit" class="btn btn-primary me-2 btn-submit" id="addsubmit">Submit</button>
@@ -398,17 +422,19 @@
       e.preventDefault();
 
       var formData = {
-        category_name: $('#add-category-name').val(),
-        category_code: $('#add-category-type').val(),
-        price: parseInt($('#add-category-price').val()),
-        status: parseInt($('#add-category-status').val()),
-        description: $('#add-category-description').val()
+        category_name: $('#category_name').val(),
+        category_code: $('#category_code').val(),
+        // price: parseInt($('#price').val()),
+        status: parseInt($('#category_status').val()),
+        description: $('#category_description').val()
       };
+      console.log(status)
 
-      var fileInput = $('#add-category-image')[0];
+      var fileInput = $('#category_img')[0];
       if (fileInput.files.length > 0) {
         var file = fileInput.files[0];
         var filename = file.name;
+        console.log(file)
 
         formData.category_img = filename;
         console.log(formData.category_img)
@@ -430,7 +456,7 @@
             Swal.fire({
               position: "top-end",
               icon: "success",
-              title: "category added successfully...!",
+              title: "Category added successfully...!",
               showConfirmButton: false,
               timer: 1500
 
@@ -439,7 +465,7 @@
             // console.log(data);
             // alert('Update successful!');
             setTimeout(function () {
-              window.location = "/StoreManagement/dist/pages/tables/category-table.php";
+              window.location = "/StoreManagement/dist/pages/tables/category-table.html";
             }, 2000);
 
           },

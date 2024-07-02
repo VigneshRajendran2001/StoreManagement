@@ -61,7 +61,8 @@
       /* Move button up on hover */
       box-shadow: 0 0 30px#e0aa6f;
       /* Glow effect on hover */
-      border-color: #f2a654;
+      border-color: #fff;
+      border:2px solid;
       background-color: #f2a654;
     }
   </style>
@@ -288,9 +289,12 @@
                         <tr>
                           <th>#</th>
                           <th>Product Name</th>
-                          <th>Product Type</th>
+                          <th>Product Sku</th>
                           <th>Product Image</th>
+                          <th>Category Name</th>
+                          <th>Sub Category Name</th>
                           <th>Price</th>
+                          <th>Quantity</th>
                           <th>Status</th>
                           <th>Description</th>
                           <th>Action</th>
@@ -388,24 +392,50 @@
 
 
             { "data": "product_name" },
-            { "data": "product_type" },
-            { "data": "product_img" },
+            { "data": "product_sku" },
+            { "data": "product_img",
+              "render": function(data){
+                if(data){
+                 var imagePath ='/StoreManagement/dist/assets/images/productImage/' + data ;
+
+                  return '<div class="row align-items-center"><div class="col-auto"><img src="'+ imagePath +'" alt="Product Image" style="width=100px; height=100px;display: flex; align-items: center;" class="img-fluid"></div>><div class="col">'+ data +'</div></div> ';
+                  
+                }else{
+                  return "N/A";
+                }
+              }
+             },
+             { "data": "category_id" },
+             { "data": "sub_category",
+              "render" : function(data){
+                var res = data ? data : 'N/A';
+                return res;
+              }
+             },
             { "data": "price" },
+            { "data": "quantity" },
             {
               "data": "status",
               "render": function (data) {
-
-                switch (data) {
-                  case 1:
-                    return "Active";
-                  case 2:
-                    return "InActive";
-                  default:
-                    return "N/A";
-                }
+                       var badge = data == 1 ? 'badge badge-success' : 'badge badge-danger' ;
+                       var statusText = data == 1 ? 'In Stock' : 'Out of Stock' ;
+                       return '<span class="'+ badge +'">'+ statusText +'</span>'
+                // switch (data) {
+                //   case 1:
+                //     return "Active";
+                //   case 2:
+                //     return "InActive";
+                //   default:
+                //     return "N/A";
+                // }
               }
             },
-            { "data": "description" },
+            { "data": "description",
+              "render" : function(data){
+                var res = data ? data : 'N/A';
+                return res ;
+              }
+             },
             {
               "data": null,
               "render": function (data, type, row) {
@@ -423,7 +453,7 @@
           "ordering": true,
           "info": true,
           "autoWidth": false,
-          "responsive": true,
+          "responsive": true, 
           "language": {
             "paginate": {
               "first": '<i class="mdi mdi-chevron-double-left"></i>',

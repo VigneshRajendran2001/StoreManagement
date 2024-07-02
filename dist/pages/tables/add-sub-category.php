@@ -18,6 +18,10 @@
 
   <!-- endinject -->
   <!-- Plugin css for this page -->
+    <!-- Plugin css for this page -->
+    <link rel="stylesheet" href="../../assets/vendors/select2/select2.min.css">
+    <link rel="stylesheet" href="../../assets/vendors/select2-bootstrap-theme/select2-bootstrap.min.css">
+    <!-- End plugin css for this page -->
   <!-- End plugin css for this page -->
   <!-- inject:css -->
   <link rel="stylesheet" href="../../assets/css/style.css">
@@ -27,6 +31,8 @@
     #addsubmit {
       margin-left: 42%;
       background-color: #f2a654;
+      border: 2px solid;
+      border-color: #fff;
     }
 
     #add-table {
@@ -56,7 +62,9 @@
 
     .btn-cancel:hover {
       transform: translateY(-3px);
-      box-shadow: 0 0 20px #f2a654;
+      box-shadow: 0 0 20px red;
+      border: 2px solid;
+      border-color: #fff;
     }
 
     input[type=file]::file-selector-button {
@@ -291,17 +299,31 @@
               <div class="card">
                 <div class="card-body">
                   <h4 class="card-title">SUB CATEGORY</h4>
-                  <!-- <p class="card-description"> Horizontal form layout </p> -->
-                  <form class="forms-sample" id="add-subsubcategory">
+                 
+                  <form class="forms-sample" id="add-subcategory">
+
+
+                  <div class="form-group row">
+                      <label for="exampleInputCategory" class="col-sm-3 col-form-label"><b
+                      id="status">Category<span class="mandatory-field">*</span></b></label>
+
+                      <div class="col-sm-9">
+                      <select id="add-subcategory-category" name="category_id" class="js-example-basic-single w-100 " required>
+                        <option value="">Select a category</option>
+                      </select>
+                    </div>
+                    </div>
+                 
+<!--  
                                     <div class="form-group row">
                         <label for="exampleInputCategory" class="col-sm-3 col-form-label"><b>Category<span class="mandatory-field">*</span></b></label>
                         <div class="col-sm-9">
                             <select class="form-control" id="add-subcategory-category" name="category_id" required>
                                 <option value="">Select a category</option>
-                                <!-- Options will be dynamically added via JavaScript -->
+                                
                             </select>
                         </div>
-                    </div>
+                    </div> -->
 
                     <div class="form-group row">
                       <label for="exampleInputUsername2" class="col-sm-3 col-form-label"><b>Sub Category Name<span
@@ -315,7 +337,7 @@
                       <label for="exampleInputEmail2" class="col-sm-3 col-form-label"><b>Sub Category Code<span
                             class="mandatory-field">*</span></b></label>
                       <div class="col-sm-9">
-                        <input type="text" class="form-control" name="sub_category_type" id="add-subcategory-type"
+                        <input type="text" class="form-control" name="sub_category_code" id="add-subcategory-type"
                           placeholder="Sub Category Type" required>
                       </div>
                     </div>
@@ -329,35 +351,53 @@
 
                     <div class="form-group row">
                       <label for="exampleInputMobile" class="col-sm-3 col-form-label"><b>Sub Category Image<span
-                            class="mandatory-field">*</span></b></label>
+                            class="mandatory-field"></span></b></label>
                       <div class="col-sm-9">
                         <input type="file" class="form-control-file custom-file-upload" name="sub_category_img"
-                          id="add-subcategory-image" placeholder="Category Image" required>
+                          id="add-subcategory-image" placeholder="Category Image" >
                       </div>
                     </div>
-                    <div class="form-group row">
-                      <!-- <label for="exampleInputPassword2" class="col-sm-3 col-form-label"><b>Price<span
-                            class="mandatory-field">*</span></b></label>
-                      <div class="col-sm-4">
-                        <input type="text" class="form-control" name="price" id="add-product-price" placeholder="Price"
-                          required>
-                      </div> -->
+
+                    <!-- <div class="form-group row">
                       <label for="exampleInputConfirmPassword2" class="col-sm-3 col-form-label"><b
                           id="status">Status<span class="mandatory-field">*</span></b></label>
+                         
                       <div class="col-sm-9">
                         <select id="add-subcategory-status" name="status" class="form-control subcategory-status" required>
                           <option value="">Select a status</option>
-                          <option value="1">Active</option>
-                          <option value="2">InActive</option>
+                          <option value="1">In Stock</option>
+                          <option value="2">Out of Stock</option>
                         </select>
                       </div>
+                    </div> -->
+
+
+                   
+                    <div class="form-group row">
+                      <label class="col-sm-3 col-form-label"><b
+                      id="status">Status<span class="mandatory-field">*</span></b></label>
+
+                      <div class="col-sm-9">
+                      <select id="add-subcategory-status" name="status" class="js-example-basic-single w-100 subcategory-status " required>
+                        <option value="">Select a status</option>
+                        <option value="1">In Stock</option>
+                        <option value="2">Out of Stock</option>
+                      </select>
                     </div>
+                    </div>
+                 
+
+
+
+
+
+
                     <div class="form-group row">
                       <label for="exampleInputConfirmPassword2" class="col-sm-3 col-form-label"><b>Description<span
-                            class="mandatory-field">*</span></b></label>
+                            class="mandatory-field"></span></b></label>
                       <div class="col-sm-9">
-                        <textarea class="form-control" name="description" id="add-category-description"
-                          placeholder="Description" required></textarea>
+                        <textarea class="form-control" name="description" id="add-subcategory-description"
+                          placeholder="Description" ></textarea>
                       </div>
                     </div>
                     <button type="submit" class="btn btn-primary me-2 btn-submit" id="addsubmit">Submit</button>
@@ -399,51 +439,61 @@
   <script src="../../assets/js/typeahead.js"></script>
   <script src="../../assets/js/select2.js"></script>
   <!-- End custom js for this page-->
+  <script src="/StoreManagement/dist/assets/js/storemanagement.js"></script>
 </body>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+<script src="../../assets/js/storemanagement.js"></script>
 <script>
   $(document).ready(function () {
 
         // Fetch categories and populate dropdown
-        function fetchCategoriesAndPopulateDropdown() {
-        var apiurl = 'https://example.com/api/categories'; // Replace with your API endpoint
-        $.ajax({
-            type: 'GET',
-            url: apiurl,
-            dataType: 'json',
-            success: function(data) {
-                // Clear existing options
-                $('#add-subcategory-category').empty();
-                // Add default option
-                $('#add-subcategory-category').append('<option value="">Select a category</option>');
-                // Add each category as an option
-                data.forEach(function(category) {
-                    $('#add-subcategory-category').append('<option value="' + category.id + '">' + category.name + '</option>');
-                });
-            },
-            error: function(xhr, status, error) {
-                console.error('Error fetching categories:', error);
-            }
-        });
-    }
+    //     function fetchCategoriesData() {
+    //       var apikey = 'xgGEHQTWl89KsFPHojMIw7Q3YbACaJwF';
+    //       var pkey = '3fdee6c11c06f9a43fe21eefcdfb5bd7';
+    //     var apiurl = 'https://dev-aniwatch.gateway.apiplatform.io/v1/category'; // Replace with your API endpoint
+    //     $.ajax({
+    //         type: 'GET',
+    //         url: apiurl,
+    //         dataType: 'json',
+    //         contentType: 'application/json',
+    //         headers: {
+    //           'apikey': apikey,
+    //           'pkey': pkey,
+    //         },
+    //         success: function(data) {
+    //             // Clear existing options
+    //             $('#add-subcategory-category').empty();
+    //             // Add default option
+    //             $('#add-subcategory-category').append('<option value="">Select a category</option>');
+    //             // Add each category as an option
+    //             data.forEach(function(category) {
+    //                 $('#add-subcategory-category').append('<option value="' + category.id + '">' + category.category_name + '</option>');
+    //             });
+    //         },
+    //         error: function(xhr, status, error) {
+    //             console.error('Error fetching categories:', error);
+    //         }
+    //     });
+    // }
 
     // Call function to fetch categories and populate dropdown on page load
-    fetchCategoriesAndPopulateDropdown();
+    fetchCategoriesData();
 
     
     $('#add-subcategory').on('submit', function (e) {
       e.preventDefault();
 
       var formData = {
+        category_id: parseInt($('#add-subcategory-category').val()),
         sub_category_name: $('#add-subcategory-name').val(),
         sub_category_code: $('#add-subcategory-type').val(),
-        price: parseInt($('#add-subcategory-price').val()),
+        // price: parseInt($('#add-subcategory-price').val()),
         status: parseInt($('#add-subcategory-status').val()),
         description: $('#add-subcategory-description').val()
       };
 
-      var fileInput = $('#add-category-image')[0];
+      var fileInput = $('#add-subcategory-image')[0];
       if (fileInput.files.length > 0) {
         var file = fileInput.files[0];
         var filename = file.name;
@@ -485,7 +535,7 @@
 
             Swal.fire(
               'Error!',
-              'Failed to add user. Please try again.',
+              'Failed to add SubCategory. Please try again.',
               'error'
             );
             // try {

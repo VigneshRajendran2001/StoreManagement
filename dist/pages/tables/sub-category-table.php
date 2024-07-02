@@ -61,7 +61,8 @@
       /* Move button up on hover */
       box-shadow: 0 0 30px#e0aa6f;
       /* Glow effect on hover */
-      border-color: #f2a654;
+      border-color: #fff;
+      border:2px solid;
       background-color: #f2a654;
     }
   </style>
@@ -283,14 +284,15 @@
                 <div class="card-body">
                   <h3 class="card-title"><b>SUB CATEGORY LIST</b></h3>
                   <div class="table-responsive">
-                    <table class="table table-hover" id="products-table">
+                    <table class="table table-hover" id="subcategory-table">
                       <thead>
                         <tr>
                           <th>#</th>
-                          <th>Product Name</th>
-                          <th>Product Type</th>
-                          <th>Product Image</th>
-                          <th>Price</th>
+                          <th>CategoryID </th>
+                          <th>SubCategory Name</th>
+                          <th>SubCategory Code</th>
+                          <th>SubCategory Image</th>
+                          <!-- <th>Price</th> -->
                           <th>Status</th>
                           <th>Description</th>
                           <th>Action</th>
@@ -336,6 +338,192 @@
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 <script src="https://cdn.datatables.net/1.11.4/js/jquery.dataTables.min.js"></script>
 <link rel="stylesheet" href="https://cdn.datatables.net/1.11.4/css/jquery.dataTables.min.css">
+<script>
+  $(document).ready(function () {
+
+    // var table = $('#users-table').DataTable({
+    //   "paging": true, // Enable pagination
+    // "lengthChange": true, // Enable per-page select box
+    // "pageLength": 10, // Initial rows per page
+    // "searching": true, // Enable search box
+    // "ordering": true, // Enable column sorting
+    // "info": true, // Enable table information display
+    // "autoWidth": false, // Disable auto-width calculations
+    // "responsive": true, // Enable responsive design
+    // "language": {
+    //   "paginate": {
+    //     "first": '<i class="mdi mdi-chevron-double-left"></i>',
+    //     "previous": '<i class="mdi mdi-chevron-left"></i>',
+    //     "next": '<i class="mdi mdi-chevron-right"></i>',
+    //     "last": '<i class="mdi mdi-chevron-double-right"></i>'
+    //   }
+    // }
+    //   });
+
+
+    var apikey = 'xgGEHQTWl89KsFPHojMIw7Q3YbACaJwF';
+    var pkey = '3fdee6c11c06f9a43fe21eefcdfb5bd7';
+    var apiurl = 'https://dev-aniwatch.gateway.apiplatform.io/v1/subcategory';
+
+    $.ajax({
+      type: 'GET',
+      url: apiurl,
+      dataType: 'json',
+      contentType: 'application/json',
+      headers: {
+        'apikey': apikey,
+        'pkey': pkey,
+      },
+      success: function (data) {
+        console.log(data)
+        // Initialize DataTable with fetched data
+        var table = $('#subcategory-table').DataTable({
+          "data": data,
+          "columns": [
+            {
+              "data": null, // Use null for an index column
+              "render": function (data, type, row, meta) {
+                return meta.row + 1; // meta.row provides the index
+                console.log(data);
+              }
+            },
+
+
+            { "data": "category_id" },
+            { "data": "sub_category_name" },
+            { "data": "sub_category_code" },
+            { "data": "sub_category_img",
+              "render": function(data){
+                if(data){
+                  var imagePath = '/StoreManagement/dist/assets/images/subCategoryImage/' + data ;
+                  return '<div class="row align-items-center"><div class="col-auto"><img src="' + imagePath + '" alt="Category Image" style="width: 70px; height:70px;"></div>><div class="col">'+ data +'</div></div>'; 
+                               
+                }else{
+                  return "N/A";
+                }
+              }
+            },
+            // { "data": "price" },
+            {
+              "data": "status",
+              "render": function (data) {
+                  var badge = data==1 ? 'badge badge-success' : 'badge badge-danger' ;
+                  var statusText = data == 1 ? 'In Stock' : 'Out of Stock' ;
+
+                  return '<span class="'+ badge +'">'+ statusText +'</span>';
+                // switch (data) {
+                //   case 1:
+                //     return "Active";
+                //   case 2:
+                //     return "InActive";
+                //   default:
+                //     return "N/A";
+              
+              }
+            },
+            { "data": "description",
+              "render" : function(data){
+               var des = data ? data : 'N/A';
+               return des ;
+              }
+             },
+            {
+              "data": null,
+              "render": function (data, type, row) {
+                var editbutton = '<a href="/StoreManagement/dist/pages/tables/edit-sub-category.php?id=' + row.id + '"><i class="fa fa-pencil-square-o icon-button" title="Click to Edit"></i></a>';
+                var deleteButton = '<a href="#" class="delete-button" data-id="' + row.id + '"><i class="fa fa-trash icon-button delete-button" title="Click to Delete"></i></a>';
+                // var addButton = '<a href="/StoreManagement/dist/pages/tables/add-users.php"><i class="fa fa-plus icon-button" title="Click to Add User"></i></a>';
+                return editbutton + ' | ' + deleteButton;
+              }
+            }
+          ],
+          "paging": true,
+          "lengthChange": true,
+          "pageLength": 10,
+          "searching": true,
+          "ordering": true,
+          "info": true,
+          "autoWidth": false,
+          "responsive": true,
+          "language": {
+            "paginate": {
+              "first": '<i class="mdi mdi-chevron-double-left"></i>',
+              "previous": '<i class="mdi mdi-chevron-left"></i>',
+              "next": '<i class="mdi mdi-chevron-right"></i>',
+              "last": '<i class="mdi mdi-chevron-double-right"></i>'
+            }
+          }
+        });
+
+        // for (i = 0; i < data.length; i++) {
+        //   var res = data[i];
+        //   var index = data.length - i;
+        //   var editbutton = '<a href="/StoreManagement/dist/pages/tables/edit-users.php?id='+ res.id +'"><i class="fa fa-pencil-square-o icon-button" title="Click to Edit"></i></a>';
+        //   var deletebutton = '<a href="#" class="delete-button" data-id="'+ res.id +'"><i class="fa fa-trash icon-button delete-button"  title="Click to Delete"></i></a>';
+        //   var adduser = '<a href="/StoreManagement/dist/pages/tables/add-users.php"><i class="fa fa-plus icon-button" title="Click to Add User"></i></a>';
+
+        //   var buttons = editbutton + deletebutton + adduser;
+        // var tableData = '<tr><td><b>' + index + '</b></td><td>' + res.name + '</td><td>' + res.email + '</td><td>' + res.password + '</td><td>' + res.designation + '</td><td>' + res.role + '</td><td>'+ buttons +'</td></tr>';
+        // $('#users-table tbody').prepend(tableData);
+        // }
+      },
+      error: function (xhr, status, error) {
+        console.error(xhr.responseText);
+        // alert('Signup failed. Please check the console for details.');
+      }
+    });
+
+    $(document).on('click', '.delete-button', function (e) {
+      e.preventDefault();
+      var userId = $(this).data('id');
+
+      Swal.fire({
+        title: 'Are you sure want to delete this SubCategory?',
+        // text: "You won't be able to revert this!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes!',
+        cancelButtonText: 'No',
+
+      }).then((result) => {
+        if (result.isConfirmed) {
+
+          $.ajax({
+            type: 'DELETE',
+            url: apiurl + '/' + userId,
+            headers: {
+              'apikey': apikey,
+              'pkey': pkey,
+            },
+            success: function (data) {
+
+              Swal.fire(
+                'Deleted!',
+                'Your SubCategory has been deleted.',
+                'success'
+              ).then((result) => {
+
+                location.reload();
+              });
+            },
+            error: function (xhr, status, error) {
+              console.error(xhr.responseText);
+
+              Swal.fire(
+                'Error!',
+                'Failed to SubCategory user. Please try again.',
+                'error'
+              );
+            }
+          });
+        }
+      });
+    });
+
+  });
+</script>
 
 
 </html>

@@ -44,6 +44,7 @@
 
   }
   .btn-add-user {
+   
     transform: translateY(0); /* Initial position */
     transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transition effect for transform and box-shadow */
     box-shadow: 0 0 10px rgba(0, 123, 255, 0); /*Initial box-shadow (no glow)*/
@@ -53,10 +54,14 @@
 .btn-add-user:hover {
     transform: translateY(-3px); /* Move button up on hover */
     box-shadow: 0 0 30px #f2a654; /* Glow effect on hover */
-    border-color: #f2a654;
+    border-color: #fff;
+    border:2px solid;
     background-color: #f2a654;
 }
-
+.ms-auto{
+  width: 46%;
+  gap: 2%;
+}
 
   </style>
 </head>
@@ -243,8 +248,9 @@
               </div>
             </li> -->
 
-            <div class="ms-auto">
-              <a href="/StoreManagement/dist/pages/tables/add-users.php" class="btn btn-primary btn-add-user"><i class="menu-icon fa fa-plus"></i>Add User</a>
+            <div class="ms-auto d-flex">
+             <div> <a href="/StoreManagement/dist/pages/tables/add-users.php" class="btn btn-primary btn-add-user"><i class="menu-icon fa fa-plus"></i>Add User</a></div>
+              <div class="col-7"><a href="/StoreManagement/dist/pages/tables/CardScanner.php" class="btn btn-primary btn-add-user"><i class="menu-icon fa fa-plus"></i>Card Scanner</a></div>
           </div>
         </ul>
         <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button"
@@ -400,15 +406,17 @@ console.log(data)
                     { 
                         "data": "status",
                         "render": function (data) {
-                           
-                            switch (data) {
-                                case 1:
-                                    return "Active";
-                                case 2:
-                                    return "InActive";
-                                default:
-                                    return "N/A";
-                            }
+                           var badge = data == 1 ? 'badge badge-success' : 'badge badge-danger' ;
+                           var statusText =  data == 1 ? 'Active' : 'InActive' ;
+                           return '<span class="'+ badge +'">'+ statusText +'</span>'
+                            // switch (data) {
+                            //     case 1:
+                            //         return "Active";
+                            //     case 2:
+                            //         return "InActive";
+                            //     default:
+                            //         return "N/A";
+                            // }
                         }
                     },
                     {

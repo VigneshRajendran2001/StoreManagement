@@ -52,12 +52,12 @@
             </a>
           </li>
 
-          <!-- <li class="nav-item">
-            <a class="nav-link" href="/StoreManagement/dist/pages/tables/Store-Management-table.php">
-              <i class="menu-icon fa fa-cube"></i>
+          <li class="nav-item">
+            <a class="nav-link" href="/StoreManagement/dist/pages/tables/StoreManagement-table.php">
+              <i class="menu-icon fa fa-list-ul"></i>
               <span class="menu-title">Store Management</span>
             </a>
-          </li> -->
+          </li>
           
           
           <li class="nav-item">
