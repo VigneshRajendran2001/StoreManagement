@@ -15,7 +15,7 @@
   <link rel="stylesheet" href="../../assets/vendors/simple-line-icons/css/simple-line-icons.css">
   <link rel="stylesheet" href="../../assets/vendors/css/vendor.bundle.base.css">
   <link rel="stylesheet" href="../../assets/vendors/bootstrap-datepicker/bootstrap-datepicker.min.css">
-
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
   <!-- endinject -->
   <!-- Plugin css for this page -->
   <link rel="stylesheet" href="../../assets/vendors/select2/select2.min.css">
@@ -27,7 +27,6 @@
   <link rel="shortcut icon" href="../../assets/images/favicon.png" />
   <style>
     #addsubmit {
-      width:10%;
       margin-left: 42%;
       background-color: #f2a654;
       border: 2px solid;
@@ -55,7 +54,6 @@
     }
 
     .btn-cancel {
-      width:10%;
       transform: translateY(0);
       transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
@@ -89,9 +87,44 @@
       border-radius: .2em;
     }
 
-    #status {
-      margin-left: 39%;
-    }
+
+/***********************************card and chart***********************/
+  .container {
+    margin-top: 20px;
+  }
+  .card {
+    margin-bottom: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 0px #f2a654;
+    transition: transform 0.3s;
+  }
+  .card:hover {
+    transform: translateY(-7px);
+  }
+  .card-title {
+    font-size: larger;
+    font-weight: bold;
+    text-align:left !important;
+    color:#fff !important;
+    font-family:monospace;
+
+  }
+  .card-text {
+    font-size: 1.5rem;
+    color: #fff;
+    text-align:right;
+    font-weight:900;
+    
+  }
+  #analytics-icon{
+    color: #fff;
+    width:12%;
+    font-size:20px;
+      
+  }
+  /***********************************card and chart***********************/
+</style>
+
   </style>
 </head>
 
@@ -115,7 +148,7 @@
         </div>
       </div>
       <div class="navbar-menu-wrapper d-flex align-items-top">
-        <h3 class="welcome-sub-text" style="text-decoration:underline;"><b>EDIT STORE MANAGEMENT</b> </h3>
+        <h3 class="welcome-sub-text" style="text-decoration:underline;"><b>ANALYTICS</b> </h3>
         <hr>
 
         <!-- <ul class="navbar-nav">
@@ -290,125 +323,76 @@
 
 
    <!-- /*************************************************************************SIDENAVBAR************************************************************* */ -->
-   
-      <!-- partial -->
-      <div class="main-panel">
-        <div class="content-wrapper" id="add-table">
-          <div class="row">
-            <div class="col-md-8 grid-margin stretch-card">
-              <div class="card">
-                <div class="card-body">
-                  <h4 class="card-title">EDIT STORE MANAGEMENT</h4>
-                  <!-- <p class="card-description"> Horizontal form layout </p> -->
-                  <form class="forms-sample" id="edit-storemanagement">
 
-
-                  <div class="form-group row">
-                    <label  for="exampleInputEmail2" class="col-sm-3 col-form-label"><b>Store Name<span
-                      class="mandatory-field">*</span></b></label>
-                      <div class="col-sm-7">
-                      <select class="js-example-basic-multiple w-100"  multiple="multiple" name="storeName[]" id="edit-storeName" required >
-                        <option value="">Select the Store</option>
-                
-                      </select>
-                    </div>
-                      </div>
-
-                      <div class="form-group row">
-                    <label  for="exampleInputEmail2" class="col-sm-3 col-form-label"><b>Store Manager<span
-                      class="mandatory-field">*</span></b></label>
-                      <div class="col-sm-7">
-                      <select class="js-example-basic-multiple w-100"  multiple="multiple" name="storeManager[]" id="edit-storeManager" required >
-                        <option value="">Select the Manager</option>
-                
-                      </select>
-                    </div>
-                      </div>
-
-                   
-                      <div class="form-group row">
-                           <label  for="exampleInputEmail2" class="col-sm-3 col-form-label"><b>Product<span
-                            class="mandatory-field">*</span></b></label>
-                         <div class="col-sm-7">
-                            <select class="js-example-basic-multiple w-100"  multiple="multiple" name="product[]" id="edit-product" required >
-                              <option value=" ">Select the Product</option>
-                             
-                            </select>
-                         </div>
-                      </div>
-
-                      <div class="form-group row">
-                    <label  for="exampleInputEmail2" class="col-sm-3 col-form-label"><b>Category<span
-                      class="mandatory-field">*</span></b></label>
-                      <div class="col-sm-7">
-                      <select class="js-example-basic-multiple w-100"  multiple="multiple" name="category[]" id="edit-category" required >
-                        <option value=" ">Select the Category</option>
-                
-                      </select>
-                    </div>
-                      </div>
-
-                      <div class="form-group row">
-                    <label  for="exampleInputEmail2" class="col-sm-3 col-form-label"><b>Sub Category<span
-                      class="mandatory-field">*</span></b></label>
-                      <div class="col-sm-7">
-                      <select class="js-example-basic-multiple w-100"  multiple="multiple" name="subcategory[]" id="edit-subcategory" required >
-                        <option value="">Select the SubCategory</option>
-                
-                      </select>
-                    </div>
-                      </div>
-
-                      <div class="form-group row">
-
-                      <label for="exampleInputPassword2" class="col-sm-3 col-form-label"><b>Quantity<span
-                            class="mandatory-field">*</span></b></label>
-                      <div class="col-sm-3">
-                        <input type="text" class="form-control" name="quantity" id="edit-quantity" placeholder="Quantity"
-                          required>
-                      </div>
-
-                      <label for="exampleInputConfirmPassword2" class="col-sm-1  col-form-label"><b
-                          >Status<span class="mandatory-field">*</span></b></label>
-                      <div class="col-sm-3">
-                        <select id="edit-status" name="status" class="form-control product-status" required>
-                          <option value="">Select a status</option>
-                          <option value="1"><b>Pending</b></option>
-                          <option value="2"><b>In Progress</b></option>
-                          <option value="3"><b>Sent</b></option>
-                          <option value="4"><b>Received</b></option>
-                        </select>
-                      </div>
-                    </div>
-
-                    <div class="form-group row">
-                 
-                    <label for="exampleInputConfirmPassword2" class="col-sm-3  col-form-label"><b
-                    >Date<span class="mandatory-field">*</span></b></label>
-                    <div class="col-sm-3">
-                    <div id="datepicker-popup" class="input-group date datepicker navbar-date-picker">
-                <span class="input-group-addon input-group-prepend border-right">
-                  <span class="icon-calendar input-group-text calendar-icon"></span>
-                </span>
-                <input type="text" class="form-control" name="date" id="edit-date">
-              </div>
-              </div>
-              </div>
-
-                    <button type="submit" class="btn btn-primary me-2 btn-submit" id="addsubmit">Submit</button>
-                    <a href="/StoreManagement/dist/pages/tables/storemanagement-table.php" <button
-                      class="btn btn-danger btn-cancel">Cancel</button></a>
-                  </form>
+   <div class="container">
+  <div class="row">
+    <div class="col-md-3">
+      <div class="card bg-info">
+        <div class="card-body">
+          <h5 class="card-title"> <i class="menu-icon fa fa-codepen" id="analytics-icon"></i>Total Stores</h5>  
+          <p class="card-text" id="total-stores">0</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="card bg-success">
+        <div class="card-body">
+          <h5 class="card-title"> <i class="menu-icon fa fa-cube" id="analytics-icon"></i>Total Products</h5>
+          <p class="card-text" id="total-products">0</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="card bg-danger">
+        <div class="card-body">
+          <h5 class="card-title"><i class="menu-icon fa fa-cubes" id="analytics-icon"></i>Total Categories</h5>
+          <p class="card-text" id="total-categories">0</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="card" style="background-color:#f2a654;">
+        <div class="card-body">
+          <h5 class="card-title"><i class="menu-icon fa fa-sitemap" id="analytics-icon"></i>Total Subcategories</h5>
+          <p class="card-text" id="total-subcategories">0</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="card bg-dark">
+        <div class="card-body">
+          <h5 class="card-title"> <i class="menu-icon fa fa-users" id="analytics-icon"></i>Total Users</h5>
+          <p class="card-text" id="total-users">0</p>
+        </div>
+      </div>
+    </div>
+<!-- /***************************************CHART********************************************/ -->
+    <div class="col-lg-12 grid-margin stretch-card">
+                <div class="card">
+                  <div class="card-body">
+                    <h4 class="card-title">Line chart</h4>
+                    <canvas id="lineChart"></canvas>
+                  </div>
                 </div>
               </div>
+              <!-- <div class="col-lg-6 grid-margin stretch-card">
+                <div class="card">
+                  <div class="card-body">
+                    <h4 class="card-title">Bar chart</h4>
+                    <canvas id="barChart"></canvas>
+                  </div>
+                </div>
+              </div> -->
             </div>
-          </div>
-        </div>
-        <!-- content-wrapper ends -->
-        <!-- partial:../../partials/_footer.html -->
 
-        <!-- partial -->
+ <!-- /***************************************CHART********************************************/ -->
+  </div>
+</div>
+
+  
+  
       </div>
+      
       <!-- main-panel ends -->
     </div>
     <!-- page-body-wrapper ends -->
@@ -427,172 +411,117 @@
   <script src="../../assets/js/template.js"></script>
   <script src="../../assets/js/settings.js"></script>
   <script src="../../assets/js/hoverable-collapse.js"></script>
+    <script src="../../assets/vendors/chart.js/chart.umd.js"></script>
   <script src="../../assets/js/todolist.js"></script>
   <!-- endinject -->
   <!-- Custom js for this page-->
   <script src="../../assets/js/file-upload.js"></script>
   <script src="../../assets/js/typeahead.js"></script>
   <script src="../../assets/js/select2.js"></script>
+  <script src="../../assets/js/chart.js"></script>
   <!-- End custom js for this page-->
 </body>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
-<script src="../../assets/js/storemanagement.js"></script>
 <script>
+ 
+ 
   $(document).ready(function () {
-    
-    function getUrlParameter(id) {
-  name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
-  var regex = new RegExp('[\\?&]' + id + '=([^&#]*)');
-  var results = regex.exec(location.search);
-  return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
-}
-
-
-function fetchStoreManagementDetails(userId) {
-
-  var apikey = 'xgGEHQTWl89KsFPHojMIw7Q3YbACaJwF';
-  var pkey = '3fdee6c11c06f9a43fe21eefcdfb5bd7';
-  var apiurl = 'https://dev-aniwatch.gateway.apiplatform.io/v1/storemanagement/' + userId;
-
-  $.ajax({
-    type: 'GET',
-    url: apiurl,
-    dataType: 'json',
-    contentType: 'application/json',
-    headers: {
-      'apikey': apikey,
-      'pkey': pkey,
-    },
-    success: function (data) {
-      var storemanagement = data[0];
-       var selectedStoreName = storemanagement.storeName || [];
-//  console.log(selectedStoreName);
-//  return'HELOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO';
-       $('#edit-storeName').val(storemanagement.storeName);
-      $('#edit-storeManager').val(storemanagement.storeManager);
-      $('#edit-product').val(storemanagement.product);
-      $('#edit-category').val(storemanagement.category);
-      $('#edit-subcategory').val(storemanagement.subcategory);
-      $('#edit-quantity').val(storemanagement.quantity);
-      $('#edit-status').val(storemanagement.status);
-      $('#edit-date').val(storemanagement.date);
-
-      StoreName(selectedStoreName = []);
-    },
-    error: function (xhr, status, error) {
-      console.error(xhr.responseText);
-    }
-  });
-}
-
-var userId = getUrlParameter('id');
-fetchStoreManagementDetails(userId);
-
-function StoreName(selectedStoreName = []) {
     var apikey = 'xgGEHQTWl89KsFPHojMIw7Q3YbACaJwF';
     var pkey = '3fdee6c11c06f9a43fe21eefcdfb5bd7';
-    var apiurl = 'https://dev-aniwatch.gateway.apiplatform.io/v1/store'; 
+    var apiUrl = 'https://dev-aniwatch.gateway.apiplatform.io/v1/';
 
-    $.ajax({
-        url: apiurl,
+    function updateCardTotals() {
+      $.ajax({
+        url: apiUrl + 'store',
         type: 'GET',
         dataType: 'json',
         contentType: 'application/json',
         headers: {
-            'apikey': apikey,
-            'pkey': pkey,
+          'apikey': apikey,
+          'pkey': pkey,
         },
-        success: function(data) {
-            $('#edit-storeName').empty();
-            data.forEach(function(store) {
-             
-                var isSelected = selectedStoreName.includes(store.store_name) ? 'selected' : '';
-                console.log(isSelected);
-                return;
-                $('#edit-storeName').append('<option value="' + store.store_name + '" ' + isSelected + '>' + store.store_name + '</option>');
-            });
+        success: function (data) {
+          $('#total-stores').text(data.length);
         },
-        error: function(xhr, status, error) {
-            console.error('Error Fetching Store details:', error);
+        error: function (xhr, status, error) {
+          console.error('Error fetching store data:', error);
         }
-    });
-}
-/*********************************************************/
-    StoreDetails();
-    UsersDetails();
-    ProductDetails();
-    CategoriesData();
-    SubCategoriesData();  
+      });
 
-            
-    $('#edit-storemanagement').on('submit', function (e) {
-      e.preventDefault();
-      var userId = getUrlParameter('id');
-      var formData = {
-        storeName: $('#edit-storeName').val(),
-        storeManager: $('#edit-storeManager').val(), 
-        product: $('#edit-product').val(),
-        category:$('#edit-category').val(),
-        subcategory:$('#edit-subcategory').val(),
-        quantity: parseInt($('#edit-quantity').val()),
-        status: parseInt($('#edit-status').val()),
-        date: $('#edit-date').val(),
-        
-      };
+      $.ajax({
+        url: apiUrl + 'products',
+        type: 'GET',
+        dataType: 'json',
+        contentType: 'application/json',
+        headers: {
+          'apikey': apikey,
+          'pkey': pkey,
+        },
+        success: function (data) {
+          $('#total-products').text(data.length);
+        },
+        error: function (xhr, status, error) {
+          console.error('Error fetching product data:', error);
+        }
+      });
 
-        var apikey = 'xgGEHQTWl89KsFPHojMIw7Q3YbACaJwF';
-        var pkey = '3fdee6c11c06f9a43fe21eefcdfb5bd7';
-        var apiurl = 'https://dev-aniwatch.gateway.apiplatform.io/v1/storemanagement/' + userId;
-        console.log(formData)
-        var result = JSON.stringify(formData);
-        console.log(result);
-        $.ajax({
-          url: apiurl,
-          type: 'PUT',
-          headers: {
-            'apikey': apikey,
-            'pkey': pkey,
-            'Content-Type': 'application/json'
-          },
-          data: JSON.stringify(formData),
-          success: function (response) {
-            Swal.fire({
-              position: "top-end",
-              icon: "success",
-              title: "Updated Successfully...!",
-              showConfirmButton: false,
-              timer: 1500
+      $.ajax({
+        url: apiUrl + 'category',
+        type: 'GET',
+        dataType: 'json',
+        contentType: 'application/json',
+        headers: {
+          'apikey': apikey,
+          'pkey': pkey,
+        },
+        success: function (data) {
+          $('#total-categories').text(data.length);
+        },
+        error: function (xhr, status, error) {
+          console.error('Error fetching category data:', error);
+        }
+      });
 
-            });
+      $.ajax({
+        url: apiUrl + 'subcategory',
+        type: 'GET',
+        dataType: 'json',
+        contentType: 'application/json',
+        headers: {
+          'apikey': apikey,
+          'pkey': pkey,
+        },
+        success: function (data) {
+          $('#total-subcategories').text(data.length);
+        },
+        error: function (xhr, status, error) {
+          console.error('Error fetching subcategory data:', error);
+        }
+      });
 
-            // console.log(data);
-            // alert('Update successful!');
-            setTimeout(function () {
-              window.location = "/StoreManagement/dist/pages/tables/storemanagement-table.php";
-            }, 2000);
+      $.ajax({
+        url: apiUrl + 'users',
+        type: 'GET',
+        dataType: 'json',
+        contentType: 'application/json',
+        headers: {
+          'apikey': apikey,
+          'pkey': pkey,
+        },
+        success: function (data) {
+          $('#total-users').text(data.length);
+        },
+        error: function (xhr, status, error) {
+          console.error('Error fetching user data:', error);
+        }
+      });
+    }
 
-          },
-          error: function (xhr, status, error) {
-
-            Swal.fire(
-              'Error!',
-              'Failed. Please try again.',
-              'error'
-            );
-            // try {
-            //     let response = JSON.parse(xhr.responseText);
-            //     alert('Error adding product: ' + response.message);
-            // } catch (e) {
-            //     alert('Error adding product: ' + xhr.responseText);
-            // }
-          }
-        });
-
-
-  
-    });
+   
+    updateCardTotals();
   });
+
 
 </script>
 

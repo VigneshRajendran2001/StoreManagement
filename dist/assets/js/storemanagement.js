@@ -348,3 +348,31 @@ function SubCategoriesData() {
       }
   });
 }
+
+
+function selectedStoreName(selectedStoreName = []) {
+    var apikey = 'xgGEHQTWl89KsFPHojMIw7Q3YbACaJwF';
+    var pkey = '3fdee6c11c06f9a43fe21eefcdfb5bd7';
+    var apiurl = 'https://dev-aniwatch.gateway.apiplatform.io/v1/store'; 
+
+    $.ajax({
+        url: apiurl,
+        type: 'GET',
+        dataType: 'json',
+        contentType: 'application/json',
+        headers: {
+            'apikey': apikey,
+            'pkey': pkey,
+        },
+        success: function(data) {
+            $('#edit-storeName').empty();
+            data.forEach(function(store) {
+                var isSelected = selectedStoreName.includes(store.store_name) ? 'selected' : '';
+                $('#edit-storeName').append('<option value="' + store.store_name + '" ' + isSelected + '>' + store.store_name + '</option>');
+            });
+        },
+        error: function(xhr, status, error) {
+            console.error('Error Fetching Store details:', error);
+        }
+    });
+}
