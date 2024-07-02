@@ -15,56 +15,127 @@
   <link rel="stylesheet" href="../../assets/vendors/simple-line-icons/css/simple-line-icons.css">
   <link rel="stylesheet" href="../../assets/vendors/css/vendor.bundle.base.css">
   <link rel="stylesheet" href="../../assets/vendors/bootstrap-datepicker/bootstrap-datepicker.min.css">
-
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
   <!-- endinject -->
   <!-- Plugin css for this page -->
+  <link rel="stylesheet" href="../../assets/vendors/select2/select2.min.css">
+  <link rel="stylesheet" href="../../assets/vendors/select2-bootstrap-theme/select2-bootstrap.min.css">
   <!-- End plugin css for this page -->
   <!-- inject:css -->
   <link rel="stylesheet" href="../../assets/css/style.css">
   <!-- endinject -->
   <link rel="shortcut icon" href="../../assets/images/favicon.png" />
   <style>
-    .icon-button {
-      cursor: pointer;
-      padding: 10px;
-      border: 2px solid transparent;
-      border-radius: 5px;
-      font-size: 20px;
-      margin-right: 20px;
-    }
-
-    .icon-button:hover {
-      background-color: #f5f5f5;
-    }
-
-    .icon-button:last-child {
-      margin-right: 0;
-    }
-
-    #action {
-      margin-left: 10px !important;
-
-    }
-
-    .btn-add-user {
-      transform: translateY(0);
-      /* Initial position */
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      /* Transition effect for transform and box-shadow */
-      box-shadow: 0 0 10px rgba(0, 123, 255, 0);
-      /*Initial box-shadow (no glow)*/
+    #addsubmit {
+      margin-left: 42%;
       background-color: #f2a654;
-    }
-
-    .btn-add-user:hover {
-      transform: translateY(-3px);
-      /* Move button up on hover */
-      box-shadow: 0 0 30px#e0aa6f;
-      /* Glow effect on hover */
+      border: 2px solid;
       border-color: #fff;
-      border:2px solid;
-      background-color: #f2a654;
     }
+
+    #add-table {
+      margin-left: 15%;
+    }
+
+    .mandatory-field {
+      color: red;
+      font-size: 20px;
+    }
+
+    .btn-submit {
+      transform: translateY(0);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .btn-submit:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 0 20px #f2a654;
+      border-color: #f2a654;
+    }
+
+    .btn-cancel {
+      transform: translateY(0);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .btn-cancel:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 0 20px red;
+      border: 2px solid;
+      border-color: #fff;
+    }
+
+    input[type=file]::file-selector-button {
+      border: 2px solid #faf3f3;
+      padding: .4em .5em;
+      border-radius: .4em;
+      background-color: #f2a654;
+      /* transition: 1s; */
+      transition: background-color 0.3s, border-color 0.3s, color 0.3s;
+      color: #fff;
+    }
+
+    input[type=file]::file-selector-button:hover {
+      background-color: #ff8400;
+      border: 2px solid #ff8400;
+      border-color: #ff8400;
+    }
+
+    .custom-file-upload {
+      border: 1px solid rgb(230, 226, 226);
+      width: 100%;
+      border-radius: .2em;
+    }
+    /* #card{
+        margin-left:2%;
+        margin-top:2%;
+        width:100%; 
+    }
+#card1,#card2,#card3{
+    margin-right:-1%;
+    
+   
+}
+@media (min-width: 768px) {
+    .col-md-3 {
+        flex: 0 0 auto;
+        width: 33%;
+    }
+} */
+    /* #status {
+      margin-left: 40%;
+    } */
+
+
+    
+  .container {
+    margin-top: 20px;
+  }
+  .card {
+    margin-bottom: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 0px #f2a654;
+    transition: transform 0.3s;
+  }
+  .card:hover {
+    transform: translateY(-7px);
+  }
+  .card-title {
+    font-size: larger;
+    font-weight: bold;
+    text-align:left !important;
+    color:#fff !important;
+
+  }
+  .card-text {
+    font-size: 1.5rem;
+    color: #fff;
+    text-align:right;
+    font-weight:900;
+    
+  }
+</style>
+
   </style>
 </head>
 
@@ -81,7 +152,6 @@
         <div>
           <a class="navbar-brand brand-logo" href="../../index.html">
             <img src="../../assets/images/store-management-logo-1.svg" alt="logo" />
-
           </a>
           <a class="navbar-brand brand-logo-mini" href="../../index.html">
             <img src="../../assets/images/logo-mini.svg" alt="logo" />
@@ -89,12 +159,8 @@
         </div>
       </div>
       <div class="navbar-menu-wrapper d-flex align-items-top">
-        <h3 class="welcome-sub-text" style="text-decoration:underline;"><b>CATEGORY LIST</b> </h3>
+        <h3 class="welcome-sub-text" style="text-decoration:underline;"><b>ANALYTICS</b> </h3>
         <hr>
-
-
-        <!-- <a href="/StoreManagement/dist/pages/tables/add-users.php"<button class="btn btn-primary" >Add User</button></a> -->
-
 
         <!-- <ul class="navbar-nav">
             <li class="nav-item fw-semibold d-none d-lg-block ms-0">
@@ -250,11 +316,6 @@
                 <a class="dropdown-item" href="/StoreManagement/home/index.html"><i class="dropdown-item-icon mdi mdi-power text-primary me-2"></i>Sign Out</a>
               </div>
             </li> -->
-          
-          <div class="ms-auto">
-            <a href="/StoreManagement/dist/pages/tables/add-category.php" class="btn btn-primary btn-add-user"> <i class="menu-icon fa fa-plus"></i>Add
-              Category</a>
-          </div>
         </ul>
         <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button"
           data-bs-toggle="offcanvas">
@@ -265,131 +326,118 @@
     <!-- partial -->
     <div class="container-fluid page-body-wrapper">
       <!-- partial:../../partials/_sidebar.html -->
+
       
-     <!-- /*************************************************************************SIDENAVBAR************************************************************* */ -->
+    <!-- /*************************************************************************SIDENAVBAR************************************************************* */ -->
 
-   
-     <nav class="sidebar sidebar-offcanvas" id="sidebar">
-      <ul class="nav">
-        <li class="nav-item">
-          <a class="nav-link" href="../../index.html">
-            <i class="mdi mdi-grid-large menu-icon"></i>
-            <span class="menu-title">Dashboard</span>
-          </a>
-        </li>
-
-        <li class="nav-item nav-category">User & Product Details</li>
-
-        <li class="nav-item">
-          <a class="nav-link" href="/StoreManagement/dist/pages/tables/users-table.php">
-            <i class="menu-icon fa fa-users"></i>
-            <span class="menu-title">Users</span>
-          </a>
-        </li>
-
-        <li class="nav-item">
-          <a class="nav-link" href="/StoreManagement/dist/pages/tables/category-table.html">
-            <i class="menu-icon fa fa-cubes"></i>
-            <span class="menu-title">Category</span>
-          </a>
-        </li>
-
-        <!-- <li class="nav-item">
-          <a class="nav-link" href="/StoreManagement/dist/pages/tables/sub-category-table.php">
-            <i class="menu-icon fa fa-sitemap"></i>
-            <span class="menu-title">Sub Category</span>
-          </a>
-        </li> -->
-        <li class="nav-item">
-          <a class="nav-link" href="/StoreManagement/dist/pages/tables/sub-category-table.php">
-            <i class="menu-icon fa fa-sitemap"></i>
-            <span class="menu-title">Sub Category</span>
-          </a>
-        </li>
-
-
-        <li class="nav-item">
-          <a class="nav-link" href="/StoreManagement/dist/pages/tables/products-table.php">
-            <i class="menu-icon fa fa-cube"></i>
-            <span class="menu-title">Products</span>
-          </a>
-        </li>
-
-        <li class="nav-item">
-          <a class="nav-link" href="/StoreManagement/dist/pages/tables/stores-table.php">
-            <i class="menu-icon fa fa-codepen"></i>
-            <span class="menu-title">Store</span>
-          </a>
-        </li>
-
-        <li class="nav-item">
-          <a class="nav-link" href="/StoreManagement/dist/pages/tables/StoreManagement-table.php">
-            <i class="menu-icon fa fa-list-ul"></i>
-            <span class="menu-title">Store Management</span>
-          </a>
-        </li>
-        
-        <li class="nav-item">
-          <a class="nav-link" href="/StoreManagement/dist/pages/tables/analytics.php">
-            <i class="menu-icon fa fa-bar-chart-o"></i>
-            <span class="menu-title">Analytics</span>
-          </a>
-        </li>
-        
-        <li class="nav-item">
-          <a class="nav-link" href=" /StoreManagement/home/index.html">
-            <i class="menu-icon fa fa-sign-out"></i>
-            <span class="menu-title">Logout</span>
-          </a>
-        </li>
-
-      </ul>
-    </nav>
-
-    
+   <?php include "sidenavbar.php";?>
 
 
    <!-- /*************************************************************************SIDENAVBAR************************************************************* */ -->
-   
-      <!-- partial -->
-      <div class="main-panel">
-        <div class="content-wrapper">
 
-          <!-- <a href="#" class="btn btn-outline-primary " role="button" aria-pressed="true"><b>Add User</b></a> -->
-          <div class="row">
-            <div class="col-lg-12 grid-margin stretch-card">
-              <div class="card">
-                <div class="card-body">
-                  <h3 class="card-title"><b>CATEGORY LIST</b></h3>
-                  <div class="table-responsive">
-                    <table class="table table-hover" id="category-table">
-                      <thead>
-                        <tr>
-                          <th>#</th>
-                          <th>Category Name</th>
-                          <th>Category Code</th>
-                          <th>Category Image</th>
-                          <!-- <th>Price</th> -->
-                          <th>Status</th>
-                          <th>Description</th>
-                          <th>Action</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-
-                      </tbody>
-                    </table>
+   <div class="container">
+  <div class="row">
+    <div class="col-md-3">
+      <div class="card bg-info">
+        <div class="card-body">
+          <h5 class="card-title">Total Stores</h5>
+          <p class="card-text" id="total-stores">0</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="card bg-success">
+        <div class="card-body">
+          <h5 class="card-title">Total Products</h5>
+          <p class="card-text" id="total-products">0</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="card bg-danger">
+        <div class="card-body">
+          <h5 class="card-title">Total Categories</h5>
+          <p class="card-text" id="total-categories">0</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="card" style="background-color:#f2a654;">
+        <div class="card-body">
+          <h5 class="card-title">Total Subcategories</h5>
+          <p class="card-text" id="total-subcategories">0</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="card bg-dark">
+        <div class="card-body">
+          <h5 class="card-title">Total Users</h5>
+          <p class="card-text" id="total-users">0</p>
+        </div>
+      </div>
+    </div>
+<!-- /***************************************CHART********************************************/ -->
+    <div class="col-lg-12 grid-margin stretch-card">
+                <div class="card">
+                  <div class="card-body">
+                    <h4 class="card-title">Line chart</h4>
+                    <canvas id="lineChart"></canvas>
                   </div>
                 </div>
               </div>
+              <!-- <div class="col-lg-6 grid-margin stretch-card">
+                <div class="card">
+                  <div class="card-body">
+                    <h4 class="card-title">Bar chart</h4>
+                    <canvas id="barChart"></canvas>
+                  </div>
+                </div>
+              </div> -->
             </div>
 
-          </div>
-        </div>
-        <!-- content-wrapper ends -->
+ <!-- /***************************************CHART********************************************/ -->
+  </div>
+</div>
 
-        <!-- partial -->
+
+
+
+
+   <!-- <div class="row" id="card">
+
+  <div class="col-md-3" id="card1"><div class="card text-white bg-info mb-3" >
+  <div class="card-header">Users</div>
+  <div class="card-body">
+    <h5 class="card-title">Total Users</h5>
+    <p class="card-text"></p>
+  </div>
+</div>
+</div>
+
+  <div class="col-md-3" id="card2"><div class="card text-white bg-warning mb-3" >
+  <div class="card-header">Stores</div>
+  <div class="card-body">
+    <h5 class="card-title">Total Stores</h5>
+    <p class="card-text"></p>
+  </div>
+</div>
+</div>
+
+  <div class="col-md-3" id="card3"><div class="card text-white bg-secondary mb-3" >
+  <div class="card-header">Products</div>
+  <div class="card-body">
+    <h5 class="card-title">Total Products</h5>
+    <p class="card-text"></p>
+  </div>
+</div>
+</div>
+</div>
+  
+
+    -->
       </div>
+      
       <!-- main-panel ends -->
     </div>
     <!-- page-body-wrapper ends -->
@@ -400,205 +448,126 @@
   <script src="../../assets/vendors/bootstrap-datepicker/bootstrap-datepicker.min.js"></script>
   <!-- endinject -->
   <!-- Plugin js for this page -->
+  <script src="../../assets/vendors/typeahead.js/typeahead.bundle.min.js"></script>
+  <script src="../../assets/vendors/select2/select2.min.js"></script>
   <!-- End plugin js for this page -->
   <!-- inject:js -->
   <script src="../../assets/js/off-canvas.js"></script>
   <script src="../../assets/js/template.js"></script>
   <script src="../../assets/js/settings.js"></script>
   <script src="../../assets/js/hoverable-collapse.js"></script>
+    <script src="../../assets/vendors/chart.js/chart.umd.js"></script>
   <script src="../../assets/js/todolist.js"></script>
   <!-- endinject -->
   <!-- Custom js for this page-->
+  <script src="../../assets/js/file-upload.js"></script>
+  <script src="../../assets/js/typeahead.js"></script>
+  <script src="../../assets/js/select2.js"></script>
+  <script src="../../assets/js/chart.js"></script>
   <!-- End custom js for this page-->
 </body>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
-<script src="https://cdn.datatables.net/1.11.4/js/jquery.dataTables.min.js"></script>
-<link rel="stylesheet" href="https://cdn.datatables.net/1.11.4/css/jquery.dataTables.min.css">
 <script>
+ 
+ 
   $(document).ready(function () {
-
-    // var table = $('#users-table').DataTable({
-    //   "paging": true, // Enable pagination
-    // "lengthChange": true, // Enable per-page select box
-    // "pageLength": 10, // Initial rows per page
-    // "searching": true, // Enable search box
-    // "ordering": true, // Enable column sorting
-    // "info": true, // Enable table information display
-    // "autoWidth": false, // Disable auto-width calculations
-    // "responsive": true, // Enable responsive design
-    // "language": {
-    //   "paginate": {
-    //     "first": '<i class="mdi mdi-chevron-double-left"></i>',
-    //     "previous": '<i class="mdi mdi-chevron-left"></i>',
-    //     "next": '<i class="mdi mdi-chevron-right"></i>',
-    //     "last": '<i class="mdi mdi-chevron-double-right"></i>'
-    //   }
-    // }
-    //   });
-
-
     var apikey = 'xgGEHQTWl89KsFPHojMIw7Q3YbACaJwF';
     var pkey = '3fdee6c11c06f9a43fe21eefcdfb5bd7';
-    var apiurl = 'https://dev-aniwatch.gateway.apiplatform.io/v1/category';
+    var apiUrl = 'https://dev-aniwatch.gateway.apiplatform.io/v1/';
 
-    $.ajax({
-      type: 'GET',
-      url: apiurl,
-      dataType: 'json',
-      contentType: 'application/json',
-      headers: {
-        'apikey': apikey,
-        'pkey': pkey,
-      },
-      success: function (data) {
-        console.log(data)
-        // Initialize DataTable with fetched data
-        var table = $('#category-table').DataTable({
-          "data": data,
-          "columns": [
-            {
-              "data": null, // Use null for an index column
-              "render": function (data, type, row, meta) {
-                return meta.row + 1; // meta.row provides the index
-                console.log(data);
-              }
-            },
-
-
-            { "data": "category_name" },
-            { "data": "category_code" },
-            { "data": "category_img",
-              "render": function(data){
-                if(data){
-                  var imagePath = '/StoreManagement/dist/assets/images/categoryImage/' + data ;
-                  return '<div class="row align-items-center"><div class="col-auto"><img src="' + imagePath + '" alt="Category Image" style="width: 70px; height:60px;"></div>><div class="col">'+ data +'</div></div>'; 
-                               
-                }else{
-                  return "N/A";
-                }
-              }
-            },
-            // { "data": "price" },
-            {
-              "data": "status",
-              "render": function (data) {
-                  var badge = data==1 ? 'badge badge-success' : 'badge badge-danger' ;
-                  var statusText = data == 1 ? 'In Stock' : 'Out of Stock' ;
-
-                  return '<span class="'+ badge +'">'+ statusText +'</span>';
-                // switch (data) {
-                //   case 1:
-                //     return "Active";
-                //   case 2:
-                //     return "InActive";
-                //   default:
-                //     return "N/A";
-              
-              }
-            },
-            { "data": "description",
-              "render" : function(data){
-                var des = data ? data : 'N/A';
-                return des ;
-              }
-            },
-            {
-              "data": null,
-              "render": function (data, type, row) {
-                var editbutton = '<a href="/StoreManagement/dist/pages/tables/edit-category.php?id=' + row.id + '"><i class="fa fa-pencil-square-o icon-button" title="Click to Edit"></i></a>';
-                var deleteButton = '<a href="#" class="delete-button" data-id="' + row.id + '"><i class="fa fa-trash icon-button delete-button" title="Click to Delete"></i></a>';
-                // var addButton = '<a href="/StoreManagement/dist/pages/tables/add-users.php"><i class="fa fa-plus icon-button" title="Click to Add User"></i></a>';
-                return editbutton + ' | ' + deleteButton;
-              }
-            }
-          ],
-          "paging": true,
-          "lengthChange": true,
-          "pageLength": 10,
-          "searching": true,
-          "ordering": true,
-          "info": true,
-          "autoWidth": false,
-          "responsive": true,
-          "language": {
-            "paginate": {
-              "first": '<i class="mdi mdi-chevron-double-left"></i>',
-              "previous": '<i class="mdi mdi-chevron-left"></i>',
-              "next": '<i class="mdi mdi-chevron-right"></i>',
-              "last": '<i class="mdi mdi-chevron-double-right"></i>'
-            }
-          }
-        });
-
-        // for (i = 0; i < data.length; i++) {
-        //   var res = data[i];
-        //   var index = data.length - i;
-        //   var editbutton = '<a href="/StoreManagement/dist/pages/tables/edit-users.php?id='+ res.id +'"><i class="fa fa-pencil-square-o icon-button" title="Click to Edit"></i></a>';
-        //   var deletebutton = '<a href="#" class="delete-button" data-id="'+ res.id +'"><i class="fa fa-trash icon-button delete-button"  title="Click to Delete"></i></a>';
-        //   var adduser = '<a href="/StoreManagement/dist/pages/tables/add-users.php"><i class="fa fa-plus icon-button" title="Click to Add User"></i></a>';
-
-        //   var buttons = editbutton + deletebutton + adduser;
-        // var tableData = '<tr><td><b>' + index + '</b></td><td>' + res.name + '</td><td>' + res.email + '</td><td>' + res.password + '</td><td>' + res.designation + '</td><td>' + res.role + '</td><td>'+ buttons +'</td></tr>';
-        // $('#users-table tbody').prepend(tableData);
-        // }
-      },
-      error: function (xhr, status, error) {
-        console.error(xhr.responseText);
-        // alert('Signup failed. Please check the console for details.');
-      }
-    });
-
-    $(document).on('click', '.delete-button', function (e) {
-      e.preventDefault();
-      var userId = $(this).data('id');
-
-      Swal.fire({
-        title: 'Are you sure want to delete this Category?',
-        // text: "You won't be able to revert this!",
-        icon: 'warning',
-        showCancelButton: true,
-        confirmButtonColor: '#3085d6',
-        cancelButtonColor: '#d33',
-        confirmButtonText: 'Yes!',
-        cancelButtonText: 'No',
-
-      }).then((result) => {
-        if (result.isConfirmed) {
-
-          $.ajax({
-            type: 'DELETE',
-            url: apiurl + '/' + userId,
-            headers: {
-              'apikey': apikey,
-              'pkey': pkey,
-            },
-            success: function (data) {
-
-              Swal.fire(
-                'Deleted!',
-                'Your Category has been deleted.',
-                'success'
-              ).then((result) => {
-
-                location.reload();
-              });
-            },
-            error: function (xhr, status, error) {
-              console.error(xhr.responseText);
-
-              Swal.fire(
-                'Error!',
-                'Failed to Category user. Please try again.',
-                'error'
-              );
-            }
-          });
+    function updateCardTotals() {
+      $.ajax({
+        url: apiUrl + 'store',
+        type: 'GET',
+        dataType: 'json',
+        contentType: 'application/json',
+        headers: {
+          'apikey': apikey,
+          'pkey': pkey,
+        },
+        success: function (data) {
+          $('#total-stores').text(data.length);
+        },
+        error: function (xhr, status, error) {
+          console.error('Error fetching store data:', error);
         }
       });
-    });
 
+      $.ajax({
+        url: apiUrl + 'products',
+        type: 'GET',
+        dataType: 'json',
+        contentType: 'application/json',
+        headers: {
+          'apikey': apikey,
+          'pkey': pkey,
+        },
+        success: function (data) {
+          $('#total-products').text(data.length);
+        },
+        error: function (xhr, status, error) {
+          console.error('Error fetching product data:', error);
+        }
+      });
+
+      $.ajax({
+        url: apiUrl + 'category',
+        type: 'GET',
+        dataType: 'json',
+        contentType: 'application/json',
+        headers: {
+          'apikey': apikey,
+          'pkey': pkey,
+        },
+        success: function (data) {
+          $('#total-categories').text(data.length);
+        },
+        error: function (xhr, status, error) {
+          console.error('Error fetching category data:', error);
+        }
+      });
+
+      $.ajax({
+        url: apiUrl + 'subcategory',
+        type: 'GET',
+        dataType: 'json',
+        contentType: 'application/json',
+        headers: {
+          'apikey': apikey,
+          'pkey': pkey,
+        },
+        success: function (data) {
+          $('#total-subcategories').text(data.length);
+        },
+        error: function (xhr, status, error) {
+          console.error('Error fetching subcategory data:', error);
+        }
+      });
+
+      $.ajax({
+        url: apiUrl + 'users',
+        type: 'GET',
+        dataType: 'json',
+        contentType: 'application/json',
+        headers: {
+          'apikey': apikey,
+          'pkey': pkey,
+        },
+        success: function (data) {
+          $('#total-users').text(data.length);
+        },
+        error: function (xhr, status, error) {
+          console.error('Error fetching user data:', error);
+        }
+      });
+    }
+
+   
+    updateCardTotals();
   });
+
+
 </script>
 
 </html>

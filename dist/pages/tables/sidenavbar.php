@@ -59,6 +59,13 @@
             </a>
           </li>
           
+          <li class="nav-item">
+            <a class="nav-link" href="/StoreManagement/dist/pages/tables/analytics.php">
+              <i class="menu-icon fa fa-bar-chart-o"></i>
+              <span class="menu-title">Analytics</span>
+            </a>
+          </li>
+          
           
           <li class="nav-item">
             <a class="nav-link" href=" /StoreManagement/home/index.html">

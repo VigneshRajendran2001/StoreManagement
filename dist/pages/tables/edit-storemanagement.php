@@ -466,8 +466,10 @@ function fetchStoreManagementDetails(userId) {
     },
     success: function (data) {
       var storemanagement = data[0];
- 
-      $('#edit-storeName').val(storemanagement.storeName);
+       var selectedStoreName = storemanagement.storeName || [];
+//  console.log(selectedStoreName);
+//  return'HELOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO';
+       $('#edit-storeName').val(storemanagement.storeName);
       $('#edit-storeManager').val(storemanagement.storeManager);
       $('#edit-product').val(storemanagement.product);
       $('#edit-category').val(storemanagement.category);
@@ -475,6 +477,8 @@ function fetchStoreManagementDetails(userId) {
       $('#edit-quantity').val(storemanagement.quantity);
       $('#edit-status').val(storemanagement.status);
       $('#edit-date').val(storemanagement.date);
+
+      StoreName(selectedStoreName = []);
     },
     error: function (xhr, status, error) {
       console.error(xhr.responseText);
@@ -485,7 +489,35 @@ function fetchStoreManagementDetails(userId) {
 var userId = getUrlParameter('id');
 fetchStoreManagementDetails(userId);
 
+function StoreName(selectedStoreName = []) {
+    var apikey = 'xgGEHQTWl89KsFPHojMIw7Q3YbACaJwF';
+    var pkey = '3fdee6c11c06f9a43fe21eefcdfb5bd7';
+    var apiurl = 'https://dev-aniwatch.gateway.apiplatform.io/v1/store'; 
 
+    $.ajax({
+        url: apiurl,
+        type: 'GET',
+        dataType: 'json',
+        contentType: 'application/json',
+        headers: {
+            'apikey': apikey,
+            'pkey': pkey,
+        },
+        success: function(data) {
+            $('#edit-storeName').empty();
+            data.forEach(function(store) {
+             
+                var isSelected = selectedStoreName.includes(store.store_name) ? 'selected' : '';
+                console.log(isSelected);
+                return;
+                $('#edit-storeName').append('<option value="' + store.store_name + '" ' + isSelected + '>' + store.store_name + '</option>');
+            });
+        },
+        error: function(xhr, status, error) {
+            console.error('Error Fetching Store details:', error);
+        }
+    });
+}
 /*********************************************************/
     StoreDetails();
     UsersDetails();
