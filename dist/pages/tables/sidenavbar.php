@@ -69,10 +69,10 @@
           </li>
           
           
-          <li class="nav-item">
+          <li class="nav-item" id="logout">
             <a class="nav-link" href=" /StoreManagement/home/index.html">
               <i class="menu-icon fa fa-sign-out"></i>
-              <span class="menu-title">Logout</span>
+              <span class="menu-title" id="logout-title">Logout</span>
             </a>
           </li>
 

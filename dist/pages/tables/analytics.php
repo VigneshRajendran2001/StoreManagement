@@ -91,6 +91,9 @@
 /***********************************card and chart***********************/
   .container {
     margin-top: 20px;
+    background: #F4F5F7;
+    /* width:100%;
+    height:100%; */
   }
   .card {
     margin-bottom: 20px;

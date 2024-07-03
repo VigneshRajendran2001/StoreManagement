@@ -28513,8 +28513,8 @@ dl li {
   transition-duration: 0.45s;
   transition-property: color;
   -webkit-transition-property: color;
-  font-weight: 400;
-  border-radius: 0px 20px 20px 0px;
+  font-weight: 900;
+  border-radius: 200px 200px 200px 200px;
 }
 @media (max-width: 991px) {
   .sidebar .nav .nav-item .nav-link {
@@ -28647,6 +28647,7 @@ dl li {
 }
 .sidebar .nav:not(.sub-menu) > .nav-item > .nav-link {
   margin: 0;
+  margin-top:10px;
 }
 .sidebar .nav:not(.sub-menu) > .nav-item > .nav-link[aria-expanded=true] {
   border-radius: 8px 8px 0 0;
@@ -28658,7 +28659,7 @@ dl li {
   background: transparent;
 }
 .sidebar .nav:not(.sub-menu) > .nav-item.active .nav-link {
-  border-radius: 0px 20px 20px 0px;
+  border-radius: 200px 200px 200px 200px;
 }
 .sidebar .nav:not(.sub-menu) > .nav-item.active .nav-link[aria-expanded=true] {
   border-radius: 0px 20px 0px 0px;
@@ -30384,6 +30385,12 @@ dl li {
   background-color: darkgrey;
   outline: 1px solid slategrey;
 }
-
+#logout{
+  margin-top:100%;
+ 
+}
+#logout-title{
+  font-size: large;
+}
 
 /*# sourceMappingURL=maps/style.css.map */
