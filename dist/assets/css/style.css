@@ -28514,7 +28514,7 @@ dl li {
   transition-property: color;
   -webkit-transition-property: color;
   font-weight: 900;
-  border-radius: 200px 200px 200px 200px;
+  border-radius: 200px 0px 0px 200px;
 }
 @media (max-width: 991px) {
   .sidebar .nav .nav-item .nav-link {
@@ -28659,7 +28659,7 @@ dl li {
   background: transparent;
 }
 .sidebar .nav:not(.sub-menu) > .nav-item.active .nav-link {
-  border-radius: 200px 200px 200px 200px;
+  border-radius: 200px 0px 0px 200px;
 }
 .sidebar .nav:not(.sub-menu) > .nav-item.active .nav-link[aria-expanded=true] {
   border-radius: 0px 20px 0px 0px;
