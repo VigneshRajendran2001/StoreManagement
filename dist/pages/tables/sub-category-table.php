@@ -501,7 +501,7 @@
 
               Swal.fire(
                 'Deleted!',
-                'Your SubCategory has been deleted.',
+                'SubCategory has been deleted successfully...!.',
                 'success'
               ).then((result) => {
 
