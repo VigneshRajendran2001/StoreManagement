@@ -354,7 +354,7 @@
       </div>
     </div>
     <div class="col-md-3">
-      <div class="card" style="background-color:#f2a654;">
+      <div class="card" style="background-color:#00cfe8;">
         <div class="card-body">
           <h5 class="card-title"><i class="menu-icon fa fa-sitemap" id="analytics-icon"></i><b>Total Subcategories</b></h5>
           <p class="card-text" id="total-subcategories">0</p>
