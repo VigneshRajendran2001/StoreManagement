@@ -290,14 +290,47 @@
    <!-- /*************************************************************************SIDENAVBAR************************************************************* */ -->
    
       <!-- partial -->
+
+
+
       <div class="main-panel">
+  <div class="content-wrapper" id="add-table">
+    <div class="row">
+      <div class="col-md-8 grid-margin stretch-card">
+        <div class="card">
+          <div class="card-body">
+            <h4 class="card-title">CARD SCANNER</h4>
+            <form class="forms-sample" id="add-user" enctype="multipart/form-data">
+              <div class="form-group row">
+                <label for="user_img" class="col-sm-2 col-form-label"><b>Upload Image<span class="mandatory-field">*</span></b></label>
+                <div class="col-sm-8">
+                  <div id="thumbnail-preview"></div>
+                  <input type="file" class="form-control-file custom-file-upload" name="category_img" id="user_img" placeholder="Category Image">
+                </div>
+              </div>
+              <button type="submit" class="btn btn-primary me-2 btn-submit" id="addsubmit">Submit</button>
+              <a href="/StoreManagement/dist/pages/tables/users-table.php">
+                <button type="button" class="btn btn-danger btn-cancel">Cancel</button>
+              </a>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+      <!-- <div class="main-panel">
         <div class="content-wrapper" id="add-table">
           <div class="row">
             <div class="col-md-8 grid-margin stretch-card">
               <div class="card">
                 <div class="card-body">
                   <h4 class="card-title">CARD SCANNER</h4>
-                  <!-- <p class="card-description"> Horizontal form layout </p> -->
+                 
                   <form class="forms-sample" id="add-user">
                     
 
@@ -319,7 +352,7 @@
               </div>
             </div>
           </div>
-        </div>
+        </div> -->
         <!-- content-wrapper ends -->
         <!-- partial:../../partials/_footer.html -->
 
@@ -355,6 +388,55 @@
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 
 <script>
+$(document).ready(function() {
+  // Display thumbnail preview when an image is selected
+  $('#user_img').on('change', function() {
+    var file = this.files[0];
+    if (file) {
+      var reader = new FileReader();
+      reader.onload = function(e) {
+        $('#thumbnail-preview').html(`
+          <div style="position: relative; display: inline-block;">
+            <img src="${e.target.result}" alt="Thumbnail" style="max-width: 200px; max-height: 200px;">
+            <button type="button" id="remove-thumbnail" style="position: absolute; top: 5px; right: 5px; background: rgba(255, 255, 255, 0.7); border: none; cursor: pointer;">&times;</button>
+          </div>
+        `);
+
+        // Add click event for removing thumbnail
+        $('#remove-thumbnail').on('click', function() {
+          $('#thumbnail-preview').empty();
+          $('#user_img').val(''); // Clear the file input
+        });
+      }
+      reader.readAsDataURL(file);
+    }
+  });
+
+  // Handle form submission using AJAX
+  $('#add-user').on('submit', function(e) {
+    e.preventDefault();
+
+    var formData = new FormData(this);
+
+    $.ajax({
+      url: 'upload_image.php', // Server script to process the upload
+      type: 'POST',
+      data: formData,
+      contentType: false,
+      processData: false,
+      success: function(response) {
+        alert(response.message);
+      },
+      error: function(jqXHR, textStatus, errorThrown) {
+        console.error('Error uploading image: ' + textStatus, errorThrown);
+      }
+    });
+  });
+});
+
+  
+
+
 
 // upload-script.js
 // $(document).ready(function() {
@@ -380,31 +462,31 @@
 
 
 
-    $(document).ready(function() {
-  // Event listener for submit on #add-category form
-  $('#add-user').submit(function(event) {
-    event.preventDefault(); // Prevent default form submission
+  //   $(document).ready(function() {
+ 
+  // $('#add-user').submit(function(event) {
+  //   event.preventDefault(); // Prevent default form submission
 
-    // Get the uploaded image file
-    var file = $('#user_img')[0].files[0];
-    if (file) {
-      // Convert file to Base64 string
-      var reader = new FileReader();
-      reader.readAsDataURL(file);
-      reader.onload = function() {
-        var imageData = reader.result; // Base64 string of the image
-        // Store imageData in localStorage
-        localStorage.setItem('uploadedImage', imageData);
+  //   // Get the uploaded image file
+  //   var file = $('#user_img')[0].files[0];
+  //   if (file) {
+  //     // Convert file to Base64 string
+  //     var reader = new FileReader();
+  //     reader.readAsDataURL(file);
+  //     reader.onload = function() {
+  //       var imageData = reader.result; // Base64 string of the image
+  //       // Store imageData in localStorage
+  //       localStorage.setItem('uploadedImage', imageData);
        
 
-        // Redirect to #add-user form
-        window.location = '/StoreManagement/dist/pages/tables/CardScanner-add-user.php';
-      };
-      reader.onerror = function(error) {
-        console.error('Error reading file: ', error);
-      };
-    }
-  });
-    });
+  //       // Redirect to #add-user form
+  //       window.location = '/StoreManagement/dist/pages/tables/CardScanner-add-user.php';
+  //     };
+  //     reader.onerror = function(error) {
+  //       console.error('Error reading file: ', error);
+  //     };
+  //   }
+  // });
+  //   });
 </script>
 </html>
