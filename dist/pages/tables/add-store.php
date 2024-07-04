@@ -566,7 +566,7 @@ function fetchCategoriesData() {
             });
  
             setTimeout(function () {
-              window.location = "/StoreManagement/dist/pages/tables/category-table.html";
+              window.location = "/StoreManagement/dist/pages/tables/stores-table.php";
             }, 2000);
 
           },
