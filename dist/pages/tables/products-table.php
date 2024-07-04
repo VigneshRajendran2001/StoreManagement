@@ -510,7 +510,7 @@
 
               Swal.fire(
                 'Deleted!',
-                'Your Product has been deleted.',
+                'Product has been deleted successfully....!',
                 'success'
               ).then((result) => {
 

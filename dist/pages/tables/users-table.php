@@ -247,8 +247,9 @@
                 <a class="dropdown-item" href="/StoreManagement/home/index.html"><i class="dropdown-item-icon mdi mdi-power text-primary me-2"></i>Sign Out</a>
               </div>
             </li> -->
-
+            
             <div class="ms-auto d-flex">
+           
              <div> <a href="/StoreManagement/dist/pages/tables/add-users.php" class="btn btn-primary btn-add-user"><i class="menu-icon fa fa-plus"></i>Add User</a></div>
               <div class="col-7"><a href="/StoreManagement/dist/pages/tables/CardScanner.php" class="btn btn-primary btn-add-user"><i class="menu-icon fa fa-plus"></i>Card Scanner</a></div>
           </div>
@@ -493,7 +494,7 @@ console.log(data)
               
               Swal.fire(
                 'Deleted!',
-                'Your user has been deleted.',
+                'User has been deleted successsfully....!',
                 'success'
               ).then((result) => {
                

@@ -497,7 +497,7 @@
 
               Swal.fire(
                 'Deleted!',
-                'Your Product has been deleted.',
+                'Deleted Successfully...!',
                 'success'
               ).then((result) => {
 

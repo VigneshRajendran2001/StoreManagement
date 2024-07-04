@@ -487,7 +487,7 @@ console.log(data)
               
               Swal.fire(
                 'Deleted!',
-                'Your Store has been deleted.',
+                'Store has been deleted successfully...!.',
                 'success'
               ).then((result) => {
                
