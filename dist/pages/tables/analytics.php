@@ -86,6 +86,10 @@
       width: 100%;
       border-radius: .2em;
     }
+    #line-chart{
+color : #f2a654 !important;
+font-family: sans-serif;
+  }
 
 
 /***********************************card and chart***********************/
@@ -354,7 +358,7 @@
       </div>
     </div>
     <div class="col-md-3">
-      <div class="card" style="background-color:#f2a654;">
+      <div class="card" style="background-color:#00cfe8;">
         <div class="card-body">
           <h5 class="card-title"><i class="menu-icon fa fa-sitemap" id="analytics-icon"></i><b>Total Subcategories</b></h5>
           <p class="card-text" id="total-subcategories">0</p>
@@ -373,7 +377,7 @@
     <div class="col-lg-12 grid-margin stretch-card">
                 <div class="card">
                   <div class="card-body">
-                    <h4 class="card-title" id="line-charts">Line chart</h4>
+                    <h4 class="card-title" id="line-chart">Line chart</h4>
                     <canvas id="lineChart"></canvas>
                   </div>
                 </div>
