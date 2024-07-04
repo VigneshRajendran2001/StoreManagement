@@ -86,6 +86,10 @@
       width: 100%;
       border-radius: .2em;
     }
+    #line-chart{
+color : #f2a654 !important;
+font-family: sans-serif;
+  }
 
 
 /***********************************card and chart***********************/
@@ -373,7 +377,7 @@
     <div class="col-lg-12 grid-margin stretch-card">
                 <div class="card">
                   <div class="card-body">
-                    <h4 class="card-title" id="line-charts">Line chart</h4>
+                    <h4 class="card-title" id="line-chart">Line chart</h4>
                     <canvas id="lineChart"></canvas>
                   </div>
                 </div>
