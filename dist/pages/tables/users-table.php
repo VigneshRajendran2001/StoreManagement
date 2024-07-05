@@ -23,6 +23,14 @@
   <link rel="stylesheet" href="../../assets/css/style.css">
   <!-- endinject -->
   <link rel="shortcut icon" href="../../assets/images/favicon.png" />
+
+
+  <!-- Bootstrap CSS -->
+<!-- <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.1.0/css/bootstrap.min.css" rel="stylesheet"> -->
+
+<!-- Bootstrap JS Bundle -->
+<!-- <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.1.0/js/bootstrap.bundle.min.js"></script> -->
+
   <style>
   .icon-button {
     cursor: pointer;
@@ -249,7 +257,7 @@
             </li> -->
             
             <div class="ms-auto d-flex">
-           
+            <!-- <button type="button" class="btn btn-primary btn-add-user" data-bs-toggle="modal" data-bs-target="#addUserModal"> -->
              <div> <a href="/StoreManagement/dist/pages/tables/add-users.php" class="btn btn-primary btn-add-user"><i class="menu-icon fa fa-plus"></i>Add User</a></div>
               <div class="col-7"><a href="/StoreManagement/dist/pages/tables/CardScanner.php" class="btn btn-primary btn-add-user"><i class="menu-icon fa fa-plus"></i>Card Scanner</a></div>
           </div>
@@ -269,6 +277,8 @@
 
 
 <!-- /*************************************************************************SIDENAVBAR************************************************************* */ -->
+
+
 
       <!-- partial -->
       <div class="main-panel">
@@ -303,12 +313,64 @@
               </div>
             </div>
 
+
+            <!-- Add User Modal -->
+<!-- <div class="modal fade" id="addUserModal" tabindex="-1" aria-labelledby="addUserModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="addUserModalLabel">Add New User</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form id="addUserForm">
+          <div class="mb-3">
+            <label for="userName" class="form-label">Name</label>
+            <input type="text" class="form-control" id="userName" required>
+          </div>
+          <div class="mb-3">
+            <label for="userEmail" class="form-label">Email</label>
+            <input type="email" class="form-control" id="userEmail" required>
+          </div>
+          <div class="mb-3">
+            <label for="userPassword" class="form-label">Password</label>
+            <input type="password" class="form-control" id="userPassword" required>
+          </div>
+          <div class="mb-3">
+            <label for="userDesignation" class="form-label">Designation</label>
+            <input type="text" class="form-control" id="userDesignation" required>
+          </div>
+          <div class="mb-3">
+            <label for="userRole" class="form-label">Role</label>
+            <select class="form-select" id="userRole" required>
+              <option value="1">Super Admin</option>
+              <option value="2">Admin</option>
+              <option value="3">User</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label for="userStatus" class="form-label">Status</label>
+            <select class="form-select" id="userStatus" required>
+              <option value="1">Active</option>
+              <option value="0">Inactive</option>
+            </select>
+          </div>
+          <button type="submit" class="btn btn-primary">Add User</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div> -->
+
+
+
           </div>
         </div>
         <!-- content-wrapper ends -->
 
         <!-- partial -->
       </div>
+      
       <!-- main-panel ends -->
     </div>
     <!-- page-body-wrapper ends -->
