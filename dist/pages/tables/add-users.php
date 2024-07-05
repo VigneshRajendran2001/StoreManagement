@@ -62,6 +62,29 @@
     #status{
       margin-left: 40%;
     }
+
+
+    /**********************************************************TOASTER***********************************/
+    .swal2-toast {
+    background-color: #f2a654 !important;
+    color: white !important;
+    border-radius: 5px !important;
+  }
+
+  .swal2-icon {
+    color: white !important;
+  }
+
+  .swal2-title {
+    color: white !important;
+    font-weight: bold !important;
+  }
+
+  .swal2-timer-progress-bar {
+    background: linear-gradient(90deg, rgba(255,140,0,1) 0%, rgba(255,69,0,1) 100%);
+   
+  }
+    /**********************************************************TOASTER***********************************/
   </style>
 </head>
 
@@ -376,6 +399,7 @@
 </body>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+<script src="../../assets/js/storemanagement.js"></script>
 <script>
   $(document).ready(function () {
 
@@ -417,20 +441,21 @@
               'pkey': pkey,
             },
             success: function (data) {
-              Swal.fire({
-                position: "top-end",
-                icon: "success",
-                title: "User added successfully...!",
-                showConfirmButton: false,
-                timer: 1500
+              showToaster('User added successfully!', 'success');
+              // Swal.fire({
+              //   position: "top-end",
+              //   icon: "success",
+              //   title: "User added successfully...!",
+              //   showConfirmButton: false,
+              //   timer: 1500
 
-              });
+              // });
 
               // console.log(data);
               // alert('Update successful!');
               setTimeout(function () {
                 window.location = "/StoreManagement/dist/pages/tables/users-table.php";
-              }, 2000);
+              }, 1800);
 
               // window.location = "/StoreManagement/dist/pages/tables/users-table.php";
             },
