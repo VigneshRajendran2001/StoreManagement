@@ -101,7 +101,7 @@ font-family: sans-serif;
   }
   .card {
     margin-bottom: 20px;
-    border-radius: 10px;
+    border-radius: 5px;
     box-shadow: 0 4px 0px #f2a654;
     transition: transform 0.3s;
   }
