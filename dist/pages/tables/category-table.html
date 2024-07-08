@@ -655,16 +655,36 @@
 
 <!-- /**************************************************LOADER********************************************/ -->
 <script>
-    $(document).ready(function() {
-      $('.nav-link').on('click', function(event) {
+
+$(document).ajaxSend(function() {
+      $('#overlay').fadeIn();
+    }).ajaxComplete(function() {
+      $('#overlay').fadeOut();
+    });
+
+    // Show loader on all link clicks
+    $('a').on('click', function(event) {
+      var targetUrl = $(this).attr('href');
+      if (targetUrl && !targetUrl.startsWith('#')) {
         event.preventDefault();
-        var targetUrl = $(this).attr('href');
         $('#overlay').fadeIn();
         setTimeout(function() {
           window.location.href = targetUrl;
-        }, 3000); // Adjust the time delay as needed
-      });
+        }, 500); // Adjust the time delay as needed
+      }
     });
+
+    
+    // $(document).ready(function() {
+    //   $('.nav-link').on('click', function(event) {
+    //     event.preventDefault();
+    //     var targetUrl = $(this).attr('href');
+    //     $('#overlay').fadeIn();
+    //     setTimeout(function() {
+    //       window.location.href = targetUrl;
+    //     }, 3000); // Adjust the time delay as needed
+    //   });
+    // });
   </script>
 
 <!-- /**************************************************LOADER********************************************/ -->
