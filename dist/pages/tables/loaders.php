@@ -47,13 +47,38 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 <script>
   $(document).ready(function() {
-    $('.nav-link').on('click', function(event) {
-      event.preventDefault();
-      var targetUrl = $(this).attr('href');
+
+
+
+
+
+     // Show loader on all AJAX requests
+     $(document).ajaxSend(function() {
       $('#overlay').fadeIn();
-      setTimeout(function() {
-        window.location.href = targetUrl;
-      }, 1000); // Adjust the time delay as needed
+    }).ajaxComplete(function() {
+      $('#overlay').fadeOut();
     });
+
+    // Show loader on all link clicks
+    $('a').on('click', function(event) {
+      var targetUrl = $(this).attr('href');
+      if (targetUrl && !targetUrl.startsWith('#')) {
+        event.preventDefault();
+        $('#overlay').fadeIn();
+        setTimeout(function() {
+          window.location.href = targetUrl;
+        }, 500); // Adjust the time delay as needed
+      }
+    });
+
+    
+    // $('.nav-link').on('click', function(event) {
+    //   event.preventDefault();
+    //   var targetUrl = $(this).attr('href');
+    //   $('#overlay').fadeIn();
+    //   setTimeout(function() {
+    //     window.location.href = targetUrl;
+    //   }, 1000); // Adjust the time delay as needed
+    // });
   });
 </script>
