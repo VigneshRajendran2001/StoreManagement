@@ -18,8 +18,27 @@
 
   <!-- endinject -->
   <!-- Plugin css for this page -->
+   <!-- /*******************************************************plugin for multi select and dropdown data**************************/ -->
+
   <link rel="stylesheet" href="../../assets/vendors/select2/select2.min.css">
   <link rel="stylesheet" href="../../assets/vendors/select2-bootstrap-theme/select2-bootstrap.min.css">
+
+   <!-- /*******************************************************plugin for multi select and dropdown data**************************/ -->
+
+
+<!-- /**********************************************************************TELEPHONE INPUT************************************/ -->
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js"></script>
+
+<!-- /**********************************************************************TELEPHONE INPUT************************************/ -->
+<!-- /**************************************************MODAL*******************************************************/ -->
+
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
+
+
+<!-- /**************************************************MODAL*******************************************************/ -->
+
   <!-- End plugin css for this page -->
   <!-- inject:css -->
   <link rel="stylesheet" href="../../assets/css/style.css">
@@ -90,6 +109,55 @@
     /* #status {
       margin-left: 40%;
     } */
+/***********************************telephone********************************/
+
+.iti {
+  width: 100%;
+}
+
+#telephone {
+  width: 100%;
+}
+
+/***********************************telephone********************************/
+
+/************************************email address**************************/
+
+.email-field {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.email-input {
+  flex: 1;
+  margin-right: 10px;
+}
+
+.add-email-button {
+  padding: 10px 13px;
+  border-radius:3px;
+}
+.remove-email-button{
+  padding: 10px 13px;
+  border-radius:3px;
+}
+
+
+/************************************email address**************************/
+.btn-modal{
+  margin-left:80%;
+  background-color:#f2a654;
+  transform:translateY(0);
+  transition:transform 0.3s ease , box-shadow: 0.3s ease;
+  font-weight:900;
+}
+.btn-modal:hover{
+  transform:translateY(-3px);
+  box-shadow:0 0 20px #f2a654;
+  border:2px solid #fff;
+  background-color:#f2a654;
+}
   </style>
 </head>
 
@@ -114,6 +182,7 @@
       </div>
       <div class="navbar-menu-wrapper d-flex align-items-top">
         <h3 class="welcome-sub-text" style="text-decoration:underline;"><b>CARD SCANNER</b> </h3>
+    <button type="submit" class="btn btn-primary btn-modal"  data-bs-toggle="modal" data-bs-target="#exampleModal" id="Modal">MODAL</button>
         <hr>
 
         <!-- <ul class="navbar-nav">
@@ -308,6 +377,29 @@
                   <input type="file" class="form-control-file custom-file-upload" name="category_img" id="user_img" placeholder="Category Image">
                 </div>
               </div>
+
+              <div class="form-group row">
+                <label for="user_img" class="col-sm-2 col-form-label"><b>Mobile Number<span class="mandatory-field">*</span></b></label>
+                <div class="col-sm-8">
+                  <div id="thumbnail-preview"></div>
+                  <input type="tel" placeholder="" id="telephone" class="form-control">
+                </div>
+              </div>
+
+
+
+              <div class="form-group row">
+                <label for="email" class="col-sm-2 col-form-label"><b>Email Address<span class="mandatory-field">*</span></b></label>
+                <div class="col-sm-8" id="email-container">
+                  <div class="email-field">
+                    <input type="email" placeholder="Email Address" name="email[]" class="form-control email-input">
+                    <button type="button" class="btn btn-success add-email-button"><b>+</b></button>
+                  </div>
+                </div>
+              </div>
+
+
+
               <button type="submit" class="btn btn-primary me-2 btn-submit" id="addsubmit">Submit</button>
               <a href="/StoreManagement/dist/pages/tables/users-table.php">
                 <button type="button" class="btn btn-danger btn-cancel">Cancel</button>
@@ -321,7 +413,55 @@
 </div>
 
 
+<!-- /****************************************************MODAL***********************************************************/ -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Add User</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" id="crossclose-modal">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form id="modal-form">
+          <div class="row form-group">
+            <div class="col-4">
+            <label for="name" class="col-form-label">Name:</label>
+            <input type="text" class="form-control" id="name" required>
+           </div>
+           <div class="col-4 ms-auto">
+            <label for="email" class="col-form-label">Email:</label>
+            <input type="email" class="form-control" id="email" required>
+          </div>
+          </div>
+          <!-- <div class="form-group">
+            <label for="email" class="col-form-label">Email:</label>
+            <input type="email" class="form-control" id="email" required>
+          </div> -->
+          <div class="form-group">
+            <label for="designation" class="col-form-label">Designation:</label>
+            <input type="text" class="form-control" id="designation" required>
+          </div>
+          <div class="form-group">
+            <label for="role" class="col-form-label">Role:</label>
+            <input type="text" class="form-control" id="role" required>
+          </div>
+          <div class="form-group">
+            <label for="password" class="col-form-label">Password:</label>
+            <input type="password" class="form-control" id="password" required>
+          </div>
+        </form>
+      </div>
+      <div class="mx-auto">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" id="close-modal">Close</button>
+        <button type="button" class="btn btn-primary" id="modal-submit">Submit</button>
+      </div>
+    </div>
+  </div>
+</div>
 
+<!-- /****************************************************MODAL***********************************************************/ -->
 
       <!-- <div class="main-panel">
         <div class="content-wrapper" id="add-table">
@@ -387,8 +527,94 @@
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 
+<!-- /**************************************************MODAL*******************************************************/ -->
+
+<!-- <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet"> -->
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+
+
+<!-- /**************************************************MODAL*******************************************************/ -->
+
+
+<!-- /***************************************************************************MODAL*****************************************************/ -->
+
+<script>
+  document.getElementById('Modal').addEventListener('click', function() {
+    $('#exampleModal').modal('show');
+  });
+  document.getElementById('close-modal').addEventListener('click', function() {
+    $('#exampleModal').modal('hide');
+  });
+  document.getElementById('crossclose-modal').addEventListener('click', function() {
+    $('#exampleModal').modal('hide');
+  });
+
+  document.getElementById('modal-submit').addEventListener('click', function() {
+    // Perform form validation and submission logic here
+    var name = document.getElementById('name').value;
+    var email = document.getElementById('email').value;
+    var designation = document.getElementById('designation').value;
+    var role = document.getElementById('role').value;
+    var password = document.getElementById('password').value;
+
+    if (name && email && designation && role && password) {
+      // You can submit the form data via AJAX or any other method here
+      console.log('Form submitted:', { name, email, designation, role, password });
+      $('#exampleModal').modal('hide');
+    } else {
+      alert('Please fill in all fields');
+    }
+  });
+</script>
+<!-- /***************************************************************************MODAL*****************************************************/ -->
+
+
+<!-- /***************************************************************************************TELEPHONE NUMBER******************************************/ -->
+
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    const input = document.querySelector("#telephone");
+    window.intlTelInput(input, {
+      initialCountry: "auto",
+      geoIpLookup: function(callback) {
+        fetch('https://ipinfo.io/json', { headers: { 'Accept': 'application/json' }})
+          .then(response => response.json())
+          .then(data => callback(data.country))
+          .catch(() => callback('us'));
+      },
+      utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js"
+    });
+  });
+</script>
+
 <script>
 $(document).ready(function() {
+
+  // <!-- /********************************************************EMAIL ADDRESS******************************************************/ -->
+  function addEmailField() {
+      const emailFieldDiv = $(`
+        <div class="email-field">
+          <input type="email" placeholder="Email Address" name="email[]" class="form-control email-input" required>
+          <button type="button" class="btn btn-danger remove-email-button"><b>-</b></button>
+        </div>
+      `);
+      $('#email-container').append(emailFieldDiv);
+    }
+
+    $(document).on('click', '.add-email-button', function() {
+      addEmailField();
+    });
+
+    $(document).on('click', '.remove-email-button', function() {
+      $(this).closest('.email-field').remove();
+    });
+
+  // <!-- /********************************************************EMAIL ADDRESS******************************************************/ -->
+
   // Display thumbnail preview when an image is selected
   $('#user_img').on('change', function() {
     var file = this.files[0];
