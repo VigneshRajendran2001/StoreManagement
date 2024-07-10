@@ -685,7 +685,7 @@
         var targetUrl = $(this).attr('href');
         if (targetUrl && !targetUrl.startsWith('#')) {
         $('#overlay').fadeIn();
-        setTimeout(function() {
+          setTimeout(function() {
           window.location.href = targetUrl;
         }, 1000); // Adjust the time delay as needed
       }

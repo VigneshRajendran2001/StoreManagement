@@ -419,7 +419,7 @@
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLabel">Add User</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close" id="crossclose-modal">
+        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close" id="crossclose-modal">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
@@ -454,7 +454,7 @@
         </form>
       </div>
       <div class="mx-auto">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal" id="close-modal">Close</button>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" id="close-modal">Close</button>
         <button type="button" class="btn btn-primary" id="modal-submit">Submit</button>
       </div>
     </div>
@@ -545,12 +545,12 @@
   document.getElementById('Modal').addEventListener('click', function() {
     $('#exampleModal').modal('show');
   });
-  document.getElementById('close-modal').addEventListener('click', function() {
-    $('#exampleModal').modal('hide');
-  });
-  document.getElementById('crossclose-modal').addEventListener('click', function() {
-    $('#exampleModal').modal('hide');
-  });
+  // document.getElementById('close-modal').addEventListener('click', function() {
+  //   $('#exampleModal').modal('hide');
+  // });
+  // document.getElementById('crossclose-modal').addEventListener('click', function() {
+  //   $('#exampleModal').modal('hide');
+  // });
 
   document.getElementById('modal-submit').addEventListener('click', function() {
     // Perform form validation and submission logic here
