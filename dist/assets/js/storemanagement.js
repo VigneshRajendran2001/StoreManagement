@@ -112,12 +112,12 @@ function fetchCategoriesData() {
       },
       success: function(data) {
           
-          $('#add-category').empty();
+          $('#add-subcategory-category').empty();
           
-          $('#add-category').append('<option value="">Select a category</option>');
+          $('#add-subcategory-category').append('<option value="">Select a category</option>');
          
           data.forEach(function(category) {
-              $('#add-category').append('<option value="' + category.category_name + '">' + category.category_name + '</option>');
+              $('#add-subcategory-category').append('<option value="' + category.category_name + '">' + category.category_name + '</option>');
           });
       },
       error: function(xhr, status, error) {
